@@ -12,7 +12,8 @@ let frame;
 let app = new App();
 let paddle = new Paddle();
 let ball = new Ball();
-let brick = new Brick(1, 1);
+let lvl = new Lvl();
+lvl.init(lvl1);
 
 App.initLvl();
 

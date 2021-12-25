@@ -1,16 +1,19 @@
 class Brick {
-    width = 35;
+    width = 33;
     height = 15;
-    color = 'rgb(167, 108, 46)';
+    color;
     path;
     x; 
     y;
 
-    constructor(x, y) {
+    constructor() {
+        this.path = new Path2D();
+    }
+
+    init(x, y) {
         this.x = x;
         this.y = y;
-        this.path = new Path2D();
-        this.path.rect(this.x, this.y, this.width, this.height);
+        this.path.rect(this.x, this.y, this.width-2, this.height);
     }
 
     draw() {
