@@ -13,15 +13,10 @@ class Lvl {
     }
 
     init(lvl) {
-
         let bricks = [];
         for(let i = 0; i < lvl.length; i++) {
-            let line = [];
-            console.log(line);
-
             for(let j = 0; j < lvl[i].length; j++) {
                 let box = lvl[i][j];
-                console.log(box);
                 let brick = new Brick();
                 switch(box) {
                     case 'j':
@@ -37,18 +32,21 @@ class Lvl {
                 let x = (j*brick.width)+1;
                 let y = (i*brick.height)+1;
                 brick.init(x, y);
-                line.push(brick);
+                bricks.push(brick);
             }
-            bricks.push(line);
         }
         this.bricks = bricks;
     }
 
     draw() {
-        this.bricks.forEach(line => {
-            line.forEach(brick => {
+        this.bricks.forEach(brick => {
                 brick.draw();
-            })
         });
+    }
+
+    detectColisions() {
+        this.bricks.forEach(brick => {
+                brick.detectColision();
+        })
     }
 }
