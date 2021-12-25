@@ -1,7 +1,7 @@
 class Brick {
     width = 35;
     height = 15;
-    color = '#955b108a';
+    color = 'rgb(167, 108, 46)';
     path;
     x; 
     y;
