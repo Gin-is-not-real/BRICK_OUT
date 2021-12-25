@@ -59,20 +59,20 @@ class Lvl {
         })
     }
 
-    detectColisions() {
+    detectAffectedBricks() {
         let bricks = this.bricks;
 
         for(let i = 0; i < bricks.length; i++) {
             for(let j = 0; j < bricks[i].length; j++) {
                 let brick = bricks[i][j];
                 if(brick !== null) {
-                    let isTouched = brick.detectColision();
-                    if(isTouched) {
+                    let isHit = brick.isHit();
+                    if(isHit) {
                         bricks[i][j] = null;
                     }
                 }
             }
         }
-
     }
+
 }

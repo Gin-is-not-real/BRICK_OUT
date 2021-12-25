@@ -35,7 +35,7 @@ class App {
             frame = window.requestAnimationFrame(App.run);
         }
         app.state = 'run';
-        lvl.detectColisions();
+        lvl.detectAffectedBricks();
         ball.move();
         App.draw();
     }

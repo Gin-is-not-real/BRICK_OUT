@@ -18,13 +18,13 @@ class Brick {
         ctx.stroke(this.path);
     }
 
-    detectColision() {
+    isHit() {
         let top = ball.y - ball.radius;
         let bottom = ball.y + ball.radius;
         let left = ball.x - ball.radius;
         let right = ball.x + ball.radius;
 
-        let touch = false;
+        let isHit = false;
         if(
             ctx.isPointInPath(this.path, left-2, top) ||
             ctx.isPointInPath(this.path, right+2, top) ||
@@ -34,10 +34,10 @@ class Brick {
             ctx.isPointInPath(this.path, left+ball.radius, bottom)
         ) {
             ball.vy = -ball.vy;
-            touch = true;
+            isHit = true;
         }
         
-        return touch;
+        return isHit;
 
     }
 }
