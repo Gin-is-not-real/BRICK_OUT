@@ -8,10 +8,6 @@ let lvl1 = [
 class Lvl {
     bricks;
 
-    constructor() {
-        this.bricks = [];
-    }
-
     init(lvl) {
         let bricks = [];
         for(let i = 0; i < lvl.length; i++) {

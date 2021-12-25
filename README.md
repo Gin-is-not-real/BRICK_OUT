@@ -90,6 +90,48 @@ Peut valoir:
 - App stop si la balle touche le sol
 - deplace x et y en y ajoutant les vitesses
 
+### Brick
+- width
+- height
+- color
+- path
+- x, y
+
+**init()**
+- init x, y, path
+- defini le path
+
+**draw()**
+- fonctions de Context2D
+
+**detectColision()**
+*Appelée par Lvl. Detecte les collisions avec la balle et renvoi un booleen*
+- definition des points cardinaux de la balle
+- On cherche si les points se trouvent dans les paths avec isPointInPath() 
+    - SI oui, on inverse la vitesse de la balle et on renvoi true
+
+### Lvl
+- bricks
+
+**init(lvl)**
+*Instancie un tableau de Bricks à partir d'un tableau de chars et initie leur color et path(en fonciton des chars et des indes du tableau lvl).*
+- loop sur lvl
+- instance Brick
+- brick color, x et y
+- brick init()
+- push dans Lvl bricks
+
+**draw()**
+*Appele la fonction draw de chaque Brick*
+
+**detectColisions()**
+*Appelle la fonction detectColision de chaque Brick, et la remplace par null si elle renvoi true*
+- foreach sur lvl.bricks
+- Si la brick est non null
+    - Si brick detectColision()
+        - brick = null
+
+
 ### Canvas
 **mousemove**  
 *Fait bouger le paddle si le jeu est en cours, et colle la balle dessus si le status est 'init'*
