@@ -40,13 +40,20 @@ class Lvl {
 
     draw() {
         this.bricks.forEach(brick => {
+            if(brick !== null) {
                 brick.draw();
+            }
         });
     }
 
     detectColisions() {
         this.bricks.forEach(brick => {
-                brick.detectColision();
+            if(brick !== null) {
+                let isTouched = brick.detectColision();
+                if(isTouched) {
+                    this.bricks[this.bricks.indexOf(brick)] = null;
+                }
+            }
         })
     }
 }

@@ -27,9 +27,17 @@ class Brick {
         let left = ball.x - ball.radius;
         let right = ball.x + ball.radius;
 
-        if(ctx.isPointInPath(this.path, left, top) ||ctx.isPointInPath(this.path, right, top)) {
-            console.log('touch');
+        let touch = false;
+        if(
+            ctx.isPointInPath(this.path, left-2, top) ||
+            ctx.isPointInPath(this.path, right+2, top) ||
+            ctx.isPointInPath(this.path, left+ball.radius, top)
+        ) {
             ball.vy = -ball.vy;
+            touch = true;
         }
+        
+        return touch;
+
     }
 }

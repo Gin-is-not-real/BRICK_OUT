@@ -28,9 +28,9 @@ class App {
         lvl.draw();
     }
     static run() {
-        if(frame === 0) {
-            // console.log('app run');
-        }
+        // if(frame === 0) {
+        //     // console.log('app run');
+        // }
         if(frame !== undefined) {
             frame = window.requestAnimationFrame(App.run);
         }
