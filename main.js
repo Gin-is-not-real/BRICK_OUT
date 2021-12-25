@@ -13,7 +13,7 @@ let app = new App();
 let paddle = new Paddle();
 let ball = new Ball();
 let lvl = new Lvl();
-lvl.init(lvl1);
+lvl.init(lvl2);
 
 App.initLvl();
 

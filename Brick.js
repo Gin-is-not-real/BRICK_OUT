@@ -28,7 +28,10 @@ class Brick {
         if(
             ctx.isPointInPath(this.path, left-2, top) ||
             ctx.isPointInPath(this.path, right+2, top) ||
-            ctx.isPointInPath(this.path, left+ball.radius, top)
+            ctx.isPointInPath(this.path, left+ball.radius, top) ||
+            ctx.isPointInPath(this.path, left-2, bottom) ||
+            ctx.isPointInPath(this.path, right+2, bottom) ||
+            ctx.isPointInPath(this.path, left+ball.radius, bottom)
         ) {
             ball.vy = -ball.vy;
             touch = true;
