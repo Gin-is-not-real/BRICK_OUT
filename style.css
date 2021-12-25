@@ -1,0 +1,66 @@
+html {
+    --color-1: rgb(139, 98, 0);
+    --bg-dark-1: rgb(34, 29, 29);
+    --bg-dark-2: rgb(27, 21, 21);
+    --bg-color-1: #955b108a;
+    --bg-color-2: rgb(167, 108, 46);
+    --bor: 1px solid var(--color-1);
+
+    background-color: var(--bg-dark-1);
+    color: var(--color-1);
+}
+html * {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    /* border: var(--bor); */
+}
+header {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    padding: 2%;
+}
+main {
+    padding: 2%;
+}
+body > header {
+    height: 80px;
+    background-color: var(--bg-dark-2);
+}
+/*  */
+#test-container {
+    width: 320px;
+    height: 220px;
+    background-color: var(--bg-dark-2);
+}
+#ball {
+    width: 20px;
+    height: 20px;
+    position: relative;
+
+    background-color: var(--bg-color-1);
+    border-radius: 100%;
+}
+#context {
+    width: 100%;
+    height: 100%;
+    border: var(--bor);
+}
+/*  */
+#canvas-container {
+    width: 320px;
+    height: 220px;
+}
+canvas {
+    border: var(--bor);
+}
+
+/*  */
+button {
+    padding: 4px;
+    background-color: var(--bg-color-2);
+    border: var(--bor);
+    border-radius: 10%;
+}
