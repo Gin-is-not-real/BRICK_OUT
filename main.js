@@ -12,14 +12,10 @@ let frame;
 let app = new App();
 let paddle = new Paddle();
 let ball = new Ball();
+let brick = new Brick(10, 1);
 
 App.initLvl();
 
-
-let b = new Brick();
-b.x = 10;
-b.y = 1;
-b.draw();
 
 //////////////////////////////////////////////
 //CANVAS

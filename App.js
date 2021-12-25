@@ -25,6 +25,7 @@ class App {
         // ctx.fillRect(0, 0,_canvas.width,_canvas.height);
         paddle.draw();
         ball.draw();
+        brick.draw();
     }
     static run() {
         if(frame === 0) {
