@@ -39,23 +39,11 @@ class Lvl {
                 let brick = null;
                 if(box !== null) {
                     brick = new Brick();
-                    switch(box) {
-                        case 'j':
-                            brick.color = 'yellow';
-                            break;
-                        case 'o':
-                            brick.color = 'orange';
-                            break;
-                        case 'r':
-                            brick.color = 'red';
-                            break;
-                    }
                     let x = (j*brick.width)+1;
                     let y = (i*brick.height)+1;
-                    brick.init(x, y);
+                    brick.init(x, y, box);
                 }
                 line.push(brick);
-                // bricks.push(brick);
             }
             bricks.push(line);
         }
@@ -81,23 +69,24 @@ class Lvl {
             for(let j = 0; j < bricks[i].length; j++) {
                 let brick = bricks[i][j];
 
+                //remettre des if a la place des else si j'ai besoin de connaitre la direction
                 if(brick !== null) {
                     let isExposed = false;
                     if(i > 0 && (bricks[i-1] === undefined ||bricks[i-1][j] === null)) {
                         isExposed = true;
                     }
-                    if(i < (bricks.length) && (bricks[i+1] === undefined || bricks[i+1][j] === null)) {
+                    else if(i < (bricks.length) && (bricks[i+1] === undefined || bricks[i+1][j] === null)) {
                         isExposed = true;
                     }
-                    if(j > 0 && (bricks[i][j-1] === undefined || bricks[i][j-1] === null)) {
+                    else if(j > 0 && (bricks[i][j-1] === undefined || bricks[i][j-1] === null)) {
                         isExposed = true;
                     }
-                    if(j < (bricks[i].length -1) && ( bricks[i][j+1] === undefined || bricks[i][j+1] === null)) {
+                    else if(j < (bricks[i].length -1) && ( bricks[i][j+1] === undefined || bricks[i][j+1] === null)) {
                         isExposed = true;
                     }
-                    brick.isExposed = isExposed;
                     if(isExposed === true) {
                         exposed.push({brick: brick, i: i, j:j});
+                        // brick.isExposed = isExposed;
                         // brick.color = 'green';
                     }
                 }
@@ -112,18 +101,17 @@ class Lvl {
         this.exposed.forEach(b => {
             let brick = bricks[b.i][b.j];
             if(brick !== null) {
-                // let isHit = brick.isHit();
                 let isHit = ball.checkIfHit(brick.path);
 
                 if(isHit) {
-                    bricks[b.i][b.j] = null;
+                    bricks[b.i][b.j].durability --;
+                    if(bricks[b.i][b.j].durability < 0) {
+                        bricks[b.i][b.j] = null;
+                    }
                 }
             }
         })
 
         this.bricks = bricks;
     }
-
-
-
 }

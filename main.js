@@ -14,8 +14,6 @@ let app = new App();
 let paddle = new Paddle();
 let ball = new Ball();
 let lvl = new Lvl();
-// lvl.init(lvl1);
-// lvl.checkExposedBricks();
 
 App.initLvl(lvl1);
 
