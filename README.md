@@ -165,7 +165,7 @@
         - brick = null
 - redefini this.bricks
 
-## A Regler
+## A corriger
 **Collisions**
 [X] traverse plusieurs briques d'un coup quand elle touche 2 briques en même temp
 [X]  La balle glisse sur le pad 
@@ -173,3 +173,21 @@
 **Better Collisions**
 [X] Collisions par les cotés
 [ ] Collisions angles de la balle
+
+```
+//si la balle se dirige vers le bas
+if(this.vy > 0) {
+    //point du bas
+    if(ctx.isPointInPath(path, this.x, bottom)) {
+        this.revert('vy');
+        isHitting = true;
+    }
+    //angles bas gauche et droite
+    else if(ctx.isPointInPath(path, left, bottom) || ctx.isPointInPath(path, right, bottom)) {
+        this.revert('vy');
+        this.revert('vx');
+        return true;
+    }
+}
+```
+Ne fonctionne pas. La balle traverse plusieures briques, j'ai enlevé la partie des angles
