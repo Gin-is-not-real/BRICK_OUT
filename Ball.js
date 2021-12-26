@@ -5,12 +5,14 @@ class Ball {
     vx = 1;
     vy = -1;
     color = '#955b108a';
+    exp;
 
     init() {
         this.x = paddle.x + (paddle.width); 
         this.y = paddle.y - (paddle.height/2);
         this.vx = 1;
         this.vy = -1;
+        this.exp = 0;
     }
     draw() {
         ctx.beginPath();
@@ -100,6 +102,16 @@ class Ball {
         }
 
         return isHitting;
+    }
+
+    upExp(nbr) {
+        this.exp += nbr;
+
+        if(this.exp%10 == 0) {
+            this.vx = this.vx < 0 ? this.vx + (-0.2) : this.vx +0.2;
+            this.vy = this.vy < 0 ? this.vy + (-0.2) : this.vy +0.2;
+        }
+        _playerXp. textContent = 'exp: ' + this.exp;
     }
 }
 

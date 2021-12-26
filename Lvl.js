@@ -73,12 +73,15 @@ class Lvl {
 
         this.exposed.forEach(b => {
             let brick = bricks[b.i][b.j];
+
             if(brick !== null) {
                 let isHit = ball.checkIfHit(brick.path);
 
                 if(isHit) {
                     bricks[b.i][b.j].durability --;
+
                     if(bricks[b.i][b.j].durability < 0) {
+                        ball.upExp(brick.exp);
                         bricks[b.i][b.j] = null;
                     }
                 }
