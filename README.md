@@ -37,7 +37,7 @@
 - stop propagation
 ***
 ## Classes 
-***
+
 ### App
 - state (*init, run, pause, stop)*
 
@@ -94,6 +94,7 @@
 - x, y
 - vx, vy *(vitesses)*
 - color
+- exp
 
 **init()**
 *Place la balle sur le paddle*
@@ -114,20 +115,36 @@
 - App stop si la balle touche le sol
 - deplace x et y en y ajoutant les vitesses
 
+**checkIfHit(path)**
+*Verifie si les 4 points cardinaux de la balle se situent dans le path passé en paramètre et ajuste la vitesse en fonction*
+- defini les 4 points cardinaux de ball
+- pour chaque point on verifie avec isPointIsPath()
+- Si un des points nord ou sud est dans le path, inverse vy (vitesse verticale), et isHitting = true 
+- Si un des points est ou ouest est dans le path, invers vx (vitesse horizontale), et isHitting = true   
+- renvoi isHitting
+
+**upExp(nbr)**
+*Ajoute les points d'exp au total d'exp de la balle, et augmente la vitesse tout les 10 points*
+- ajoute a this.exp le nombre passé en paramètre
+- Si this.exp est un multiple de 10, augmente les vitesses de 0.2
 
 ### Brick
 - width
 - height
+- durability
+- exp  
 - color
 - path
 - x, y
 
-**init()**
-- init x, y, path
-- defini le path
+**init(x, y, box)**
+- init x, y, path (Path2D)
+- defini le path 
+- En fonction de box, defini la durability et l'exp
 
 **draw()**
-- fonctions de Context2D
+*Dessine le path**
+- Context2D.stoke(this.path)
 
 **detectColision()**
 *Appelée par Lvl. Detecte les collisions avec la balle et renvoi un booleen*
@@ -142,9 +159,9 @@
 *Instancie un tableau de Bricks à partir d'un tableau de chars et initie leur color et path(en fonciton des chars et des indes du tableau lvl).*
 - loop sur lvl
 - instance Brick
-- brick color, x et y
-- brick init()
-- push dans Lvl bricks
+- defini brick x et y
+- brick init(x, y, case du tableau lvl)
+- push dans this.bricks
 
 **draw()**
 *Appele la fonction draw de chaque Brick*
@@ -158,11 +175,14 @@
 - on redefini this.exposed avec le nouvel array
 
 **detectAffectedBricks()**
-*Appelle la fonction detectColision de chaque brique exposée, et remplace la brique par null si on reçoit true*
+*Appelle la fonction detectColision de chaque brique exposée, et remplace la brique par null si on reçoit true, et augmente l'exp de la balle en fonction de l'exp de la brique*
 - foreach sur this.exposed
 - Si la brique existe
-    - Si brick.detectColision()
-        - brick = null
+    - Si ball.checkIfHit(brick.path)
+        - brick.durability --
+        - Si < 0
+            - ball.up(brick.exp)
+            - brick = null
 - redefini this.bricks
 
 ## A corriger
@@ -172,29 +192,11 @@
 [X] Pas de collision par le dessous
 **Better Collisions**
 [X] Collisions par les cotés
-[ ] Collisions angles de la balle
-
-```
-//si la balle se dirige vers le bas
-if(this.vy > 0) {
-    //point du bas
-    if(ctx.isPointInPath(path, this.x, bottom)) {
-        this.revert('vy');
-        isHitting = true;
-    }
-    //angles bas gauche et droite
-    else if(ctx.isPointInPath(path, left, bottom) || ctx.isPointInPath(path, right, bottom)) {
-        this.revert('vy');
-        this.revert('vx');
-        return true;
-    }
-}
-```
-Ne fonctionne pas. La balle traverse plusieures briques, j'ai enlevé la partie des angles  
+[X] Collisions angles de la balle *A tester*
 
 ## A ajouter
-[ ] points d'exp et lvl du joueur
-[ ] accéleration de la ball
+[X] points d'exp et lvl du joueur
+[ ] accéleration de la balle
 [ ] power up
 [ ] interface
 [ ] finish lvl and loose game

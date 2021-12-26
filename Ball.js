@@ -77,6 +77,7 @@ class Ball {
             this.revert('vx');
             isHitting = true;
         }
+        //enlever cette partie si les collisions ne sont pas satisfaisantes
         else {
             let tiers = ball.radius/3 -7;
             if(
