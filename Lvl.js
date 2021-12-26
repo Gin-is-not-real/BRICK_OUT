@@ -23,6 +23,7 @@ let lvlTest = [
     ['j', 'o', 'o', 'j', 'r', 'r', 'j', 'o', 'o', 'j'],
     ['j', 'o', 'o', 'j', 'r', 'r', 'j', 'o', 'o', 'j'],
 ];
+let lvls = [lvl1, lvl2, lvlTest];
 
 class Lvl {
     bricks;

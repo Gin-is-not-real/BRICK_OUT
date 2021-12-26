@@ -1,10 +1,9 @@
 //////////////////////////////////////////////
 //DEV
-// let _run = document.querySelector('#run');
-// let _stop = document.querySelector('#stop');
+let _dev = document.querySelector('#switch-dev')
 let _restart = document.querySelector('#restart');
-
-let devIsActive = true;
+let _changeLvl = document.querySelector('#change-lvl');
+let devIsActive = false;
 //////////////////////////////////////////////
 //APP
 let _canvas = document.querySelector('canvas');
