@@ -69,36 +69,13 @@ class Ball {
 
         let isHitting = false;
 
-        //si la balle se dirige vers le bas
-        if(this.vy > 0) {
-            //point du bas
-            if(ctx.isPointInPath(path, this.x, bottom)) {
-                this.revert('vy');
-                isHitting = true;
-            }
+        if(ctx.isPointInPath(path, this.x, bottom) || ctx.isPointInPath(path, this.x, top)) {
+            this.revert('vy');
+            isHitting = true;
         }
-        else {
-            //point du haut
-            if(ctx.isPointInPath(path, this.x, top)) {
-                this.revert('vy');
-                isHitting = true;
-            }
-        }
-
-        //si la balle se dirige vers la droite
-        if(this.vx > 0) {
-            //point de droite
-            if(ctx.isPointInPath(path, right, this.y)) {
-                this.revert('vx');
-                isHitting = true;
-            }
-        }
-        else {
-            //point de gauche
-            if(ctx.isPointInPath(path, left, this.y)) {
-                this.revert('vx');
-                isHitting = true;
-            }
+        if(ctx.isPointInPath(path, left, this.y) || ctx.isPointInPath(path, right, this.y)) {
+            this.revert('vx');
+            isHitting = true;
         }
 
         return isHitting;
