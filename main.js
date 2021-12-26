@@ -4,7 +4,7 @@
 // let _stop = document.querySelector('#stop');
 let _restart = document.querySelector('#restart');
 
-let devIsActive = false;
+let devIsActive = true;
 //////////////////////////////////////////////
 //APP
 let _canvas = document.querySelector('canvas');

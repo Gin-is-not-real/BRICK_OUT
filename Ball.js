@@ -50,15 +50,41 @@ class Ball {
                 }
             }
             else {
-                //si la balle touche le paddle, inverse les vitesses
-                if((nextX > paddle.x) && (nextX < (paddle.x + paddle.width))) {
-                    this.revert('vy');
-                }
+                this.detectHit(paddle.path);
             }
         }
 
         this.x += this.vx;
         this.y += this.vy;
+    }
+
+    detectHit(path) {
+        //Points de la balle
+        let top = this.y - this.radius;
+        let bottom = this.y + this.radius;
+        // let left = this.x - this.radius;
+        // let right = this.x + this.radius;
+
+        let isHitting = false;
+
+        //si la balle se dirige vers le bas
+        if(this.vy > 0) {
+            //point du bas
+            if(ctx.isPointInPath(path, this.x, bottom)) {
+                this.revert('vy');
+                isHitting = true;
+            }
+        }
+        //si la balle se dirige vers le haut
+        else {
+            //point du haut
+            if(ctx.isPointInPath(path, this.x, top)) {
+                this.revert('vy');
+                isHitting = true;
+            }
+        }
+
+        return isHitting;
     }
 }
 
