@@ -61,36 +61,25 @@ class Lvl {
     }
 
     checkExposedBricks() {
-        // let exposed = {
-        //     left: [],
-        //     top: [],
-        //     right: [],
-        //     bottom: []
-        // }
         let exposed = [];
 
         let bricks = this.bricks;
         for(let i = 0; i < bricks.length; i++) {
             for(let j = 0; j < bricks[i].length; j++) {
                 let brick = bricks[i][j];
-                // console.log('line ', i, ' index ', j, ': ', brick);
 
                 if(brick !== null) {
                     let isExposed = false;
                     if(i > 0 && (bricks[i-1] === undefined ||bricks[i-1][j] === null)) {
-                        // console.log('exposed by top', i, j);
                         isExposed = true;
                     }
                     if(i < (bricks.length) && (bricks[i+1] === undefined || bricks[i+1][j] === null)) {
-                        // console.log('exposed by bottom', i, j);
                         isExposed = true;
                     }
                     if(j > 0 && (bricks[i][j-1] === undefined || bricks[i][j-1] === null)) {
-                        // console.log('exposed by left', i, j);
                         isExposed = true;
                     }
                     if(j < (bricks[i].length -1) && ( bricks[i][j+1] === undefined || bricks[i][j+1] === null)) {
-                        // console.log('exposed by right', i, j);
                         isExposed = true;
                     }
                     brick.isExposed = isExposed;
@@ -110,7 +99,9 @@ class Lvl {
         this.exposed.forEach(b => {
             let brick = bricks[b.i][b.j];
             if(brick !== null) {
-                let isHit = brick.isHit();
+                // let isHit = brick.isHit();
+                let isHit = ball.checkIfHit(brick.path);
+
                 if(isHit) {
                     bricks[b.i][b.j] = null;
                 }

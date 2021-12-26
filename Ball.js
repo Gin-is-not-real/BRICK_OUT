@@ -50,7 +50,7 @@ class Ball {
                 }
             }
             else {
-                this.detectHit(paddle.path);
+                this.checkIfHit(paddle.path);
             }
         }
 
@@ -58,12 +58,12 @@ class Ball {
         this.y += this.vy;
     }
 
-    detectHit(path) {
+    checkIfHit(path) {
         //Points de la balle
         let top = this.y - this.radius;
         let bottom = this.y + this.radius;
-        // let left = this.x - this.radius;
-        // let right = this.x + this.radius;
+        let left = this.x - this.radius;
+        let right = this.x + this.radius;
 
         let isHitting = false;
 
@@ -75,11 +75,26 @@ class Ball {
                 isHitting = true;
             }
         }
-        //si la balle se dirige vers le haut
         else {
             //point du haut
             if(ctx.isPointInPath(path, this.x, top)) {
                 this.revert('vy');
+                isHitting = true;
+            }
+        }
+
+        //si la balle se dirige vers la droite
+        if(this.vx > 0) {
+            //point de droite
+            if(ctx.isPointInPath(path, right, this.y)) {
+                this.revert('vx');
+                isHitting = true;
+            }
+        }
+        else {
+            //point de gauche
+            if(ctx.isPointInPath(path, left, this.y)) {
+                this.revert('vx');
                 isHitting = true;
             }
         }
