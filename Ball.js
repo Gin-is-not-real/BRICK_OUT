@@ -73,9 +73,22 @@ class Ball {
             this.revert('vy');
             isHitting = true;
         }
-        if(ctx.isPointInPath(path, left, this.y) || ctx.isPointInPath(path, right, this.y)) {
+        else if(ctx.isPointInPath(path, left, this.y) || ctx.isPointInPath(path, right, this.y)) {
             this.revert('vx');
             isHitting = true;
+        }
+        else {
+            let tiers = ball.radius/3 -7;
+            if(
+                ctx.isPointInPath(path, left-tiers, top-tiers) ||
+                ctx.isPointInPath(path, left-tiers, bottom-tiers) || 
+                ctx.isPointInPath(path, right-tiers, top-tiers) || 
+                ctx.isPointInPath(path, right-tiers, bottom-tiers) 
+            ) {
+                this.revert('vy');
+                this.revert('vx');
+                isHitting = true;
+            }
         }
 
         return isHitting;
