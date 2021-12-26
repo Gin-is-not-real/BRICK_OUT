@@ -1,29 +1,46 @@
 # BRICK OUT
+- Scripts
+- Canvas
+- Classes
+    - App
+    - Paddle
+    - Ball
+    - Brick
+    - Lvl
 
-## Fonctionnement
-**main**
-- recuperation elements dom dev et du canvas
-- init du ctx
-- declaration frame (undefined)
+## Scripts 
+**main**  
+    - recuperation elements dom dev et du canvas
+    - init du ctx
+    - declaration frame (undefined)
+    - instance App, Paddle, Ball
+    - instance Lvl
+    - App initLvl(lvlNum)
 
-- instance App, Paddle, Ball
-- App initLvl()
-- instance Brick, init x y et draw
+**eventsListeners**
+    - declaration des fonctions du canvas
+    - *declaration fonctions dev*
 
-- declaration des fonctions du canvas
-*déclarée à la fin car on besoin des objets*
+## Canvas
+**mousemove**  
+*Fait bouger le paddle si le jeu est en cours, et colle la balle dessus si le status est 'init'*
+- SI state n'est pas stop
+    - paddle move(e offsetX)
+    - SI state = init
+        - ball init()
+    - App draw()
 
-*- declaration fonctions dev*
-
+**click**
+- SI state est `run`, `App.pause()`
+- SI state est `stop`, `App.initBall()`
+- SI state est `pause` ou `init`, `App.run()`
+- stop propagation
+***
+## Classes 
+***
 ### App
-#### state:
-Peut valoir:
-- init
-- run
-- pause
-- stop
+- state (*init, run, pause, stop)*
 
-#### Fonctions
 **clear()**
 - fill canvas
 
@@ -31,8 +48,9 @@ Peut valoir:
 - App clear()
 - paddle, ball draw()
 
-**initLvl()**
+**initLvl(array lvlNum)**
 - app state = init
+- Lvl.init(array lvlNum)
 - App.initBall()
 
 **initBall()**
@@ -46,10 +64,11 @@ Peut valoir:
 - app state = pause
 - cancel frame
 
-**stop**
+**stop()**
 - app state = stop
 - cancel frame
 - App clear()
+
 
 ### Paddle
 - width, height
@@ -68,6 +87,7 @@ Peut valoir:
 *Lancée par 'mousemove' Place le paddle sous la souris, et gere les collisions avec les bords*
 - x = e.offsetX
 - replace x si depasse les limits
+
 
 ### Ball
 - radius
@@ -89,6 +109,7 @@ Peut valoir:
 - inverse les vitesses si la balle touche un bord ou le paddle
 - App stop si la balle touche le sol
 - deplace x et y en y ajoutant les vitesses
+
 
 ### Brick
 - width
@@ -124,26 +145,18 @@ Peut valoir:
 **draw()**
 *Appele la fonction draw de chaque Brick*
 
-**detectColisions()**
-*Appelle la fonction detectColision de chaque Brick, et la remplace par null si elle renvoi true*
-- foreach sur lvl.bricks
-- Si la brick est non null
-    - Si brick detectColision()
+**checkExposedBricks()**
+*Boucle sur chaque Brick de this.bricks et defini si elle exposée en verifiant si elle à des voisines. Defini this.exposed.*
+- definition d'un array vide, exposed
+- loop for sur this.bricks
+- Si la brique existe
+    - Si une des cases voisines contient null, on ajoute la brique a l'array
+- on redefini this.exposed avec le nouvel array
+
+**detectAffectedBricks()**
+*Appelle la fonction detectColision de chaque brique exposée, et remplace la brique par null si on reçoit true*
+- foreach sur this.exposed
+- Si la brique existe
+    - Si brick.detectColision()
         - brick = null
-
-
-### Canvas
-**mousemove**  
-*Fait bouger le paddle si le jeu est en cours, et colle la balle dessus si le status est 'init'*
-- SI state n'est pas stop
-    - paddle move(e offsetX)
-    - SI state = init
-        - ball init()
-    - App draw()
-
-**click**
-- SI state est `run`, `App.pause()`
-- SI state est `stop`, `App.initBall()`
-- SI state est `pause` ou `init`, `App.run()`
-- stop propagation
-
+- redefini this.bricks

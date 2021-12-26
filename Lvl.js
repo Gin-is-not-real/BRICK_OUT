@@ -60,22 +60,6 @@ class Lvl {
         })
     }
 
-    detectAffectedBricks() {
-        let bricks = this.bricks;
-
-        this.exposed.forEach(b => {
-            let brick = bricks[b.i][b.j];
-            if(brick !== null) {
-                let isHit = brick.isHit();
-                if(isHit) {
-                    bricks[b.i][b.j] = null;
-                }
-            }
-        })
-
-        this.bricks = bricks;
-    }
-
     checkExposedBricks() {
         // let exposed = {
         //     left: [],
@@ -119,5 +103,23 @@ class Lvl {
         }
         this.exposed = exposed;
     }
+
+    detectAffectedBricks() {
+        let bricks = this.bricks;
+
+        this.exposed.forEach(b => {
+            let brick = bricks[b.i][b.j];
+            if(brick !== null) {
+                let isHit = brick.isHit();
+                if(isHit) {
+                    bricks[b.i][b.j] = null;
+                }
+            }
+        })
+
+        this.bricks = bricks;
+    }
+
+
 
 }
