@@ -19,6 +19,7 @@ class Brick {
     }
 
     isHit() {
+        //Points de la balle
         let top = ball.y - ball.radius;
         let bottom = ball.y + ball.radius;
         let left = ball.x - ball.radius;
@@ -26,9 +27,11 @@ class Brick {
 
         let isHit = false;
         if(
+            //Points du haut
+            ctx.isPointInPath(this.path, left+ball.radius, top) ||
             ctx.isPointInPath(this.path, left-2, top) ||
             ctx.isPointInPath(this.path, right+2, top) ||
-            ctx.isPointInPath(this.path, left+ball.radius, top) ||
+            //Points du bas
             ctx.isPointInPath(this.path, left-2, bottom) ||
             ctx.isPointInPath(this.path, right+2, bottom) ||
             ctx.isPointInPath(this.path, left+ball.radius, bottom)

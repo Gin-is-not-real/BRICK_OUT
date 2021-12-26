@@ -165,18 +165,16 @@
         - brick = null
 - redefini this.bricks
 
-##### A Regler
+## A Regler
 **Collisons avec les briques**
 [ ] traverse plusieurs briques d'un coup quand elle touche 2 briques en même temp
-        - fonction revert pour la vitesse
-
-    - Definir un temp avant que la vitesse de la balle ne puisse être inversée
-        - timeout
-            - NON: la brique traverse encore plus vu qu'elle ne colisionne plus
+    V - fonction revert pour la vitesse
+    X - Definir un timeout avant que la vitesse de la balle ne puisse être inversée
+        -NON: la brique traverse encore plus vu qu'elle ne colisionne plus
 
 **Collision avec le pad**
-[ ]  La balle glisse sur le pad
-    - Même soluce que plus haut ?
+[ ]  La balle glisse sur le pad 
+    - utiliser un Path2D et isPointIsPath()
 
 [ ] Pas de collision par le dessous
     - utiliser un Path2D et isPointIsPath()
