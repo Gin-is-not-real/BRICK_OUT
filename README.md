@@ -160,3 +160,20 @@
     - Si brick.detectColision()
         - brick = null
 - redefini this.bricks
+
+##### A Regler
+**Collisons avec les briques**
+[ ] traverse plusieurs briques d'un coup quand elle touche 2 briques en même temp
+    - Definir un temp avant que la vitesse de la balle ne puisse être inversée
+        - timeout
+        - fonction revert pour la vitesse
+
+**Collision avec le pad**
+[ ]  La balle glisse sur le pad
+    - Même soluce que plus haut ?
+
+[ ] Pas de collision par le dessous
+    - utiliser un Path2D et isPointIsPath()
+
+**Better Collisions**
+[ ] Collisions par les cotés
