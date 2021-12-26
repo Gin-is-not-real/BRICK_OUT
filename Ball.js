@@ -31,14 +31,19 @@ class Ball {
         if(nextY - this.radius < 0) {
             this.vy = -this.vy;
         }
+        
         //si la balle passe a hauteur du paddle
         else if((nextY + this.radius) > paddle.y) {
             //si la balle touche le bord bas
             if(nextY + this.radius > _canvas.height) {
-                App.stop();
-                return
-                //DEV
-                // this.vy = -this.vy;
+                // DEV
+                if(devIsActive) {
+                    this.vy = -this.vy;
+                }
+                else {
+                    App.stop();
+                    return
+                }
             }
             else {
                 //si la balle touche le paddle, inverse les vitesses

@@ -29,19 +29,19 @@ _canvas.addEventListener("click", function(e) {
 
 //////////////////////////////////////////////
 //DEV FUNCTIONS
-_run.addEventListener('click', function(e){
-    if(app.state === 'run') {
-        App.pause();
-        _run.textContent = 'play';
-    }
-    else {
-        App.run();
-        _run.textContent = 'pause';
-    }
-});
-_stop.addEventListener('click', function() {
-    App.stop();
-})
+// _run.addEventListener('click', function(e){
+//     if(app.state === 'run') {
+//         App.pause();
+//         _run.textContent = 'play';
+//     }
+//     else {
+//         App.run();
+//         _run.textContent = 'pause';
+//     }
+// });
+// _stop.addEventListener('click', function() {
+//     App.stop();
+// })
 _restart.addEventListener('click', function() {
-    App.initLvl();
+    App.initLvl(lvl1);
 })

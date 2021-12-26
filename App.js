@@ -1,10 +1,10 @@
 class App {
     state;
 
-    static initLvl() {
+    static initLvl(lvlNum) {
         // console.log('app init lvl');
         app.state = 'init';
-        //init lvl
+        lvl.init(lvlNum);
         App.initBall();
     }
     static initBall() {
@@ -35,7 +35,10 @@ class App {
             frame = window.requestAnimationFrame(App.run);
         }
         app.state = 'run';
+
+        lvl.checkExposedBricks();
         lvl.detectAffectedBricks();
+        
         ball.move();
         App.draw();
     }

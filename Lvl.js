@@ -14,6 +14,7 @@ let lvl2 = [
 
 class Lvl {
     bricks;
+    exposed;
 
     init(lvl) {
         let bricks = [];
@@ -62,17 +63,61 @@ class Lvl {
     detectAffectedBricks() {
         let bricks = this.bricks;
 
+        this.exposed.forEach(b => {
+            let brick = bricks[b.i][b.j];
+            if(brick !== null) {
+                let isHit = brick.isHit();
+                if(isHit) {
+                    bricks[b.i][b.j] = null;
+                }
+            }
+        })
+
+        this.bricks = bricks;
+    }
+
+    checkExposedBricks() {
+        // let exposed = {
+        //     left: [],
+        //     top: [],
+        //     right: [],
+        //     bottom: []
+        // }
+        let exposed = [];
+
+        let bricks = this.bricks;
         for(let i = 0; i < bricks.length; i++) {
             for(let j = 0; j < bricks[i].length; j++) {
                 let brick = bricks[i][j];
+                // console.log('line ', i, ' index ', j, ': ', brick);
+
                 if(brick !== null) {
-                    let isHit = brick.isHit();
-                    if(isHit) {
-                        bricks[i][j] = null;
+                    let isExposed = false;
+                    if(i > 0 && (bricks[i-1] === undefined ||bricks[i-1][j] === null)) {
+                        // console.log('exposed by top', i, j);
+                        isExposed = true;
+                    }
+                    if(i < (bricks.length) && (bricks[i+1] === undefined || bricks[i+1][j] === null)) {
+                        // console.log('exposed by bottom', i, j);
+                        isExposed = true;
+                    }
+                    if(j > 0 && (bricks[i][j-1] === undefined || bricks[i][j-1] === null)) {
+                        // console.log('exposed by left', i, j);
+                        isExposed = true;
+                    }
+                    if(j < (bricks[i].length -1) && ( bricks[i][j+1] === undefined || bricks[i][j+1] === null)) {
+                        // console.log('exposed by right', i, j);
+                        isExposed = true;
+                    }
+                    brick.isExposed = isExposed;
+                    if(isExposed === true) {
+                        exposed.push({brick: brick, i: i, j:j});
+                        // brick.color = 'green';
                     }
                 }
             }
         }
+        this.exposed = exposed;
     }
 
 }
