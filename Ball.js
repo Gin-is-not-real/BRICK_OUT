@@ -20,8 +20,8 @@ class Ball {
         ctx.fill();
     }
 
-    revert(speed) {
-        this[speed] = -this[speed];
+    revert(axe) {
+        this[axe] = -this[axe];
     }
 
     move() {

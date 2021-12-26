@@ -104,6 +104,10 @@
 *Dessine la balle*
 - fonctions du 2DContext
 
+**revert(string axe)**
+*Inverse la vitesse vx ou vy*
+- axe = -axe
+
 **move()**
 *Deplace la place en fonction des vitesse vx et vy, et gere les collisions avec les murs, le paddle et les bricks*
 - inverse les vitesses si la balle touche un bord ou le paddle
@@ -164,9 +168,11 @@
 ##### A Regler
 **Collisons avec les briques**
 [ ] traverse plusieurs briques d'un coup quand elle touche 2 briques en même temp
+        - fonction revert pour la vitesse
+
     - Definir un temp avant que la vitesse de la balle ne puisse être inversée
         - timeout
-        - fonction revert pour la vitesse
+            - NON: la brique traverse encore plus vu qu'elle ne colisionne plus
 
 **Collision avec le pad**
 [ ]  La balle glisse sur le pad
@@ -177,3 +183,4 @@
 
 **Better Collisions**
 [ ] Collisions par les cotés
+[ ] Trigo pour angles de la balle
