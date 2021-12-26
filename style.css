@@ -18,15 +18,20 @@ html * {
 header {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: space-between;
     padding: 2%;
 }
+/* dev */
+#dev {
+    display: flex;
+    gap: 10px;
+}
+
 main {
     padding: 2%;
 }
 body > header {
-    height: 80px;
+    height: 90px;
     background-color: var(--bg-dark-2);
 }
 /*  */
@@ -62,5 +67,5 @@ button {
     padding: 4px;
     background-color: var(--bg-color-2);
     border: var(--bor);
-    border-radius: 10%;
+    border-radius: 8%;
 }

@@ -168,7 +168,7 @@
 ## A corriger
 **Collisions**
 [X] traverse plusieurs briques d'un coup quand elle touche 2 briques en même temp
-[X]  La balle glisse sur le pad 
+[X] La balle glisse sur le pad 
 [X] Pas de collision par le dessous
 **Better Collisions**
 [X] Collisions par les cotés
@@ -190,4 +190,11 @@ if(this.vy > 0) {
     }
 }
 ```
-Ne fonctionne pas. La balle traverse plusieures briques, j'ai enlevé la partie des angles
+Ne fonctionne pas. La balle traverse plusieures briques, j'ai enlevé la partie des angles  
+
+## A ajouter
+[ ] points d'exp et lvl du joueur
+[ ] accéleration de la ball
+[ ] power up
+[ ] interface
+[ ] finish lvl and loose game
