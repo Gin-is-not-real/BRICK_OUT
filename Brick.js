@@ -18,29 +18,4 @@ class Brick {
         ctx.stroke(this.path);
     }
 
-    isHit() {
-        //Points de la balle
-        let top = ball.y - ball.radius;
-        let bottom = ball.y + ball.radius;
-        let left = ball.x - ball.radius;
-        let right = ball.x + ball.radius;
-
-        let isHit = false;
-        if(
-            //Points du haut
-            ctx.isPointInPath(this.path, left+ball.radius, top) ||
-            ctx.isPointInPath(this.path, left-2, top) ||
-            ctx.isPointInPath(this.path, right+2, top) ||
-            //Points du bas
-            ctx.isPointInPath(this.path, left-2, bottom) ||
-            ctx.isPointInPath(this.path, right+2, bottom) ||
-            ctx.isPointInPath(this.path, left+ball.radius, bottom)
-        ) {
-            ball.revert('vy');
-            isHit = true;
-        }
-        
-        return isHit;
-
-    }
 }
