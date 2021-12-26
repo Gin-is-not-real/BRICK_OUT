@@ -20,16 +20,20 @@ class Ball {
         ctx.fill();
     }
 
+    revert(speed) {
+        this[speed] = -this[speed];
+    }
+
     move() {
         let nextX = this.x;
         let nextY = this.y;
 
         //si la balle touche un bord, inverse les vitesses 
         if((nextX + this.radius) > _canvas.width || (nextX - this.radius) < 0) {
-            this.vx = -this.vx;
+            this.revert('vx');
         }
         if(nextY - this.radius < 0) {
-            this.vy = -this.vy;
+            this.revert('vy');
         }
         
         //si la balle passe a hauteur du paddle
@@ -38,7 +42,7 @@ class Ball {
             if(nextY + this.radius > _canvas.height) {
                 // DEV
                 if(devIsActive) {
-                    this.vy = -this.vy;
+                    this.revert('vy');
                 }
                 else {
                     App.stop();
@@ -48,7 +52,7 @@ class Ball {
             else {
                 //si la balle touche le paddle, inverse les vitesses
                 if((nextX > paddle.x) && (nextX < (paddle.x + paddle.width))) {
-                    this.vy = -this.vy;
+                    this.revert('vy');
                 }
             }
         }

@@ -33,7 +33,7 @@ class Brick {
             ctx.isPointInPath(this.path, right+2, bottom) ||
             ctx.isPointInPath(this.path, left+ball.radius, bottom)
         ) {
-            ball.vy = -ball.vy;
+            ball.revert('vy');
             isHit = true;
         }
         
