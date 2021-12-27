@@ -1,10 +1,11 @@
 class Lvl {
     bricks;
     exposed;
+    nbrLines;
 
     init(lvl) {
         let bricks = app.mode === 'survival' ? this.bricks || [] : [];
-        
+
         for(let i = 0; i < lvl.length; i++) {
             let line = [];
 
@@ -21,12 +22,15 @@ class Lvl {
             }
             bricks.push(line);
         }
+
         this.bricks = bricks;
+        this.nbrLines = this.bricks.length;
+
         console.log(bricks);
     }
 
-    draw(num) {
-        for(let i = 0; i < (num || this.bricks.length); i++) {
+    draw() {
+        for(let i = 0; i < this.nbrLines; i++) {
             this.bricks[i].forEach(brick => {
                 if(brick !== null) {
                     brick.draw();
