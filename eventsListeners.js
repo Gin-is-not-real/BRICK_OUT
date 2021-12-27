@@ -1,14 +1,14 @@
 //////////////////////////////////////////////
 //CANVAS
-_canvas.addEventListener('mousemove', function(e) {
-    if(app.state !== 'stop') {
-        paddle.move(e.offsetX);
-        if(app.state === 'init') {
-            ball.init();
-        }
-        App.draw();
-    }
-})
+// _canvas.addEventListener('mousemove', function(e) {
+//     if(app.state !== 'stop') {
+//         paddle.move(e.offsetX);
+//         if(app.state === 'init') {
+//             ball.init();
+//         }
+//         App.draw();
+//     }
+// })
 _canvas.addEventListener("click", function(e) {
     console.log('click: ', app.state);
 

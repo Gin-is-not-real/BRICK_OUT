@@ -24,6 +24,30 @@ class Lvl {
         console.log(bricks);
     }
 
+    init(lvl) {
+        let bricks = [];
+        for(let i = 0; i < lvl.length; i++) {
+            let line = [];
+
+            for(let j = 0; j < lvl[i].length; j++) {
+                let box = lvl[i][j];
+                let brick = null;
+                if(box !== null && box !== 'n') {
+                    console.log(box);
+                    brick = new Brick();
+                    let x = (j*brick.width)+1;
+                    let y = (i*brick.height)+1;
+                    brick.init(x, y, box);
+                }
+                console.log(brick);
+                line.push(brick);
+            }
+            bricks.push(line);
+        }
+        this.bricks = bricks;
+        console.log(bricks);
+    }
+
     draw() {
         this.bricks.forEach(line => {
             line.forEach(brick => {
@@ -34,10 +58,10 @@ class Lvl {
         })
     }
 
-    checkExposedBricks() {
+    checkExposedBricks(bricksArray) {
         let exposed = [];
 
-        let bricks = this.bricks;
+        let bricks = bricksArray;
         for(let i = 0; i < bricks.length; i++) {
             for(let j = 0; j < bricks[i].length; j++) {
                 let brick = bricks[i][j];
