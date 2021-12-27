@@ -13,6 +13,7 @@ let ctx = _canvas.getContext('2d');
 let frame;
 
 let app = new App();
+app.mode = 'survival';
 let paddle = new Paddle();
 let ball = new Ball();
 let lvl = new Lvl();
@@ -21,10 +22,14 @@ let lvl = new Lvl();
 let nextPattern;
 function generateNext() {
     nextPattern = patterns.sort(()=> Math.random() -0.5)[0];
-    console.log(nextPattern);
 }
 generateNext();
 App.initLvl(nextPattern);
+
+// generateNext();
+// lvl.init(nextPattern);
+
+
 
 ////////////////////////////////////////////////
 //
