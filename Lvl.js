@@ -36,7 +36,6 @@ class Lvl {
             bricks.push(line);
         }
         this.bricks = bricks;
-        console.log(bricks);
     }
 
     draw() {
@@ -101,7 +100,7 @@ class Lvl {
                     if(bricks[b.i][b.j].durability < 0) {
                         // brick.becomeDrop();
                         // this.drops.push(brick);
-                        this.drops.push(brick.becomeDrop());
+                        this.drops.push(brick.changeInDrop());
 
                         bricks[b.i][b.j] = null;
 
@@ -115,10 +114,18 @@ class Lvl {
     }
 
     moveDrops() {
-    if(this.drops.length > 0) {
-        this.drops.forEach(element => {
-            element.move();
-        });
-    }
+        let drops = this.drops;
+
+        if(drops.length > 0) {
+            drops.forEach(drop => {
+                let isRemove = drop.move();
+                if(isRemove) {
+                    drops.splice(drops.indexOf(drop), 1);
+                    console.log(drops);
+                }
+            });
+        }
+
+        this.drops = drops;
     }
 }

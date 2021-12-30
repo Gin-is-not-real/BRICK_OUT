@@ -1,11 +1,13 @@
-let BONUS = [
+const DROP_WIDTH = 10;
+const DROP_HEIGHT = 8;
+const DROP_BONUS = [
     [
         {name: 'speed+', color1: 'yellow', color2: 'orange'},
         {name: 'paddle+', color1: 'yellow', color2: 'green'},
         {name: 'speed-', color1: 'red', color2: 'orange'},
         {name: 'paddle-', color1: 'red', color2: 'green'},
     ]
-]
+];
 
 class Drop {
     lvl;
@@ -19,12 +21,11 @@ class Drop {
         this.bonus = this.getAleatoryBonus();
 
         this.initPath(x, y);
-        console.log(this);
     }
 
     getAleatoryBonus() {
-        let rand = Math.floor(Math.random()*BONUS[0].length);
-        return BONUS[0][rand];
+        let rand = Math.floor(Math.random()*DROP_BONUS[0].length);
+        return DROP_BONUS[0][rand];
     }
 
     initPath(x, y) {
@@ -42,6 +43,22 @@ class Drop {
     }
 
     move() {
-        this.initPath(this.x, this.y +1);
+        let y = this.y + 1;
+
+        if((y) + DROP_HEIGHT > paddle.y) {
+            if((y) + DROP_HEIGHT > _canvas.height) {
+                //destroy
+                console.log('destroyed');
+                return true;
+            }
+            else {
+                if(this.x > paddle.x && this.x < (paddle.x + paddle.width)) {
+                    return true;
+                }
+            }
+        }
+        
+        this.initPath(this.x, y);
+        return false;
     }
 }
