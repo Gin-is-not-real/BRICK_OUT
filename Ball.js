@@ -1,3 +1,17 @@
+/**@property {Integer} radius
+/**@property {Integer} x
+/**@property {Integer} y
+/**@property {Integer} vx
+/**@property {Integer} vy
+/**@property {String} color
+/**@property {Integer} exp
+ * 
+ * @method init()
+ * @method draw()
+ * @method revert()
+ * @method checkIfHit()
+ * @method upExp()
+*/
 class Ball {
     radius = 6;
     x = 100; 
@@ -14,6 +28,7 @@ class Ball {
         this.vy = -1;
         this.exp = 0;
     }
+
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);

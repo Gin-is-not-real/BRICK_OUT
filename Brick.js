@@ -5,6 +5,17 @@ let TYPES = [
     {color: 'red', durability: 2, exp: 3},
 ];
 
+/**@property {Integer} width 
+/**@property {Integer} height 
+/**@property {Integer} durability 
+/**@property {Integer} exp 
+/**@property {Path2D} path 
+/**@property {Integer} x 
+/**@property {Integer} y 
+ * 
+ * @method initPath()
+ * @method draw()
+ */
 class Brick {
     width = 33;
     height = 16;
@@ -22,7 +33,7 @@ class Brick {
         this.exp = type.exp;
     }
 
-    init(x, y) {
+    initPath(x, y) {
         this.x = x;
         this.y = y;
         this.path = new Path2D();
