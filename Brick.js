@@ -1,4 +1,9 @@
 let COLORS = ['yellow', 'orange', 'red'];
+let TYPES = [
+    {color: 'yellow', durability: 0, exp: 1},
+    {color: 'orange', durability: 1, exp: 2},
+    {color: 'red', durability: 2, exp: 3},
+];
 
 class Brick {
     width = 33;
@@ -10,26 +15,18 @@ class Brick {
     x; 
     y;
 
-    init(x, y, box) {
+    constructor(typeId) {
+        let type = TYPES[typeId-1];
+        this.color = type.color;
+        this.durability = type.durability;
+        this.exp = type.exp;
+    }
+
+    init(x, y) {
         this.x = x;
         this.y = y;
         this.path = new Path2D();
         this.path.rect(this.x, this.y, this.width-2, this.height-2);
-
-        switch(box) {
-            case 'j':
-                this.durability = 0;
-                this.exp = 1;
-                break;
-            case 'o':
-                this.durability = 1;
-                this.exp = 2;
-                break;
-            case 'r':
-                this.durability = 2;
-                this.exp = 3;
-                break;
-        }
     }
 
     draw() {

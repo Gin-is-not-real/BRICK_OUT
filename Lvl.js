@@ -8,13 +8,14 @@ class Lvl {
             let line = [];
 
             for(let j = 0; j < lvl[i].length; j++) {
-                let box = lvl[i][j];
+                let id = lvl[i][j];
+
                 let brick = null;
-                if(box !== null) {
-                    brick = new Brick();
+                if(id !== 0) {
+                    brick = new Brick(id);
                     let x = (j*brick.width)+1;
                     let y = (i*brick.height)+1;
-                    brick.init(x, y, box);
+                    brick.init(x, y);
                 }
                 line.push(brick);
             }
