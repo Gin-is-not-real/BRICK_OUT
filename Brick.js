@@ -16,8 +16,7 @@ let TYPES = [
  * 
  * @method initPath()
  * @method draw()
- * @method becomeDrop()
- * @method move()
+ * @method changeInDrop()
  */
 class Brick {
     width = 33;
@@ -46,16 +45,9 @@ class Brick {
         ctx.stroke(this.path);
     }
 
-    becomeDrop() {
-        let x = this.x + (this.width/2) - 5;
-        let y = this.y + (this.height/2) - 4;
-        this.width = 10;
-        this.height = 8;
-        this.initPath(x, y);
-    }
+    changeInDrop() {
+        let drop = new Drop(this.exp, this.x + (this.width/2) - 5, this.y + (this.height/2) - 4);
 
-    move() {
-        this.y ++;
-        this.initPath(this.x, this.y);
+        return drop;
     }
 }

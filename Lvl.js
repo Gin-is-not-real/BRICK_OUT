@@ -99,8 +99,10 @@ class Lvl {
                     bricks[b.i][b.j].durability --;
 
                     if(bricks[b.i][b.j].durability < 0) {
-                        brick.becomeDrop();
-                        this.drops.push(brick);
+                        // brick.becomeDrop();
+                        // this.drops.push(brick);
+                        this.drops.push(brick.becomeDrop());
+
                         bricks[b.i][b.j] = null;
 
                         ball.upExp(brick.exp);

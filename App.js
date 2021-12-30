@@ -49,7 +49,6 @@ class App {
         lvl.checkForAffectedBricks();
         lvl.moveDrops();
 
-
         ball.move();
         App.draw();
     }
