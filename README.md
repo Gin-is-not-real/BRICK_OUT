@@ -21,6 +21,9 @@
     - declaration des fonctions du canvas
     - *declaration fonctions dev*
 
+**lvls**
+    - declaration des patterns pour la generation des lvls
+
 ## Canvas
 **mousemove**  
 *Fait bouger le paddle si le jeu est en cours, et colle la balle dessus si le status est 'init'*
@@ -35,6 +38,7 @@
 - SI state est `stop`, `App.initBall()`
 - SI state est `pause` ou `init`, `App.run()`
 - stop propagation
+
 ***
 ## Classes 
 ***
@@ -48,9 +52,9 @@
 - App clear()
 - paddle, ball draw()
 
-**initLvl(array lvlNum)**
+**initLvl(array lvl)**
 - app state = init
-- Lvl.init(array lvlNum)
+- Lvl.initBricks(array lvl)
 - App.initBall()
 
 **initBall()**
@@ -149,15 +153,15 @@
 **draw()**
 *Appele la fonction draw de chaque Brick*
 
-**checkExposedBricks()**
-*Boucle sur chaque Brick de this.bricks et defini si elle exposée en verifiant si elle à des voisines. Defini this.exposed.*
+**getExposedBricks()**
+*Boucle sur chaque Brick de this.bricks et defini si elle exposée en verifiant si elle à des voisines.*
 - definition d'un array vide, exposed
 - loop for sur this.bricks
 - Si la brique existe
     - Si une des cases voisines contient null, on ajoute la brique a l'array
-- on redefini this.exposed avec le nouvel array
+- retourne exposed
 
-**detectAffectedBricks()**
+**defineAffectedBricks()**
 *Appelle la fonction detectColision de chaque brique exposée, et remplace la brique par null si on reçoit true*
 - foreach sur this.exposed
 - Si la brique existe
@@ -174,23 +178,6 @@
 [X] Collisions par les cotés
 [ ] Collisions angles de la balle
 
-```
-//si la balle se dirige vers le bas
-if(this.vy > 0) {
-    //point du bas
-    if(ctx.isPointInPath(path, this.x, bottom)) {
-        this.revert('vy');
-        isHitting = true;
-    }
-    //angles bas gauche et droite
-    else if(ctx.isPointInPath(path, left, bottom) || ctx.isPointInPath(path, right, bottom)) {
-        this.revert('vy');
-        this.revert('vx');
-        return true;
-    }
-}
-```
-Ne fonctionne pas. La balle traverse plusieures briques, j'ai enlevé la partie des angles  
 
 ## A ajouter
 [ ] points d'exp et lvl du joueur
