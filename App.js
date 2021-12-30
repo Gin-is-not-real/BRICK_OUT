@@ -46,7 +46,6 @@ class App {
         }
         app.state = 'run';
 
-        lvl.checkExposedBricks();
         lvl.defineAffectedBricks();
         
         ball.move();

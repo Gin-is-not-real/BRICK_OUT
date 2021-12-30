@@ -1,15 +1,14 @@
 /**@property {Array} bricks 
-/**@property {Array} exposed 
  * 
  * @method initBricks()
  * @method draw()
  * @method clear()
- * @method checkExposedBricks()
+ * @method getExposedBricks()
+ * @method checkIfExposed()
  * @method defineAffectedBricks()
  */
 class Lvl {
     bricks;
-    exposed;
 
     /**
      * Init lvl by instanciate bricks. Loop on the array in parameter and use id stored for create new Brick. Call the init() method of each new Brick.
@@ -51,34 +50,41 @@ class Lvl {
     /**
      * Check for each brick if it has a neighbor. If it doesn't not have one, it is pushed into the exposed array. Define exposed array of the object
      */
-    checkExposedBricks() {
+    getExposedBricks() {
         let exposed = [];
         let bricks = this.bricks;
         
         for(let i = 0; i < bricks.length; i++) {
             for(let j = 0; j < bricks[i].length; j++) {
-                let brick = bricks[i][j];
-
-                if(
-                    i > 0 && (bricks[i-1] === undefined || bricks[i-1][j] === null) ||
-                    i < bricks.length && (bricks[i+1] === undefined || bricks[i+1][j] === null) ||
-                    j > 0 && (bricks[i][j-1] === undefined || bricks[i][j-1] === null) ||
-                    j < (bricks[i].length -1) &&  (bricks[i][j+1] === undefined || bricks[i][j+1] === null)
-                ) {
-                    exposed.push({brick: brick, i: i, j:j});
+                if(this.checkIfExposed(i, j) === true) {
+                    exposed.push({brick: bricks[i][j], i: i, j:j});
                 }
             }
         }
-        this.exposed = exposed;
+        return exposed;
+    }
+
+    checkIfExposed(line, index) {
+        let bricks = this.bricks;
+        if(
+            line > 0 && (bricks[line-1] === undefined || bricks[line-1][index] === null) ||
+            line < bricks.length && (bricks[line+1] === undefined || bricks[line+1][index] === null) ||
+            index > 0 && (bricks[line][index-1] === undefined || bricks[line][index-1] === null) ||
+            index < (bricks[line].length -1) &&  (bricks[line][index+1] === undefined || bricks[line][index+1] === null)
+        ) {
+            return true;
+        }
+        return false;
     }
 
     /**
-     * Loop on an bricks array and foreach brick, call the Ball method checkIfHit() that check if the ball is in the path of the brick. Decrease brick durability if affected. If it destroyed, increase ball exp
+     * Loop on the exposed bricks array and foreach brick, call the Ball method checkIfHit() that check if the ball is in the path of the brick. Decrease brick durability if affected. If it destroyed, increase ball exp
      */
     defineAffectedBricks() {
         let bricks = this.bricks;
+        let exposed = this.getExposedBricks();
 
-        this.exposed.forEach(b => {
+        exposed.forEach(b => {
             let brick = bricks[b.i][b.j];
 
             if(brick !== null) {
