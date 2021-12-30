@@ -5,10 +5,12 @@
  * @method clear()
  * @method getExposedBricks()
  * @method checkIfExposed()
- * @method defineAffectedBricks()
+ * @method checkForAffectedBricks()
+ * @method moveDrops()
  */
 class Lvl {
     bricks;
+    drops = [];
 
     /**
      * Init lvl by instanciate bricks. Loop on the array in parameter and use id stored for create new Brick. Call the init() method of each new Brick.
@@ -45,6 +47,9 @@ class Lvl {
                 }
             })
         })
+        this.drops.forEach(drop => {
+            drop.draw();
+        })
     }
 
     /**
@@ -80,7 +85,7 @@ class Lvl {
     /**
      * Loop on the exposed bricks array and foreach brick, call the Ball method checkIfHit() that check if the ball is in the path of the brick. Decrease brick durability if affected. If it destroyed, increase ball exp
      */
-    defineAffectedBricks() {
+    checkForAffectedBricks() {
         let bricks = this.bricks;
         let exposed = this.getExposedBricks();
 
@@ -94,13 +99,24 @@ class Lvl {
                     bricks[b.i][b.j].durability --;
 
                     if(bricks[b.i][b.j].durability < 0) {
-                        ball.upExp(brick.exp);
+                        brick.becomeDrop();
+                        this.drops.push(brick);
                         bricks[b.i][b.j] = null;
+
+                        ball.upExp(brick.exp);
                     }
                 }
             }
         })
 
         this.bricks = bricks;
+    }
+
+    moveDrops() {
+    if(this.drops.length > 0) {
+        this.drops.forEach(element => {
+            element.move();
+        });
+    }
     }
 }

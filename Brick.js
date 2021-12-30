@@ -1,34 +1,35 @@
 let COLORS = ['yellow', 'orange', 'red'];
 let TYPES = [
-    {color: 'yellow', durability: 0, exp: 1},
-    {color: 'orange', durability: 1, exp: 2},
-    {color: 'red', durability: 2, exp: 3},
+    {durability: 0, exp: 1},
+    {durability: 1, exp: 2},
+    {durability: 2, exp: 3},
 ];
 
-/**@property {Integer} width 
-/**@property {Integer} height 
-/**@property {Integer} durability 
-/**@property {Integer} exp 
-/**@property {Path2D} path 
-/**@property {Integer} x 
-/**@property {Integer} y 
+/**
+ * @property {Integer} width 
+ * @property {Integer} height 
+ * @property {Integer} durability 
+ * @property {Integer} exp 
+ * @property {Path2D} path 
+ * @property {Integer} x 
+ * @property {Integer} y 
  * 
  * @method initPath()
  * @method draw()
+ * @method becomeDrop()
+ * @method move()
  */
 class Brick {
     width = 33;
     height = 16;
     durability;
     exp;
-    color;
     path;
     x; 
     y;
 
     constructor(typeId) {
         let type = TYPES[typeId-1];
-        this.color = type.color;
         this.durability = type.durability;
         this.exp = type.exp;
     }
@@ -45,4 +46,16 @@ class Brick {
         ctx.stroke(this.path);
     }
 
+    becomeDrop() {
+        let x = this.x + (this.width/2) - 5;
+        let y = this.y + (this.height/2) - 4;
+        this.width = 10;
+        this.height = 8;
+        this.initPath(x, y);
+    }
+
+    move() {
+        this.y ++;
+        this.initPath(this.x, this.y);
+    }
 }

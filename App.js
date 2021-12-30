@@ -46,8 +46,10 @@ class App {
         }
         app.state = 'run';
 
-        lvl.defineAffectedBricks();
-        
+        lvl.checkForAffectedBricks();
+        lvl.moveDrops();
+
+
         ball.move();
         App.draw();
     }

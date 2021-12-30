@@ -177,6 +177,8 @@
 **Better Collisions**
 [X] Collisions par les cotés
 [ ] Collisions angles de la balle
+**Optimisation**
+[ ] Ne redessiner que le pad (mousemouve)
 
 
 ## A ajouter
