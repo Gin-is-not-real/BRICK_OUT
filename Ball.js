@@ -20,6 +20,7 @@ class Ball {
     vy = -1;
     color = '#955b108a';
     exp;
+    meteorMode = false;
 
     init() {
         this.x = paddle.x + (paddle.width); 
@@ -88,14 +89,18 @@ class Ball {
         if(this.vy > 0) {
             //point du bas
             if(ctx.isPointInPath(path, this.x, bottom)) {
-                this.revert('vy');
+                if(this.meteorMode === false) {
+                    this.revert('vy');
+                }
                 isHitting = true;
             }
         }
         else {
             //point du haut
             if(ctx.isPointInPath(path, this.x, top)) {
-                this.revert('vy');
+                if(this.meteorMode === false) {
+                    this.revert('vy');
+                }
                 isHitting = true;
             }
         }
@@ -104,14 +109,18 @@ class Ball {
         if(this.vx > 0) {
             //point de droite
             if(ctx.isPointInPath(path, right, this.y)) {
-                this.revert('vx');
+                if(this.meteorMode === false) {
+                    this.revert('vx');
+                }
                 isHitting = true;
             }
         }
         else {
             //point de gauche
             if(ctx.isPointInPath(path, left, this.y)) {
-                this.revert('vx');
+                if(this.meteorMode === false) {
+                    this.revert('vx');
+                }
                 isHitting = true;
             }
         }
@@ -127,6 +136,16 @@ class Ball {
             this.vy = this.vy < 0 ? this.vy + (-0.2) : this.vy +0.2;
         }
         _playerXp. textContent = 'exp: ' + this.exp;
+    }
+
+    activeMeteorMode() {
+        this.meteorMode = true;
+        this.color = 'red';
+
+        window.setTimeout(function() {
+            this.meteorMode = false;
+            this.color = 'blue';
+        }, 2000);
     }
 }
 

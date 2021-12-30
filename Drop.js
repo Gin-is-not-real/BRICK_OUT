@@ -1,11 +1,12 @@
 const DROP_WIDTH = 10;
-const DROP_HEIGHT = 8;
+const DROP_HEIGHT = 5;
 const DROP_BONUS = [
     [
-        {name: 'speed+', color1: 'yellow', color2: 'orange'},
+        {name: 'speed+', color1: 'yellow', color2: 'green'},
         {name: 'paddle+', color1: 'yellow', color2: 'green'},
         {name: 'speed-', color1: 'red', color2: 'orange'},
-        {name: 'paddle-', color1: 'red', color2: 'green'},
+        {name: 'meteor', color1: 'yellow', color2: 'green'},
+        {name: 'paddle-', color1: 'red', color2: 'orange'},
     ]
 ];
 
@@ -32,13 +33,15 @@ class Drop {
         this.x = x;
         this.y = y;
         this.path = new Path2D();
-        this.path.rect(this.x, this.y, 10, 8);
+        this.path.rect(this.x, this.y, DROP_WIDTH, DROP_HEIGHT);
     }
 
     draw() {
         ctx.strokeStyle = this.bonus.color1;
+        ctx.strokeStyle = '10px';
         ctx.stroke(this.path);
         ctx.fillStyle = this.bonus.color2;
+        ctx.fillText(this.bonus.name, this.x - 5, this.y - 5)
         ctx.fill(this.path);
     }
 
@@ -47,12 +50,13 @@ class Drop {
 
         if((y) + DROP_HEIGHT > paddle.y) {
             if((y) + DROP_HEIGHT > _canvas.height) {
-                //destroy
-                console.log('destroyed');
+                //destroyed by ground
                 return true;
             }
             else {
                 if(this.x > paddle.x && this.x < (paddle.x + paddle.width)) {
+                    //catched by paddle
+                    this.applyBonus();
                     return true;
                 }
             }
@@ -60,5 +64,35 @@ class Drop {
         
         this.initPath(this.x, y);
         return false;
+    }
+
+    applyBonus() {
+        let bonus = this.bonus;
+        console.log(bonus.name);
+
+        switch (bonus.name) {
+            case 'paddle+': 
+                paddle.width += 2;
+                break;
+            case 'paddle-': 
+                if(paddle.width > 12) {
+                    paddle.width -= 2;
+                }
+                break;
+            case 'speed-': 
+                if(ball.vx > 0.05) {
+                    ball.vx -= 0.01;
+                    ball.vy -= 0.01;
+                }
+                break;            
+            case 'speed+': 
+                ball.vx += 0.01;
+                ball.vy += 0.01;
+                break;
+            case 'meteor': 
+                ball.activeMeteorMode();
+
+                break;
+        }
     }
 }
