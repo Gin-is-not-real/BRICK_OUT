@@ -66,10 +66,6 @@ class App {
         app.state = 'init';
         paddle.init();
         ball.init();
-        
-        //DEV 
-        ball.vx = 2;
-        ball.vy = -2;
 
         App.draw();
     }

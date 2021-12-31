@@ -55,15 +55,21 @@ body > header {
 }
 /* hub */
 #hub-container {
+    padding: 2%;
     display: flex;
     gap: 2%;
 }
 #hub-container div {
     display: flex;
 }
+#hub-container span {
+    text-transform: uppercase;
+    margin-right: 10px;
+}
 #hub-container p {
     width: 50px;
     min-width: 50px;
+    text-transform: uppercase;
 }
 #lifes {
     display: flex;

@@ -5,11 +5,13 @@ _play.addEventListener('click', function() {
     _screen.classList.add('hidden');
     _play.classList.add('hidden');
 })
+
 _replay.addEventListener('click', function() {
     App.playNormalGame();
     _screen.classList.add('hidden');
     _replay.classList.add('hidden');
 })
+
 _win.addEventListener('click', function() {
     App.start();
 })
@@ -27,6 +29,7 @@ _canvas.addEventListener('mousemove', function(e) {
         App.draw();
     }
 })
+
 _canvas.addEventListener("click", function(e) {
     if(app.state === 'run') {
         App.pause();
