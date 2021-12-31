@@ -10,6 +10,9 @@ _replay.addEventListener('click', function() {
     _screen.classList.add('hidden');
     _replay.classList.add('hidden');
 })
+_win.addEventListener('click', function() {
+    App.start();
+})
 //////////////////////////////////////////////
 //CANVAS
 _canvas.addEventListener('mousemove', function(e) {
@@ -41,21 +44,21 @@ _canvas.addEventListener("click", function(e) {
 
 //////////////////////////////////////////////
 //DEV FUNCTIONS
-_dev.addEventListener('click', function() {
-    if(devIsActive) {
-        devIsActive = false;
-        this.textContent = 'active dev'
-    }
-    else {
-        devIsActive = true;
-        this.textContent = 'stop dev'
-    }
-})
-_restart.addEventListener('click', function() {
-    App.initLvl(lvl1);
-})
-_changeLvl.count = 0;
-_changeLvl.addEventListener('click', function() {
-    this.count = (this.count + 1) < lvls.length ? this.count +1 : 0;
-    App.initLvl(lvls[this.count]);
-})
+// _dev.addEventListener('click', function() {
+//     if(devIsActive) {
+//         devIsActive = false;
+//         this.textContent = 'active dev'
+//     }
+//     else {
+//         devIsActive = true;
+//         this.textContent = 'stop dev'
+//     }
+// })
+// _restart.addEventListener('click', function() {
+//     App.initLvl(lvl1);
+// })
+// _changeLvl.count = 0;
+// _changeLvl.addEventListener('click', function() {
+//     this.count = (this.count + 1) < lvls.length ? this.count +1 : 0;
+//     App.initLvl(lvls[this.count]);
+// })

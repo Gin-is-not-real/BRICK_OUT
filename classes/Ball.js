@@ -150,7 +150,7 @@ class Ball {
         //     this.vx = this.vx < 0 ? this.vx + (-0.2) : this.vx +0.2;
         //     this.vy = this.vy < 0 ? this.vy + (-0.2) : this.vy +0.2;
         // }
-        _playerXp.textContent = 'exp: ' + this.exp;
+        _points.textContent = 'exp: ' + this.exp;
     }
 
     activeMeteorMode() {

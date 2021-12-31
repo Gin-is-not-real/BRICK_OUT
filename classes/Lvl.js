@@ -74,10 +74,8 @@ class Lvl {
                 }
             }
         }
-        console.log(exposed.length)
 
         if(exposed === undefined || exposed.length <= 0) {
-            console.log('no exposed')
             App.pause();
             App.winNormalLvl();
             return;
@@ -122,7 +120,9 @@ class Lvl {
     
                             bricks[b.i][b.j] = null;
     
-                            ball.upExp(brick.exp);
+                            // ball.upExp(brick.exp);
+                            app.points += brick.exp;
+                            _points.textContent = app.points;
                         }
                     }
                 }

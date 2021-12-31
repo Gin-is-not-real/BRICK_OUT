@@ -9,24 +9,34 @@
 <body>
     <header>
         <h1>Brick Out</h1>
-        <div id="dev">
+        <!-- <div id="dev">
             <button id="switch-dev">active dev</button>
             <button id="restart">restart</button>
             <button id="change-lvl">lvl</button>
             <div id="player-xp">exp</div>
-        </div>
+        </div> -->
     </header>
 
     <main>
         <div id="main-container">
             <div id="hub-container">
-                <div id="lifes"><span>Balls: </span><p></p></div>
+                <div id="lvl">
+                    <span>Lvl: </span><p></p>
+                </div>
+                <!-- <div id="gunshots"><span>Gunshots: </span><p></p></div> -->
+                <div id="lifes">
+                    <span>Balls: </span><p></p>
+                </div>
+                <div id="points">
+                    <span>Points: </span><p></p>
+                </div>
             </div>
 
             <div id="canvas-container">
                 <div id="screen">
-                    <button id="play">PLAY</button>
+                    <button id="play">PLAY GAME</button>
                     <button class="hidden" id="replay">REPLAY</button>
+                    <button class="hidden" id="win">WIN !</button>
                 </div>
                 <canvas width="330px" height="300px">
                 </canvas>

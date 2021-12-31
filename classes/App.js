@@ -15,17 +15,39 @@ class App {
     state = 'start';
     lifes = 0;
     lvlIndex = 0;
+    points = 0;
+
+    static start() {
+        app.state = 'start';
+
+        _win.classList.add('hidden');
+        _screen.classList.remove('hidden');
+        _play.classList.remove('hidden');
+    }
 
     static playNormalGame() {
         app.lifes = 3;
+        app.lvlIndex = 0;
+        points = 0;
+
         _lifes.textContent = app.lifes;
+        _lvl.textContent = app.lvlIndex + 1;
+        _points.textContent = app.points;
         App.initLvl(lvls[app.lvlIndex]);
     }
 
     static winNormalLvl() { 
         app.lvlIndex ++;
+
         if(app.lvlIndex < lvls.length) {
             App.initLvl(lvls[app.lvlIndex]);
+        }
+        else {
+            App.stop();
+            _screen.classList.remove('hidden');
+            _win.classList.remove('hidden');
+
+            // App.winNormalGame();
         }
     }
 
@@ -48,7 +70,6 @@ class App {
         //DEV 
         ball.vx = 2;
         ball.vy = -2;
-        console.log(ball.vx)
 
         App.draw();
     }

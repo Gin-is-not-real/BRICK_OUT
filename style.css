@@ -54,6 +54,17 @@ body > header {
     border: var(--bor);
 }
 /* hub */
+#hub-container {
+    display: flex;
+    gap: 2%;
+}
+#hub-container div {
+    display: flex;
+}
+#hub-container p {
+    width: 50px;
+    min-width: 50px;
+}
 #lifes {
     display: flex;
 }
@@ -73,7 +84,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(77, 73, 73, 0.349);
+    background-color: rgba(77, 73, 73, 0.671);
     border: var(--bor);
 }
 .hidden {
