@@ -1,4 +1,7 @@
 //////////////////////////////////////////////
+//HUB
+
+//////////////////////////////////////////////
 //CANVAS
 _play.addEventListener('click', function() {
     App.playNormalGame();
@@ -15,6 +18,7 @@ _replay.addEventListener('click', function() {
 _win.addEventListener('click', function() {
     App.start();
 })
+
 //////////////////////////////////////////////
 //CANVAS
 _canvas.addEventListener('mousemove', function(e) {

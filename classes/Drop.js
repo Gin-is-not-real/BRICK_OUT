@@ -85,15 +85,35 @@ class Drop {
                 break;
 
             case 'speed-': 
-                if(ball.vx > 0.05) {
-                    ball.vx -= 0.01;
-                    ball.vy -= 0.01;
-                }
+            ball.vx = ball.vx > 0.1 ? ball.vx - 0.01 : ball.vx < 0.01 ? ball.vx + 0.01 : ball.vx;
+            ball.vy = ball.vy > 0.1 ? ball.vy - 0.01 : ball.vy < 0.01 ? ball.vy + 0.01 : ball.vy;
+
+                // if(ball.vx > 0.0) {
+                //     ball.vx -= 0.01;
+                //     ball.vy -= 0.01;
+                // }
+                // else {
+                //     ball.vx += 0.01;
+                //     ball.vy += 0.01;
+                // }
+
+                // if(ball.vx > 0.05) {
+                //     ball.vx -= 0.01;
+                //     ball.vy -= 0.01;
+                // }
+
                 break; 
 
             case 'speed+': 
-                ball.vx += 0.01;
-                ball.vy += 0.01;
+                if(ball.vx >= 0) {
+                    ball.vx += 0.01;
+                    ball.vy += 0.01;
+                }
+                else {
+                    ball.vx -= 0.01;
+                    ball.vy -= 0.01;
+                }
+
                 break;
 
             case 'meteor': 

@@ -54,19 +54,23 @@ body > header {
     border: var(--bor);
 }
 /* hub */
-#hub-container {
+.hub-container {
+    max-width: 300px;
     padding: 2%;
     display: flex;
     gap: 2%;
 }
-#hub-container div {
+.hub-container div {
+    width: 33%;
+    max-width: 33%;
+    min-width: 33%;
     display: flex;
 }
-#hub-container span {
+.hub-container span {
     text-transform: uppercase;
     margin-right: 10px;
 }
-#hub-container p {
+.hub-container p {
     width: 50px;
     min-width: 50px;
     text-transform: uppercase;

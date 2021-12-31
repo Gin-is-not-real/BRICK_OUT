@@ -104,6 +104,10 @@ class App {
         lvl.moveDrops();
 
         ball.move();
+
+        _speed.textContent = ball.vx;
+        _width.textContent = paddle.width;
+
         App.draw();
     }
 

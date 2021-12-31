@@ -12,6 +12,8 @@ let devIsActive = false;
 let _lvl = document.querySelector('#lvl>p');
 let _lifes = document.querySelector('#lifes>p');
 let _points = document.querySelector('#points>p');
+let _speed = document.querySelector('#speed>p');
+let _width = document.querySelector('#paddle-width>p');
 
 //////////////////////////////////////////////
 //CANVAS
