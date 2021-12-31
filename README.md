@@ -6,6 +6,7 @@ Just clone or the repository, open folder and run **index.html**.
 
 ## Latest add, fix and optimisation
 - Bricks drop powers up
+- Normal Game
 
 ## Next features
 [ ] Survival mode
@@ -15,7 +16,6 @@ Just clone or the repository, open folder and run **index.html**.
 
 ## Need to be fixed
 [ ] Add the interface
-[X] finish lvl and loose game
 [ ] sometimes the ball gets stuck in the wall and only moves vertically
 
 ## Need to be optimized
