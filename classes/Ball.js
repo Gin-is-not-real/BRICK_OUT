@@ -61,14 +61,16 @@ class Ball {
         
         //si la balle passe a hauteur du paddle
         else if((nextY + this.radius) > paddle.y) {
-            //si la balle touche le bord bas
-            if(nextY + this.radius > _canvas.height) {
+
+            //If the ball it the ground
+            if(nextY - this.radius > _canvas.height) {
                 // DEV
                 if(devIsActive) {
                     this.revert('vy');
                 }
                 else {
-                    App.stop();
+                    App.loseBall();
+                    // App.stop();
                     return
                 }
             }
@@ -90,13 +92,14 @@ class Ball {
 
         let isHitting = false;
 
+        //if meteor mode is active, the ball pass out the brick without being reverted
         let revertAvailable = true;
         if(object.constructor.name === 'Brick' && this.meteorMode === true) {
             revertAvailable = false;
-            console.log(object.constructor.name, ' revertAvailable', revertAvailable, this.meteorMode);
+            // console.log(object.constructor.name, ' revertAvailable', revertAvailable, this.meteorMode);
         }
 
-        //si la balle se dirige vers le bas
+        //If the ball go down
         if(this.vy > 0) {
             //point du bas
             if(ctx.isPointInPath(object.path, this.x, bottom)) {
@@ -116,7 +119,7 @@ class Ball {
             }
         }
 
-        //si la balle se dirige vers la droite
+        //If the ball go to the right
         if(this.vx > 0) {
             //point de droite
             if(ctx.isPointInPath(object.path, right, this.y)) {

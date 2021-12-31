@@ -70,7 +70,7 @@ class Drop {
 
     applyBonus() {
         let bonus = this.bonus;
-        console.log(bonus.name);
+        // console.log(bonus.name);
 
         switch (bonus.name) {
 

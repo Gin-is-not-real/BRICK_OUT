@@ -53,13 +53,32 @@ body > header {
     height: 100%;
     border: var(--bor);
 }
+/* hub */
+#lifes {
+    display: flex;
+}
 /*  */
 #canvas-container {
-    width: 320px;
-    height: 220px;
+    width: 330px;
+    height: 300px;
 }
 canvas {
     border: var(--bor);
+}
+
+#screen {
+    position: absolute;
+    width: 330px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(77, 73, 73, 0.349);
+    border: var(--bor);
+}
+.hidden {
+    display: none;
+    visibility: hidden;
 }
 
 /*  */
@@ -68,4 +87,11 @@ button {
     background-color: var(--bg-color-2);
     border: var(--bor);
     border-radius: 8%;
+}
+button:hover {
+    padding: 4px;
+    background-color: var(--bg-color-2);
+    border: var(--bor);
+    border-radius: 8%;
+    box-shadow: 1px 1px 1px rgba(255, 166, 0, 0.685);
 }

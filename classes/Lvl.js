@@ -12,13 +12,15 @@
  */
 class Lvl {
     bricks;
-    drops = [];
+    drops;
 
     /**
      * Init lvl by instanciate bricks. Loop on the array in parameter and use id stored for create new Brick. Call the init() method of each new Brick.
      * @param {Array} pattern multidimensionnal array of ids
      */
     initBricks(pattern) {
+        this.drops = [];
+        
         let bricks = [];
         for(let i = 0; i < pattern.length; i++) {
             let line = [];
@@ -65,12 +67,24 @@ class Lvl {
         
         for(let i = 0; i < bricks.length; i++) {
             for(let j = 0; j < bricks[i].length; j++) {
-                if(this.checkIfExposed(i, j) === true) {
-                    exposed.push({brick: bricks[i][j], i: i, j:j});
+                if(bricks[i][j] !== null) {
+                    if(this.checkIfExposed(i, j) === true) {
+                        exposed.push({brick: bricks[i][j], i: i, j:j});
+                    }
                 }
             }
         }
+        console.log(exposed.length)
+
+        if(exposed === undefined || exposed.length <= 0) {
+            console.log('no exposed')
+            App.pause();
+            App.winNormalLvl();
+            return;
+        }
+
         return exposed;
+
     }
 
     checkIfExposed(line, index) {
@@ -93,29 +107,28 @@ class Lvl {
         let bricks = this.bricks;
         let exposed = this.getExposedBricks();
 
-        exposed.forEach(b => {
-            let brick = bricks[b.i][b.j];
-
-            if(brick !== null) {
-                let isHit = ball.checkIfHit(brick);
-
-                if(isHit) {
-                    bricks[b.i][b.j].durability --;
-
-                    if(bricks[b.i][b.j].durability < 0) {
-                        // brick.becomeDrop();
-                        // this.drops.push(brick);
-                        this.drops.push(brick.changeInDrop());
-
-                        bricks[b.i][b.j] = null;
-
-                        ball.upExp(brick.exp);
+        if(exposed !== undefined) {
+            exposed.forEach(b => {
+                let brick = bricks[b.i][b.j];
+    
+                if(brick !== null) {
+                    let isHit = ball.checkIfHit(brick);
+    
+                    if(isHit) {
+                        bricks[b.i][b.j].durability --;
+    
+                        if(bricks[b.i][b.j].durability < 0) {
+                            this.drops.push(brick.changeInDrop());
+    
+                            bricks[b.i][b.j] = null;
+    
+                            ball.upExp(brick.exp);
+                        }
                     }
                 }
-            }
-        })
-
-        this.bricks = bricks;
+            })
+            this.bricks = bricks;
+        }
     }
 
     moveDrops() {

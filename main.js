@@ -6,6 +6,18 @@ let _changeLvl = document.querySelector('#change-lvl');
 let _playerXp = document.querySelector('#player-xp');
 
 let devIsActive = false;
+
+
+//////////////////////////////////////////////
+//HUB
+let _lifes = document.querySelector('#lifes>p');
+
+//////////////////////////////////////////////
+//CANVAS
+let _screen = document.querySelector('#screen');
+let _play = document.querySelector('#play');
+let _replay = document.querySelector('#replay');
+
 //////////////////////////////////////////////
 //APP
 let _canvas = document.querySelector('canvas');
@@ -21,7 +33,9 @@ let paddle = new Paddle();
 let ball = new Ball();
 let lvl = new Lvl();
 
-// App.initLvl(lvl1);
+//DEV
+ball.vx = 2;
+ball.vy = 2;
 
 
 

@@ -13,6 +13,21 @@
 
 class App {
     state = 'start';
+    lifes = 0;
+    lvlIndex = 0;
+
+    static playNormalGame() {
+        app.lifes = 3;
+        _lifes.textContent = app.lifes;
+        App.initLvl(lvls[app.lvlIndex]);
+    }
+
+    static winNormalLvl() { 
+        app.lvlIndex ++;
+        if(app.lvlIndex < lvls.length) {
+            App.initLvl(lvls[app.lvlIndex]);
+        }
+    }
 
     static initLvl(lvlNum) {
         app.state = 'init';
@@ -29,6 +44,12 @@ class App {
         app.state = 'init';
         paddle.init();
         ball.init();
+        
+        //DEV 
+        ball.vx = 2;
+        ball.vy = -2;
+        console.log(ball.vx)
+
         App.draw();
     }
 
@@ -85,6 +106,26 @@ class App {
         frame = undefined;
         app.state = 'stop';
         App.clearCanvas();
+    }
+
+    static loseBall() {
+        app.lifes --;
+        _lifes.textContent = app.lifes;
+
+        if(app.lifes <= 0) {
+            App.looseGame();
+        }
+        else {
+            lvl.drops = [];
+            App.pause();
+            App.initBall();
+        }
+    }
+
+    static looseGame() {
+        App.stop();
+        _screen.classList.remove('hidden');
+        _replay.classList.remove('hidden');
     }
 
 }

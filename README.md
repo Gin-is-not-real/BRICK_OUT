@@ -4,8 +4,8 @@ A brick-breaking game all in Javascript vanilla.
 ## Getting Started
 Just clone or the repository, open folder and run **index.html**. 
 
-## Latest add
-- Drops an powers up
+## Latest add, fix and optimisation
+- Bricks drop powers up
 
 ## Next features
 [ ] Survival mode
@@ -15,7 +15,8 @@ Just clone or the repository, open folder and run **index.html**.
 
 ## Need to be fixed
 [ ] Add the interface
-[ ] finish lvl and loose game
+[X] finish lvl and loose game
+[ ] sometimes the ball gets stuck in the wall and only moves vertically
 
 ## Need to be optimized
 [ ] Collisions angles of the ball
