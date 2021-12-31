@@ -1,7 +1,7 @@
 //////////////////////////////////////////////
 //CANVAS
 _canvas.addEventListener('mousemove', function(e) {
-    if(app.state !== 'stop') {
+    if(app.state !== 'stop' && app.state !== 'start') {
         paddle.move(e.offsetX);
         if(app.state === 'init') {
             ball.init();

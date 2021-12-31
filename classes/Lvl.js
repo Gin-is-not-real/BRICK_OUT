@@ -1,4 +1,6 @@
-/**@property {Array} bricks 
+/**
+ * Contains methods for manage bricks and drops
+ * @property {Array} bricks 
  * 
  * @method initBricks()
  * @method draw()
@@ -38,6 +40,9 @@ class Lvl {
         this.bricks = bricks;
     }
 
+    /**
+     * Draw bricks and drops by calling their draw() functions
+     */
     draw() {
         this.bricks.forEach(line => {
             line.forEach(brick => {

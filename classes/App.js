@@ -1,4 +1,6 @@
-/**@property {String} state can take the values init, run, pause, stop
+/**
+ * Contains methods for control animations and call functions draw() and move() of objects
+ * @property {String} state can take the values init, run, pause, stop
  * 
  * @method initLvl()
  * @method initBall()
@@ -10,7 +12,7 @@
  */
 
 class App {
-    state;
+    state = 'start';
 
     static initLvl(lvlNum) {
         app.state = 'init';

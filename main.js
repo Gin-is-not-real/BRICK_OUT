@@ -21,7 +21,7 @@ let paddle = new Paddle();
 let ball = new Ball();
 let lvl = new Lvl();
 
-App.initLvl(lvl1);
+// App.initLvl(lvl1);
 
 
 
