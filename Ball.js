@@ -68,7 +68,7 @@ class Ball {
                 }
             }
             else {
-                this.checkIfHit(paddle.path);
+                this.checkIfHit(paddle);
             }
         }
 
@@ -76,7 +76,7 @@ class Ball {
         this.y += this.vy;
     }
 
-    checkIfHit(path) {
+    checkIfHit(object) {
         //Points de la balle
         let top = this.y - this.radius;
         let bottom = this.y + this.radius;
@@ -85,11 +85,17 @@ class Ball {
 
         let isHitting = false;
 
+        let revertAvailable = true;
+        if(object.constructor.name === 'Brick' && this.meteorMode === true) {
+            revertAvailable = false;
+            console.log(object.constructor.name, ' revertAvailable', revertAvailable, this.meteorMode);
+        }
+
         //si la balle se dirige vers le bas
         if(this.vy > 0) {
             //point du bas
-            if(ctx.isPointInPath(path, this.x, bottom)) {
-                if(this.meteorMode === false) {
+            if(ctx.isPointInPath(object.path, this.x, bottom)) {
+                if(revertAvailable) {
                     this.revert('vy');
                 }
                 isHitting = true;
@@ -97,8 +103,8 @@ class Ball {
         }
         else {
             //point du haut
-            if(ctx.isPointInPath(path, this.x, top)) {
-                if(this.meteorMode === false) {
+            if(ctx.isPointInPath(object.path, this.x, top)) {
+                if(revertAvailable) {
                     this.revert('vy');
                 }
                 isHitting = true;
@@ -108,8 +114,8 @@ class Ball {
         //si la balle se dirige vers la droite
         if(this.vx > 0) {
             //point de droite
-            if(ctx.isPointInPath(path, right, this.y)) {
-                if(this.meteorMode === false) {
+            if(ctx.isPointInPath(object.path, right, this.y)) {
+                if(revertAvailable) {
                     this.revert('vx');
                 }
                 isHitting = true;
@@ -117,8 +123,8 @@ class Ball {
         }
         else {
             //point de gauche
-            if(ctx.isPointInPath(path, left, this.y)) {
-                if(this.meteorMode === false) {
+            if(ctx.isPointInPath(object.path, left, this.y)) {
+                if(revertAvailable) {
                     this.revert('vx');
                 }
                 isHitting = true;
@@ -131,21 +137,24 @@ class Ball {
     upExp(nbr) {
         this.exp += nbr;
 
-        if(this.exp%10 == 0) {
-            this.vx = this.vx < 0 ? this.vx + (-0.2) : this.vx +0.2;
-            this.vy = this.vy < 0 ? this.vy + (-0.2) : this.vy +0.2;
-        }
-        _playerXp. textContent = 'exp: ' + this.exp;
+        // if(this.exp%10 == 0) {
+        //     this.vx = this.vx < 0 ? this.vx + (-0.2) : this.vx +0.2;
+        //     this.vy = this.vy < 0 ? this.vy + (-0.2) : this.vy +0.2;
+        // }
+        _playerXp.textContent = 'exp: ' + this.exp;
     }
 
     activeMeteorMode() {
         this.meteorMode = true;
         this.color = 'red';
 
-        window.setTimeout(function() {
-            this.meteorMode = false;
-            this.color = 'blue';
-        }, 2000);
+        let self = this;
+        let timeout = setTimeout(function() {
+            self.meteorMode = false;
+            self.color = '#955b108a';
+            clearTimeout(timeout);
+        }, 4000);
+        
     }
 }
 

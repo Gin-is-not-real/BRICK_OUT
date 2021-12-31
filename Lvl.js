@@ -92,7 +92,7 @@ class Lvl {
             let brick = bricks[b.i][b.j];
 
             if(brick !== null) {
-                let isHit = ball.checkIfHit(brick.path);
+                let isHit = ball.checkIfHit(brick);
 
                 if(isHit) {
                     bricks[b.i][b.j].durability --;
@@ -121,7 +121,6 @@ class Lvl {
                 let isRemove = drop.move();
                 if(isRemove) {
                     drops.splice(drops.indexOf(drop), 1);
-                    console.log(drops);
                 }
             });
         }

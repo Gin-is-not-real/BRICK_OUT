@@ -4,8 +4,10 @@ const DROP_BONUS = [
     [
         {name: 'speed+', color1: 'yellow', color2: 'green'},
         {name: 'paddle+', color1: 'yellow', color2: 'green'},
-        {name: 'speed-', color1: 'red', color2: 'orange'},
         {name: 'meteor', color1: 'yellow', color2: 'green'},
+        //pour triple je vais devoir revoir la structure, je doit pouvoir executer les fonctions de verifications sur toutes les balles
+        // {name: 'triple', color1: 'yellow', color2: 'green'},
+        {name: 'speed-', color1: 'red', color2: 'orange'},
         {name: 'paddle-', color1: 'red', color2: 'orange'},
     ]
 ];
@@ -71,28 +73,36 @@ class Drop {
         console.log(bonus.name);
 
         switch (bonus.name) {
+
             case 'paddle+': 
-                paddle.width += 2;
+                paddle.width += 4;
                 break;
+
             case 'paddle-': 
-                if(paddle.width > 12) {
-                    paddle.width -= 2;
+                if(paddle.width > 14) {
+                    paddle.width -= 4;
                 }
                 break;
+
             case 'speed-': 
                 if(ball.vx > 0.05) {
                     ball.vx -= 0.01;
                     ball.vy -= 0.01;
                 }
-                break;            
+                break; 
+
             case 'speed+': 
                 ball.vx += 0.01;
                 ball.vy += 0.01;
                 break;
+
             case 'meteor': 
                 ball.activeMeteorMode();
-
                 break;
+            
+            // case 'triple':
+            //     console.log(ball.x, ball.y)
+            //     break;
         }
     }
 }
