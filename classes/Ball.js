@@ -1,16 +1,18 @@
 /**@property {Integer} radius
-/**@property {Integer} x
-/**@property {Integer} y
-/**@property {Integer} vx
-/**@property {Integer} vy
-/**@property {String} color
-/**@property {Integer} exp
+ *@property {Integer} x
+ *@property {Integer} y
+ *@property {Integer} vx
+ *@property {Integer} vy
+ *@property {String} color
+ *@property {Integer} exp
+ *@property {Boolean} meteorMode
  * 
- * @method init()
+ * @method init() init this x and y properties for place ball on the paddle, init this vx and vy (speed) 
  * @method draw()
  * @method revert()
  * @method checkIfHit()
  * @method upExp()
+ * @method activeMeteorMode()
 */
 class Ball {
     radius = 6;
@@ -22,6 +24,9 @@ class Ball {
     exp;
     meteorMode = false;
 
+    /**
+     * init this x and y properties for place ball on the paddle, init this vx and vy (speed)
+     */
     init() {
         this.x = paddle.x + (paddle.width); 
         this.y = paddle.y - (paddle.height/2);

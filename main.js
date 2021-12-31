@@ -12,6 +12,10 @@ let _canvas = document.querySelector('canvas');
 let ctx = _canvas.getContext('2d');
 let frame;
 
+/*
+    App contains methods for control animations and call functions draw() and move() of objects
+    Lvl contains methods for manage bricks and drops
+*/
 let app = new App();
 let paddle = new Paddle();
 let ball = new Ball();
