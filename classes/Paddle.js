@@ -1,5 +1,6 @@
 let PADDLE_WIDTH = 35;
 
+
 class Paddle {
     width = PADDLE_WIDTH;
     height = 10;
