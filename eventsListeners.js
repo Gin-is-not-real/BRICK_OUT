@@ -22,7 +22,7 @@ _next.addEventListener('click', function() {
 })
 
 _win.addEventListener('click', function() {
-    App.start();
+    App.startApp();
 })
 
 //////////////////////////////////////////////

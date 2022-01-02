@@ -35,6 +35,6 @@ let lvlDevOne = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
 ]
 
-let lvls = [lvlDevOne];
-// let lvls = [lvl2, lvl1, lvl3];
+// let lvls = [lvlDevOne];
+let lvls = [lvl2, lvl1, lvl3];
 

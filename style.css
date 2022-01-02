@@ -1,19 +1,26 @@
-html {
-    --color-1: rgb(139, 98, 0);
-    --bg-dark-1: rgb(34, 29, 29);
-    --bg-dark-2: rgb(27, 21, 21);
-    --bg-color-1: #955b108a;
-    --bg-color-2: rgb(167, 108, 46);
-    --bor: 1px solid var(--color-1);
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 
-    background-color: var(--bg-dark-1);
-    color: var(--color-1);
+html {
+    --dark-1:rgb(20, 16, 16);
+    --dark-2: rgb(34, 29, 29);
+    --dark-3: rgba(77, 73, 73, 0.671);
+    --base-1: rgb(167, 108, 46);
+    --base-2: rgb(179, 126, 1);
+    --base-3: rgba(255, 166, 0, 0.685);
+    --base-4: #955b108a;
+
+    --bor: 1px solid var(--base-2);
+
+    background-color: var(--dark-2);
+    color: var(--base-2);
 }
 html * {
     box-sizing: content-box;
     margin: 0;
     padding: 0;
     /* border: var(--bor); */
+    font-family: 'Do Hyeon', sans-serif;
+    /* font-size: 20px; */
 }
 header {
     display: flex;
@@ -29,7 +36,7 @@ header {
 
 body > header {
     height: 90px;
-    background-color: var(--bg-dark-2);
+    background-color: var(--dark-1);
 }
 /*  */
 main {
@@ -67,9 +74,6 @@ main {
     width: min-content;
     text-transform: uppercase;
 }
-#lifes {
-    display: flex;
-}
 /*  */
 #canvas-container {
     width: 330px;
@@ -84,19 +88,33 @@ canvas {
     height: 20px;
     position: relative;
 
-    background-color: var(--bg-color-1);
+    background-color: var(--base-3);
     border-radius: 100%;
 }
-
+/* screen */
 #screen {
     position: absolute;
+    box-sizing: border-box;
     width: 330px;
     height: 300px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(77, 73, 73, 0.671);
+    background-color: var(--dark-3);
     border: var(--bor);
+}
+#screen-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#message {
+    padding: 0 8% 8% 8%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--dark-1);
 }
 .hidden {
     display: none;
@@ -106,13 +124,15 @@ canvas {
 /*  */
 button {
     padding: 4px;
-    background-color: var(--bg-color-2);
+    background-color: var(--base-1);
     border: var(--bor);
     border-radius: 8%;
+    font-size: large;
+    color: var(--dark-1);
 }
 button:hover {
     padding: 4px;
-    background-color: var(--bg-color-2);
+    background-color: var(--base-1);
     border: var(--bor);
     border-radius: 8%;
     box-shadow: 1px 1px 1px rgba(255, 166, 0, 0.685);

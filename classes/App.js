@@ -71,7 +71,7 @@ class App {
             App.stop();
             _screen.classList.remove('hidden');
             _win.classList.remove('hidden');
-
+            _message.textContent = app.points + ' points earned ! ';
             // App.winNormalGame();
         }
     }

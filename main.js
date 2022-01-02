@@ -18,6 +18,7 @@ let _width = document.querySelector('#paddle-width>p');
 //////////////////////////////////////////////
 //CANVAS
 let _screen = document.querySelector('#screen');
+let _message = document.querySelector('#message');
 let _play = document.querySelector('#play');
 let _replay = document.querySelector('#replay');
 let _next = document.querySelector('#next');
