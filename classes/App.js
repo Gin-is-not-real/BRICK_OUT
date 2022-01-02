@@ -2,13 +2,16 @@
  * Contains methods for control animations and call functions draw() and move() of objects
  * @property {String} state can take the values init, run, pause, stop
  * 
- * @method startApp()
- * @method playNormalGame()
- * @method winNormalLvl()
+ * @method startApp() - Made appear the start button
+ * @method playNormalGame() - reset lvl index and points, and set lifes count to 3
+ * @method winNormalLvl() - Increase app lvl index, and stop it if is the last lvl.
+ * 
  * @method initLvl()
  * @method initBall()
+ * 
  * @method clear()
  * @method draw()
+ * 
  * @method run()
  * @method pause()
  * @method stop()

@@ -35,6 +35,9 @@ class Ball {
         this.exp = 0;
     }
 
+    /**
+     * Draw the ball with context2D function arc, using this x and y properties.
+     */
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
@@ -43,10 +46,17 @@ class Ball {
         ctx.fill();
     }
 
+    /**
+     * Reverses the direction of the x or y axis 
+     * @param {String} axe - x or y. The axis that must be reversed
+     */
     revert(axe) {
         this[axe] = -this[axe];
     }
 
+    /**
+     * Move the ball, having first checked if it touches the canvas limit or the paddle. If it, revert the axis concerned before moving, or destroy the ball if it hit the ground.
+     */
     move() {
         let nextX = this.x;
         let nextY = this.y;
@@ -83,6 +93,10 @@ class Ball {
         this.y += this.vy;
     }
 
+    /**
+     * Check if one of the 4 cardinal points of the ball is in the path of a brick or paddle. If so, reverse the concerned axis and return true.
+     * @param {Object} object - an object Brick or Paddle, that as a 'path' property
+     */
     checkIfHit(object) {
         //Points de la balle
         let top = this.y - this.radius;
@@ -143,6 +157,10 @@ class Ball {
         return isHitting;
     }
 
+    /**
+     * Increase exp and update front
+     * @param {Integer} nbr 
+     */
     upExp(nbr) {
         this.exp += nbr;
 
@@ -153,6 +171,9 @@ class Ball {
         _points.textContent = 'exp: ' + this.exp;
     }
 
+    /**
+     * Set meteorMode to true, and remove it with a timeout
+     */
     activeMeteorMode() {
         this.meteorMode = true;
         this.color = 'red';
