@@ -15,6 +15,12 @@ _replay.addEventListener('click', function() {
     _replay.classList.add('hidden');
 })
 
+_next.addEventListener('click', function() {
+    App.initLvl(lvls[app.lvlIndex]);
+    _screen.classList.add('hidden');
+    _next.classList.add('hidden');
+})
+
 _win.addEventListener('click', function() {
     App.start();
 })
@@ -49,23 +55,27 @@ _canvas.addEventListener("click", function(e) {
     e.stopPropagation();
 })
 
-//////////////////////////////////////////////
-//DEV FUNCTIONS
-// _dev.addEventListener('click', function() {
-//     if(devIsActive) {
-//         devIsActive = false;
-//         this.textContent = 'active dev'
-//     }
-//     else {
-//         devIsActive = true;
-//         this.textContent = 'stop dev'
-//     }
-// })
-// _restart.addEventListener('click', function() {
-//     App.initLvl(lvl1);
-// })
-// _changeLvl.count = 0;
-// _changeLvl.addEventListener('click', function() {
-//     this.count = (this.count + 1) < lvls.length ? this.count +1 : 0;
-//     App.initLvl(lvls[this.count]);
-// })
+////////////////////////////////////////////
+// DEV FUNCTIONS
+_dev.addEventListener('click', function() {
+    if(devIsActive) {
+        devIsActive = false;
+        this.textContent = 'active dev'
+    }
+    else {
+        devIsActive = true;
+        this.textContent = 'stop dev'
+    }
+})
+_restart.addEventListener('click', function() {
+    App.initLvl(lvl1);
+})
+_changeLvl.count = 0;
+_changeLvl.addEventListener('click', function() {
+    this.count = (this.count + 1) < lvls.length ? this.count +1 : 0;
+    App.initLvl(lvls[this.count]);
+})
+
+document.querySelector('#speed-up').addEventListener('click', function() {
+    ball.speedUp();
+})

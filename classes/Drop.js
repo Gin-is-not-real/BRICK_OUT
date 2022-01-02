@@ -85,20 +85,11 @@ class Drop {
                 break;
 
             case 'speed-': 
-                ball.vx = ball.vx > 0.1 ? ball.vx - 0.02 : ball.vx < 0.01 ? ball.vx + 0.02 : ball.vx;
-                ball.vy = ball.vy > 0.1 ? ball.vy - 0.02 : ball.vy < 0.01 ? ball.vy + 0.02 : ball.vy;
+                ball.speedDown();
                 break; 
 
             case 'speed+': 
-                if(ball.vx >= 0) {
-                    ball.vx += 0.02;
-                    ball.vy += 0.02;
-                }
-                else {
-                    ball.vx -= 0.02;
-                    ball.vy -= 0.02;
-                }
-
+                ball.speedUp();
                 break;
 
             case 'meteor': 

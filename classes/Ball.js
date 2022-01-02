@@ -11,10 +11,13 @@
  * @method draw()
  * @method revert()
  * @method checkIfHit()
+ * @method speedUp()
+ * @method speedDown()
  * @method upExp()
  * @method activeMeteorMode()
 */
 class Ball {
+    V_STEP = 0.05;
     radius = 6;
     x = 100; 
     y = 120; 
@@ -155,6 +158,16 @@ class Ball {
         }
 
         return isHitting;
+    }
+
+    speedUp() {
+        this.vx = this.vx > 0.1 ? this.vx + this.V_STEP : this.vx < 0.01 ? this.vx - this.V_STEP : this.vx;
+        this.vy = this.vy > 0.1 ? this.vy + this.V_STEP : this.vy < 0.01 ? this.vy - this.V_STEP : this.vy;
+    }
+
+    speedDown() {
+        this.vx = this.vx > 0.1 ? this.vx - this.V_STEP : this.vx < 0.01 ? this.vx + this.V_STEP : this.vx;
+        this.vy = this.vy > 0.1 ? this.vy - this.V_STEP : this.vy < 0.01 ? this.vy + this.V_STEP : this.vy;
     }
 
     /**

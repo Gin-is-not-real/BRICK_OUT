@@ -63,7 +63,9 @@ class App {
         app.lvlIndex ++;
 
         if(app.lvlIndex < lvls.length) {
-            App.initLvl(lvls[app.lvlIndex]);
+            // App.initLvl(lvls[app.lvlIndex]);
+            _screen.classList.remove('hidden');
+            _next.classList.remove('hidden');
         }
         else {
             App.stop();

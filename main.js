@@ -20,6 +20,7 @@ let _width = document.querySelector('#paddle-width>p');
 let _screen = document.querySelector('#screen');
 let _play = document.querySelector('#play');
 let _replay = document.querySelector('#replay');
+let _next = document.querySelector('#next');
 let _win = document.querySelector('#win');
 
 //////////////////////////////////////////////
