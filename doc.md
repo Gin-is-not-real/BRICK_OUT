@@ -43,7 +43,31 @@
 ## Classes 
 ***
 ### App
-- state (*init, run, pause, stop)*
+- state (*start, init, run, pause, stop)*
+
+**startApp()**
+*Fait apparaitre le bouton "PLAY GAME"*
+
+**playNormalGame()**
+*Jeu normal ?*  
+*Le joueur dispose de 3 vies pour terminer tout les niveaux*
+- app lifes = 3
+- app lvlIndex, et points = 0
+- update text contents
+- App initLvl(lvls[app.lvlIndex])
+
+**winNormalLvl()**
+*Charge le lvl suivant*  
+- app lvlIndex ++
+- win partie si dernier lvl (a impl)
+
+**initLvl(int lvlNum)**  
+*Charge un lvl et Initialise une balle*
+- lvl initBricks(lvlNum)  
+- App initBall()
+
+**initBall()**  
+*Initialise une balle*
 
 **clear()**
 - fill canvas

@@ -2,6 +2,9 @@
  * Contains methods for control animations and call functions draw() and move() of objects
  * @property {String} state can take the values init, run, pause, stop
  * 
+ * @method startApp()
+ * @method playNormalGame()
+ * @method winNormalLvl()
  * @method initLvl()
  * @method initBall()
  * @method clear()
@@ -17,7 +20,10 @@ class App {
     lvlIndex = 0;
     points = 0;
 
-    static start() {
+    /**
+     * Made appear the start button
+     */
+    static startApp() {
         app.state = 'start';
 
         _win.classList.add('hidden');
@@ -25,6 +31,9 @@ class App {
         _play.classList.remove('hidden');
     }
 
+    /**
+     * Set lifes to 3, and lvl index and points to 0. Update hub text contents and init the first lvl
+     */
     static playNormalGame() {
         app.lifes = 3;
         app.lvlIndex = 0;
@@ -36,6 +45,9 @@ class App {
         App.initLvl(lvls[app.lvlIndex]);
     }
 
+    /**
+     * Increase app lvl index, and stop it if is the last lvl.
+     */
     static winNormalLvl() { 
         app.lvlIndex ++;
 
@@ -51,9 +63,14 @@ class App {
         }
     }
 
-    static initLvl(lvlNum) {
+    /**
+     * Set the application state to 'init', call lvl initBricks() and App initBall() method for initialize a level according to the pattern-array in parameter
+     * 
+     * @param {Array} lvlPattern an array representing the pattern of the lvl to init
+     */
+    static initLvl(lvlPattern) {
         app.state = 'init';
-        lvl.initBricks(lvlNum);
+        lvl.initBricks(lvlPattern);
         App.initBall();
     }
 
