@@ -8,6 +8,31 @@
     - Brick
     - Lvl
 
+## Development
+**systeme de points**
+- enlever l'exp de la balle
+- garder trace des bricks et des drops ramassés
+- les drops donnent 1p
+
+### Next features
+[ ] Survival mode
+[ ] Completion time of the levels
+[ ] Scores
+[ ] Bonus: triple ball
+[ ] Bonus: gun shot
+
+### Need to be fixed
+[ ] Add the interface
+[ ] sometimes the ball gets stuck in the wall and only moves vertically
+
+### Need to be optimized
+[ ] Collisions angles of the ball
+[ ] Redraw only the pad (event mousemouve of canvas)
+
+### To test
+[ ] Ball accéleration when hit an object and decrease with timeout
+
+***
 ## Scripts 
 **main**  
     - recuperation elements dom dev et du canvas

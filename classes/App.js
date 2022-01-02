@@ -22,6 +22,14 @@ class App {
     lifes = 0;
     lvlIndex = 0;
     points = 0;
+    stats;
+
+    constructor() {
+        this.stats = {
+            bricks: [0, 0, 0],
+            drops: 0
+        };
+    }
 
     /**
      * Made appear the start button

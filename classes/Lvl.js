@@ -120,8 +120,9 @@ class Lvl {
     
                             bricks[b.i][b.j] = null;
     
-                            // ball.upExp(brick.exp);
                             app.points += brick.exp;
+                            app.stats.bricks[brick.durability] ++;
+
                             _points.textContent = app.points;
                         }
                     }
@@ -131,6 +132,9 @@ class Lvl {
         }
     }
 
+    /**
+     * Move drops by calling their fonction move and check if it has been caught 
+     */
     moveDrops() {
         let drops = this.drops;
 
@@ -139,6 +143,9 @@ class Lvl {
                 let isRemove = drop.move();
                 if(isRemove) {
                     drops.splice(drops.indexOf(drop), 1);
+                    app.stats.drops ++;
+                    //add to points
+                    app.points ++;
                 }
             });
         }
