@@ -57,7 +57,7 @@ class App {
     }
 
     /**
-     * Increase app lvl index, and stop it if is the last lvl.
+     * Increase app lvl index. If it is the last lvl, App stop() and display 'win' button.
      */
     static winNormalLvl() { 
         app.lvlIndex ++;

@@ -57,5 +57,13 @@ class Paddle {
         }
     }
 
+    expand() {
+        this.width += 4;
+    }
 
+    reduce() {
+        if(this.width > 14) {
+            this.width -= 4;
+        }
+    }
 }

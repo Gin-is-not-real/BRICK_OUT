@@ -75,13 +75,11 @@ class Drop {
         switch (bonus.name) {
 
             case 'paddle+': 
-                paddle.width += 4;
+                paddle.expand();
                 break;
 
             case 'paddle-': 
-                if(paddle.width > 14) {
-                    paddle.width -= 4;
-                }
+                paddle.reduce();
                 break;
 
             case 'speed-': 
