@@ -17,7 +17,7 @@
  * @method activeMeteorMode()
 */
 class Ball {
-    V_STEP = 0.05;
+    V_STEP = 0.2;
     radius = 6;
     x = 100; 
     y = 120; 
@@ -163,11 +163,15 @@ class Ball {
     speedUp() {
         this.vx = this.vx > 0.1 ? this.vx + this.V_STEP : this.vx < 0.01 ? this.vx - this.V_STEP : this.vx;
         this.vy = this.vy > 0.1 ? this.vy + this.V_STEP : this.vy < 0.01 ? this.vy - this.V_STEP : this.vy;
+
+        _speed.textContent = String(this.vx).replace("-", "").substr(0, 3);
     }
 
     speedDown() {
         this.vx = this.vx > 0.1 ? this.vx - this.V_STEP : this.vx < 0.01 ? this.vx + this.V_STEP : this.vx;
         this.vy = this.vy > 0.1 ? this.vy - this.V_STEP : this.vy < 0.01 ? this.vy + this.V_STEP : this.vy;
+
+        _speed.textContent = String(this.vx).replace("-", "").substr(0, 3);
     }
 
     /**

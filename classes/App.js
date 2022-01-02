@@ -53,6 +53,8 @@ class App {
         _lifes.textContent = app.lifes;
         _lvl.textContent = app.lvlIndex + 1;
         _points.textContent = app.points;
+        _speed.textContent = String(ball.vx).replace("-", "").substr(0, 3);
+
         App.initLvl(lvls[app.lvlIndex]);
     }
 
@@ -61,6 +63,7 @@ class App {
      */
     static winNormalLvl() { 
         app.lvlIndex ++;
+        _lvl.textContent = app.lvlIndex + 1;
 
         if(app.lvlIndex < lvls.length) {
             // App.initLvl(lvls[app.lvlIndex]);
@@ -85,6 +88,8 @@ class App {
         app.state = 'init';
         lvl.initBricks(lvlPattern);
         App.initBall();
+
+        _lvl.textContent = lvls.indexOf(lvlPattern) +1;
     }
 
     /**
@@ -135,7 +140,7 @@ class App {
 
         ball.move();
 
-        _speed.textContent = ball.vx;
+        // _speed.textContent = ball.vx;
         _width.textContent = paddle.width;
 
         App.draw();
