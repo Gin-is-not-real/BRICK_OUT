@@ -1,11 +1,11 @@
-//////////////////////////////////////////////
-//DEV
-let _dev = document.querySelector('#switch-dev')
-let _restart = document.querySelector('#restart');
-let _changeLvl = document.querySelector('#change-lvl');
-let _playerXp = document.querySelector('#player-xp');
+// //////////////////////////////////////////////
+// //DEV
+// let _dev = document.querySelector('#switch-dev')
+// let _restart = document.querySelector('#restart');
+// let _changeLvl = document.querySelector('#change-lvl');
+// let _playerXp = document.querySelector('#player-xp');
 
-let devIsActive = false;
+// let devIsActive = false;
 
 //////////////////////////////////////////////
 //HUB
