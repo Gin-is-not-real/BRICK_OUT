@@ -69,9 +69,13 @@ class Paddle {
     }
 
     shoot() {
-        let x = this.x + (this.width/2);
-        let y = this.y;
-        this.gunshot = {x: x, y: y};
+        if(app.gunshots > 0) {
+            app.gunshots --;
+            _gunshots.textContent = app.gunshots;
+            let x = this.x + (this.width/2);
+            let y = this.y;
+            this.gunshot = {x: x, y: y};
+        }
     }
 
     moveShoot() {
@@ -91,38 +95,28 @@ class Paddle {
                 }
                 else {
                     //definir la colonne du tab avec this.gunshot.x/BRICK_WIDTH +1
-                    // let colIndex = parseInt(this.gunshot.x/BRICK_WIDTH +1);
+                    let colIndex = parseInt(this.gunshot.x/BRICK_WIDTH);
 
-                    // for(let i = 0; i < lvl.bricks.length; i ++) {
-                    //     let brick = lvl.bricks[i][colIndex];
+                    for(let i = lvl.bricks.length-1; i > 0; i --) {
+                        let brick = lvl.bricks[i][colIndex];
 
-                    //     if(brick !== undefined && brick !== null) {
-                    //         console.log('touch');
-                    //         lvl.drops.push(brick.changeInDrop());
-                    //         lvl.bricks[i][colIndex] = null;
-    
-                    //         app.points += brick.exp;
-                    //         app.stats.bricks[brick.durability] ++;
+                        if(brick !== undefined && brick !== null) {
+                            this.gunshot = undefined;
+                            lvl.destroyBrick(brick.line, brick.column);
 
-                    //         _points.textContent = app.points;
-                    //     }
-                    // }
-                    this.gunshot.y = y;
+                            break;
+                        }
+                        else {
+                            this.gunshot.y = y;
+                        }
+                    }
                 }
             }
-
-            //soit lenght du tab*brick height
-            // else if(y <= lvl.bricks.lenght) {
-
-            // }
-            // console.log(this.gunshot.x/BRICK_WIDTH +1);
         }
     }
 
     drawShoot() {
         if(this.gunshot !== undefined) {
-            // console.log('gunshot ', this.gunshot);
-
             ctx.beginPath();
             ctx.rect(this.gunshot.x, this.gunshot.y-1, 2, 6);
             ctx.closePath();

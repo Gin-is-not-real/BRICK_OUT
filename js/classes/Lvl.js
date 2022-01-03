@@ -30,7 +30,7 @@ class Lvl {
 
                 let brick = null;
                 if(id !== 0) {
-                    brick = new Brick(id);
+                    brick = new Brick(id, i, j);
                     let x = (j*brick.width)+1;
                     let y = (i*brick.height)+1;
                     brick.initPath(x, y);
@@ -69,7 +69,8 @@ class Lvl {
             for(let j = 0; j < bricks[i].length; j++) {
                 if(bricks[i][j] !== null) {
                     if(this.checkIfExposed(i, j) === true) {
-                        exposed.push({brick: bricks[i][j], i: i, j:j});
+                        // exposed.push({brick: bricks[i][j], i: i, j:j});
+                        exposed.push(bricks[i][j]);
                     }
                 }
             }
@@ -107,29 +108,34 @@ class Lvl {
 
         if(exposed !== undefined) {
             exposed.forEach(b => {
-                let brick = bricks[b.i][b.j];
+                let brick = bricks[b.line][b.column];
     
                 if(brick !== null) {
                     let isHit = ball.checkIfHit(brick);
     
                     if(isHit) {
-                        bricks[b.i][b.j].durability --;
+                        bricks[b.line][b.column].durability --;
     
-                        if(bricks[b.i][b.j].durability < 0) {
-                            this.drops.push(brick.changeInDrop());
-    
-                            bricks[b.i][b.j] = null;
-    
-                            app.points += brick.exp;
-                            app.stats.bricks[brick.durability] ++;
-
-                            _points.textContent = app.points;
+                        if(bricks[b.line][b.column].durability < 0) {
+                            this.destroyBrick(b.line, b.column);
                         }
                     }
                 }
             })
             this.bricks = bricks;
         }
+    }
+
+    destroyBrick(line, column) {
+        let brick = this.bricks[line][column];
+        this.drops.push(brick.changeInDrop());
+
+        app.points += brick.exp;
+        _points.textContent = app.points;
+
+        app.stats.bricks[brick.durability] ++;
+
+        this.bricks[line][column] = null;
     }
 
     /**

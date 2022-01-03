@@ -22,11 +22,16 @@ class Brick {
     path;
     x; 
     y;
+    line;
+    column;
 
-    constructor(typeId) {
+    constructor(typeId, line, column) {
         let type = BRICK_TYPES[typeId-1];
         this.durability = type.durability;
         this.exp = type.exp;
+
+        this.line = line;
+        this.column = column;
     }
 
     initPath(x, y) {
