@@ -11,24 +11,26 @@
 
 
 ## Development
+### Latest add, fix and optimisation
+- Gun shot  
 
-## Next features
-[ ] Scores  
+### Next features
 [ ] Survival mode  
 [ ] Completion time of the levels  
 [ ] Bonus: triple ball  
-[X] Gun shot  
+[ ] Scores  - need server
 
-## Need to be fixed
+
+### Need to be fixed
 [ ] Add the interface/menu  
 [ ] sometimes the ball gets stuck in the wall and only moves vertically  
 [ ] Add graphisms  
 
-## Need to be optimized
+### Need to be optimized
 [ ] Collisions angles of the ball  
 [ ] Redraw only the pad (event mousemouve of canvas)  
 
-## To test
+### To test
 [ ] Ball accéleration when hit an object and decrease with timeout 
 
 
