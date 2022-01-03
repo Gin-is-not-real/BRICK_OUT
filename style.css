@@ -85,14 +85,14 @@ canvas {
     border: var(--bor);
 }
 
-#ball {
+/* #ball {
     width: 20px;
     height: 20px;
     position: relative;
 
     background-color: var(--base-3);
     border-radius: 100%;
-}
+} */
 /* screen */
 #screen {
     position: absolute;

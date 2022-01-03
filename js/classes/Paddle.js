@@ -21,6 +21,7 @@ class Paddle {
     path;
     x; 
     y;
+    gunshot;
 
     /**
      * initialize this x, y properies for place the paddle at the center of the canvas, and this with using the value of const PADDLE_WIDTH
@@ -68,6 +69,27 @@ class Paddle {
     }
 
     shoot() {
-        console.log('gunshot');
+        let x = this.x + (this.width/2);
+        let y = this.y;
+        this.gunshot = {x: x, y: y};
+    }
+
+    moveShoot() {
+        if(this.gunshot !== undefined) {
+            this.gunshot.y --;
+        }
+    }
+
+    drawShoot() {
+        if(this.gunshot !== undefined) {
+            console.log('gunshot ', this.gunshot);
+
+            ctx.beginPath();
+            ctx.rect(this.gunshot.x, this.gunshot.y-1, 2, 6);
+            ctx.closePath();
+
+            ctx.strokeStyle = 'white';
+            ctx.stroke();
+        }
     }
 }

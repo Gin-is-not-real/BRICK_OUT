@@ -131,6 +131,9 @@ class App {
         // ctx.fillStyle = 'rgba(27, 21, 21, 0.45)';
         // ctx.fillRect(0, 0,_canvas.width,_canvas.height);
         paddle.draw();
+        // if(paddle.gunshot !== undefined) {
+            paddle.drawShoot();
+        // }
         ball.draw();
         lvl.draw();
     }
@@ -149,6 +152,8 @@ class App {
         lvl.moveDrops();
 
         ball.move();
+
+        paddle.moveShoot();
 
         // _speed.textContent = ball.vx;
         _width.textContent = paddle.width;

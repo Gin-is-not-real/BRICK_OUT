@@ -2,18 +2,18 @@
 //KEYS
 document.addEventListener('keypress', function(e) {
     //space
-    if(e.keyCode === 32) {
-        if(app.state === 'run') {
-            App.pause();
-        }
-        else if (app.state === 'init' || app.state === 'pause') {
-            App.run();
-        }
-        else if(app.state === 'stop') {
-            App.initBall();
-        }
-    }
-    else if(e.key === 'w') {
+    // if(e.keyCode === 32) {
+    //     if(app.state === 'run') {
+    //         App.pause();
+    //     }
+    //     else if (app.state === 'init' || app.state === 'pause') {
+    //         App.run();
+    //     }
+    //     else if(app.state === 'stop') {
+    //         App.initBall();
+    //     }
+    // }
+    if(e.key === 'w' && app.state !== 'pause' && app.state !== 'stop' && app.state !== 'start') {
         // console.log(e.keyCode);
         paddle.shoot();
     }

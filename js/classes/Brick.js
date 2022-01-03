@@ -1,9 +1,5 @@
 let COLORS = ['yellow', 'orange', 'red'];
-let TYPES = [
-    {durability: 0, exp: 1},
-    {durability: 1, exp: 2},
-    {durability: 2, exp: 3},
-];
+
 
 /**
  * @property {Integer} width 
@@ -19,7 +15,7 @@ let TYPES = [
  * @method changeInDrop()
  */
 class Brick {
-    width = 33;
+    width = BRICK_WIDTH;
     height = 16;
     durability;
     exp;
@@ -28,7 +24,7 @@ class Brick {
     y;
 
     constructor(typeId) {
-        let type = TYPES[typeId-1];
+        let type = BRICK_TYPES[typeId-1];
         this.durability = type.durability;
         this.exp = type.exp;
     }
