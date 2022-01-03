@@ -66,4 +66,8 @@ class Paddle {
             this.width -= 4;
         }
     }
+
+    shoot() {
+        console.log('gunshot');
+    }
 }

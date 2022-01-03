@@ -1,8 +1,26 @@
 //////////////////////////////////////////////
-//HUB
+//KEYS
+document.addEventListener('keypress', function(e) {
+    //space
+    if(e.keyCode === 32) {
+        if(app.state === 'run') {
+            App.pause();
+        }
+        else if (app.state === 'init' || app.state === 'pause') {
+            App.run();
+        }
+        else if(app.state === 'stop') {
+            App.initBall();
+        }
+    }
+    else if(e.key === 'w') {
+        // console.log(e.keyCode);
+        paddle.shoot();
+    }
+})
 
 //////////////////////////////////////////////
-//CANVAS
+//SCREENS BUTTONS
 _play.addEventListener('click', function() {
     App.playNormalGame();
     _screen.classList.add('hidden');
@@ -19,10 +37,6 @@ _next.addEventListener('click', function() {
     App.initLvl(lvls[app.lvlIndex]);
     _screen.classList.add('hidden');
     _next.classList.add('hidden');
-})
-
-_win.addEventListener('click', function() {
-    App.startApp();
 })
 
 _restart.addEventListener('click', function() {

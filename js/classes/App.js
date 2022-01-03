@@ -20,9 +20,10 @@
 
 class App {
     state = 'start';
-    lifes = 0;
     lvlIndex = 0;
     points = 0;
+    lifes = 0;
+    gunshots = 3;
     stats;
 
     constructor() {
@@ -47,13 +48,15 @@ class App {
      * Set lifes to 3, and lvl index and points to 0. Update hub text contents and init the first lvl
      */
     static playNormalGame() {
-        app.lifes = 3;
         app.lvlIndex = 0;
         points = 0;
+        app.lifes = 3;
+        app.gunshots = 3;
 
-        _lifes.textContent = app.lifes;
         _lvl.textContent = app.lvlIndex + 1;
         _points.textContent = app.points;
+        _lifes.textContent = app.lifes;
+        _gunshots.textContent = app.gunshots;
         _speed.textContent = String(ball.vx).replace("-", "").substr(0, 3);
 
         App.initLvl(lvls[app.lvlIndex]);
