@@ -14,29 +14,29 @@
 - enlever l'exp de la balle
 - garder trace des bricks et des drops ramassés
 
-## Latest add, fix and optimisation
+### Latest add, fix and optimisation
 - Bricks drop aleatories powers up 
 - Normal Game
 - Drops give points
 
-## Next features
+### Next features
 [ ] Scores
 [ ] Survival mode
 [ ] Completion time of the levels
 [ ] Bonus: triple ball
 [ ] Bonus: gun shot
 
-## Need to be fixed
+### Need to be fixed
 [ ] Add the interface/menu
 [ ] sometimes the ball gets stuck in the wall and only moves vertically
 [ ] Add graphisms
 
 
-## Need to be optimized
+### Need to be optimized
 [ ] Collisions angles of the ball
 [ ] Redraw only the pad (event mousemouve of canvas)
 
-## To test
+### To test
 [ ] Ball accéleration when hit an object and decrease with timeout
 
 ***
