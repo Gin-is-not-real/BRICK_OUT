@@ -86,6 +86,6 @@ let lvlDevOne = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
 ]
 
-// let lvls = [lvlDevOne];
+// let lvls = [lvlDevOne, lvlDevOne];
 let lvls = [lvl_1, lvl_2, lvl_3, lvl_4, lvl_5, lvl_6, lvl_7];
 

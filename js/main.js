@@ -23,7 +23,7 @@ let _play = document.querySelector('#play');
 let _replay = document.querySelector('#replay');
 let _next = document.querySelector('#next');
 let _win = document.querySelector('#win');
-
+let _restart = document.querySelector('#restart');
 //////////////////////////////////////////////
 //APP
 let _canvas = document.querySelector('canvas');

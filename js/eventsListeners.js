@@ -25,6 +25,10 @@ _win.addEventListener('click', function() {
     App.startApp();
 })
 
+_restart.addEventListener('click', function() {
+    App.startApp();
+    _restart.classList.add('hidden');
+})
 //////////////////////////////////////////////
 //CANVAS
 _canvas.addEventListener('mousemove', function(e) {

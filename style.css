@@ -104,6 +104,9 @@ canvas {
     background-color: var(--dark-3);
     border: var(--bor);
 }
+#screen * {
+    text-transform: uppercase;
+}
 #screen-content {
     display: flex;
     flex-direction: column;

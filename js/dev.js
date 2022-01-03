@@ -2,7 +2,7 @@
 //DEV
 let _dev = document.querySelector('#dev');
 let _devSwitch = document.querySelector('#switch-dev');
-let _restart = document.querySelector('#restart');
+let _devMenu = document.querySelector('#btn-menu');
 let _changeLvl = document.querySelector('#change-lvl');
 let _playerXp = document.querySelector('#player-xp');
 
@@ -19,7 +19,7 @@ _devSwitch.addEventListener('click', function() {
         this.textContent = 'stop dev';
     }
 })
-_restart.addEventListener('click', function() {
+_devMenu.addEventListener('click', function() {
     App.pause();
     App.initLvl(lvls[app.lvlIndex]);
 })

@@ -74,6 +74,8 @@ class App {
         }
         else {
             App.winNormalGame();
+        _restart.classList.remove('hidden');
+
         }
     }
 
@@ -81,6 +83,7 @@ class App {
         App.stop();
         _screen.classList.remove('hidden');
         _message.textContent = app.points + ' total points ! ';
+        _restart.classList.remove('hidden');
     }
 
     /**
