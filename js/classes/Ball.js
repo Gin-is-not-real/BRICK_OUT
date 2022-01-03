@@ -17,13 +17,11 @@
  * @method activeMeteorMode()
 */
 class Ball {
-    V_STEP = 0.2;
-    radius = 6;
+    color = BALL_COLOR;
     x = 100; 
     y = 120; 
     vx = 1;
     vy = -1;
-    color = '#955b108a';
     exp;
     meteorMode = false;
 
@@ -43,7 +41,7 @@ class Ball {
      */
     draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
+        ctx.arc(this.x, this.y, BALL_RADIUS, 0, Math.PI*2, true);
         ctx.closePath();
         ctx.fillStyle = this.color;
         ctx.fill();
@@ -65,18 +63,18 @@ class Ball {
         let nextY = this.y;
 
         //si la balle touche un bord, inverse les vitesses 
-        if((nextX + this.radius) > _canvas.width || (nextX - this.radius) < 0) {
+        if((nextX + BALL_RADIUS) > _canvas.width || (nextX - BALL_RADIUS) < 0) {
             this.revert('vx');
         }
-        if(nextY - this.radius < 0) {
+        if(nextY - BALL_RADIUS < 0) {
             this.revert('vy');
         }
         
         //si la balle passe a hauteur du paddle
-        else if((nextY + this.radius) > paddle.y) {
+        else if((nextY + BALL_RADIUS) > paddle.y) {
 
             //If the ball it the ground
-            if(nextY - this.radius > _canvas.height) {
+            if(nextY - BALL_RADIUS > _canvas.height) {
                 // DEV
                 if(devIsActive) {
                     this.revert('vy');
@@ -102,10 +100,10 @@ class Ball {
      */
     checkIfHit(object) {
         //Points de la balle
-        let top = this.y - this.radius;
-        let bottom = this.y + this.radius;
-        let left = this.x - this.radius;
-        let right = this.x + this.radius;
+        let top = this.y - BALL_RADIUS;
+        let bottom = this.y + BALL_RADIUS;
+        let left = this.x - BALL_RADIUS;
+        let right = this.x + BALL_RADIUS;
 
         let isHitting = false;
 
@@ -161,15 +159,15 @@ class Ball {
     }
 
     speedUp() {
-        this.vx = this.vx > 0.1 ? this.vx + this.V_STEP : this.vx < 0.01 ? this.vx - this.V_STEP : this.vx;
-        this.vy = this.vy > 0.1 ? this.vy + this.V_STEP : this.vy < 0.01 ? this.vy - this.V_STEP : this.vy;
+        this.vx = this.vx > 0.1 ? this.vx + BALL_SPEED_STEP : this.vx < 0.01 ? this.vx - BALL_SPEED_STEP : this.vx;
+        this.vy = this.vy > 0.1 ? this.vy + BALL_SPEED_STEP : this.vy < 0.01 ? this.vy - BALL_SPEED_STEP : this.vy;
 
         _speed.textContent = String(this.vx).replace("-", "").substr(0, 3);
     }
 
     speedDown() {
-        this.vx = this.vx > 0.1 ? this.vx - this.V_STEP : this.vx < 0.01 ? this.vx + this.V_STEP : this.vx;
-        this.vy = this.vy > 0.1 ? this.vy - this.V_STEP : this.vy < 0.01 ? this.vy + this.V_STEP : this.vy;
+        this.vx = this.vx > 0.1 ? this.vx - BALL_SPEED_STEP : this.vx < 0.01 ? this.vx + BALL_SPEED_STEP : this.vx;
+        this.vy = this.vy > 0.1 ? this.vy - BALL_SPEED_STEP : this.vy < 0.01 ? this.vy + BALL_SPEED_STEP : this.vy;
 
         _speed.textContent = String(this.vx).replace("-", "").substr(0, 3);
     }
@@ -198,7 +196,7 @@ class Ball {
         let self = this;
         let timeout = setTimeout(function() {
             self.meteorMode = false;
-            self.color = '#955b108a';
+            self.color = BALL_COLOR;
             clearTimeout(timeout);
         }, 4000);
         

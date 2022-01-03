@@ -16,7 +16,7 @@ let COLORS = ['yellow', 'orange', 'red'];
  */
 class Brick {
     width = BRICK_WIDTH;
-    height = 16;
+    height = BRICK_HEIGHT;
     durability;
     exp;
     path;

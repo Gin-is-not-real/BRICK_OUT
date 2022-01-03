@@ -76,13 +76,20 @@ class Paddle {
 
     moveShoot() {
         if(this.gunshot !== undefined) {
-            this.gunshot.y --;
+            let y = this.gunshot.y -1;
+
+            if(y < 0) {
+                this.gunshot = undefined;
+            }
+            
+            console.log(this.gunshot.x);
+            console.log(this.gunshot.x/BRICK_WIDTH +1);
         }
     }
 
     drawShoot() {
         if(this.gunshot !== undefined) {
-            console.log('gunshot ', this.gunshot);
+            // console.log('gunshot ', this.gunshot);
 
             ctx.beginPath();
             ctx.rect(this.gunshot.x, this.gunshot.y-1, 2, 6);
