@@ -5,6 +5,7 @@
  * @method startApp() - Made appear the start button
  * @method playNormalGame() - reset lvl index and points, and set lifes count to 3
  * @method winNormalLvl() - Increase app lvl index, and stop it if is the last lvl.
+ * @method winNormalGame()
  * 
  * @method initLvl()
  * @method initBall()
@@ -67,16 +68,19 @@ class App {
 
         if(app.lvlIndex < lvls.length) {
             // App.initLvl(lvls[app.lvlIndex]);
+            _message.textContent = app.points + ' points earned ! ';
             _screen.classList.remove('hidden');
             _next.classList.remove('hidden');
         }
         else {
-            App.stop();
-            _screen.classList.remove('hidden');
-            _win.classList.remove('hidden');
-            _message.textContent = app.points + ' points earned ! ';
-            // App.winNormalGame();
+            App.winNormalGame();
         }
+    }
+
+    static winNormalGame() {
+        App.stop();
+        _screen.classList.remove('hidden');
+        _message.textContent = app.points + ' total points ! ';
     }
 
     /**
