@@ -12,24 +12,6 @@ Just clone or the repository, open folder and run **index.html**.
 - Bricks drop aleatories powers up   
 - Normal Game  
 - Drops give points  
-
-## Next features
-[ ] Scores  
-[ ] Survival mode  
-[ ] Completion time of the levels  
-[ ] Bonus: triple ball  
-[ ] Bonus: gun shot  
-
-## Need to be fixed
-[ ] Add the interface/menu  
-[ ] sometimes the ball gets stuck in the wall and only moves vertically  
-[ ] Add graphisms  
-
-
-## Need to be optimized
-[ ] Collisions angles of the ball  
-[ ] Redraw only the pad (event mousemouve of canvas)  
-
-## To test
-[ ] Ball accéleration when hit an object and decrease with timeout  
+- Gunshots
+ 
 
