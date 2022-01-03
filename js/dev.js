@@ -23,10 +23,10 @@ _devMenu.addEventListener('click', function() {
     App.pause();
     App.initLvl(lvls[app.lvlIndex]);
 })
-_changeLvl.count = 0;
 _changeLvl.addEventListener('click', function() {
-    this.count = (this.count + 1) < lvls.length ? this.count +1 : 0;
-    App.initLvl(lvls[this.count]);
+    app.lvlIndex ++;
+    App.stop();
+    App.initLvl(lvls[app.lvlIndex]);
 })
 
 document.querySelector('#speed-up').addEventListener('click', function() {

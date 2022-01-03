@@ -38,7 +38,7 @@ class App {
     static startApp() {
         app.state = 'start';
 
-        _win.classList.add('hidden');
+        _message.classList.add('hidden');
         _screen.classList.remove('hidden');
         _play.classList.remove('hidden');
     }

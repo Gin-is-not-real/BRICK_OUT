@@ -12,15 +12,17 @@ Just clone or the repository, open folder and run **index.html**.
 - Normal Game
 
 ## Next features
+[ ] Scores
 [ ] Survival mode
 [ ] Completion time of the levels
-[ ] Scores
 [ ] Bonus: triple ball
 [ ] Bonus: gun shot
 
 ## Need to be fixed
-[ ] Add the interface
+[ ] Add the interface/menu
 [ ] sometimes the ball gets stuck in the wall and only moves vertically
+[ ] Add graphisms
+
 
 ## Need to be optimized
 [ ] Collisions angles of the ball
