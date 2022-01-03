@@ -1,4 +1,4 @@
-let COLORS = ['yellow', 'orange', 'red'];
+let DURABILTY_COLORS = ['yellow', 'orange', 'red'];
 
 
 /**
@@ -37,7 +37,7 @@ class Brick {
     }
 
     draw() {
-        ctx.strokeStyle = COLORS[this.durability];
+        ctx.strokeStyle = DURABILTY_COLORS[this.durability];
         ctx.stroke(this.path);
     }
 

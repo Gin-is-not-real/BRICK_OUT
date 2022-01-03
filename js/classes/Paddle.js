@@ -77,13 +77,45 @@ class Paddle {
     moveShoot() {
         if(this.gunshot !== undefined) {
             let y = this.gunshot.y -1;
+            this.gunshot.y = y;
 
-            if(y < 0) {
-                this.gunshot = undefined;
+            //coordonnée y du bas du tab de briques
+            let bottom = lvl.bricks.length * BRICK_HEIGHT;
+
+            //si y atteind le bas du tab de briques
+            if(y <= bottom) {
+                //si y sort
+                if(y < 0) {
+                    this.gunshot = undefined;
+                    console.log('clear gunshot');
+                }
+                else {
+                    //definir la colonne du tab avec this.gunshot.x/BRICK_WIDTH +1
+                    // let colIndex = parseInt(this.gunshot.x/BRICK_WIDTH +1);
+
+                    // for(let i = 0; i < lvl.bricks.length; i ++) {
+                    //     let brick = lvl.bricks[i][colIndex];
+
+                    //     if(brick !== undefined && brick !== null) {
+                    //         console.log('touch');
+                    //         lvl.drops.push(brick.changeInDrop());
+                    //         lvl.bricks[i][colIndex] = null;
+    
+                    //         app.points += brick.exp;
+                    //         app.stats.bricks[brick.durability] ++;
+
+                    //         _points.textContent = app.points;
+                    //     }
+                    // }
+                    this.gunshot.y = y;
+                }
             }
-            
-            console.log(this.gunshot.x);
-            console.log(this.gunshot.x/BRICK_WIDTH +1);
+
+            //soit lenght du tab*brick height
+            // else if(y <= lvl.bricks.lenght) {
+
+            // }
+            // console.log(this.gunshot.x/BRICK_WIDTH +1);
         }
     }
 
