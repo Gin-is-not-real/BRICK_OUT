@@ -12,20 +12,20 @@ Just clone or the repository, open folder and run **index.html**.
 - Normal Game
 
 ## Next features
-[ ] Survival mode
-[ ] Completion time of the levels
-[ ] Scores
-[ ] Bonus: triple ball
-[ ] Bonus: gun shot
+[ ] Survival mode  
+[ ] Completion time of the levels  
+[ ] Scores  
+[ ] Bonus: triple ball  
+[ ] Bonus: gun shot  
 
 ## Need to be fixed
-[ ] Add the interface
-[ ] sometimes the ball gets stuck in the wall and only moves vertically
+[ ] Add the interface  
+[ ] sometimes the ball gets stuck in the wall and only moves vertically  
 
 ## Need to be optimized
-[ ] Collisions angles of the ball
-[ ] Redraw only the pad (event mousemouve of canvas)
+[ ] Collisions angles of the ball  
+[ ] Redraw only the pad (event mousemouve of canvas)  
 
 ## To test
-[ ] Ball accéleration when hit an object and decrease with timeout
+[ ] Ball accéleration when hit an object and decrease with timeout  
 
