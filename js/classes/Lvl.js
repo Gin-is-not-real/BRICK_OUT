@@ -143,9 +143,13 @@ class Lvl {
                 let isRemove = drop.move();
                 if(isRemove) {
                     drops.splice(drops.indexOf(drop), 1);
-                    app.stats.drops ++;
-                    //add to points
-                    app.points ++;
+
+                    if(isRemove === 'catched') {
+                        app.stats.drops ++;
+                        //add to points
+                        app.points ++;
+                        _points.textContent = app.points;
+                    }
                 }
             });
         }

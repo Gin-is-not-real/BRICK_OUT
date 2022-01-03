@@ -53,19 +53,19 @@ class Drop {
         if((y) + DROP_HEIGHT > paddle.y) {
             if((y) + DROP_HEIGHT > _canvas.height) {
                 //destroyed by ground
-                return true;
+                return 'destroyed';
             }
             else {
                 if(this.x > paddle.x && this.x < (paddle.x + paddle.width)) {
                     //catched by paddle
                     this.applyBonus();
-                    return true;
+                    return 'catched';
                 }
             }
         }
         
         this.initPath(this.x, y);
-        return false;
+        return null;
     }
 
     applyBonus() {
