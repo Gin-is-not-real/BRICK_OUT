@@ -135,7 +135,7 @@ class App {
 
 
     /**
-     * Set lifes to 3, and lvl index and points to 0. Update hub text contents and init the first lvl
+     * Set lifes and gunshots to 3, and lvl index and points to 0. Update hub text contents and init the first lvl
      */
     static initNormalGame() {
         App.setLvlIndex(0);
@@ -150,8 +150,11 @@ class App {
     }
 
     
+    /**
+     * Remove 1 life. If it the last life, call looseGame(). Else, clear drops on lvl, stop app and init and init a ball
+     */
     static looseBall() {
-        App.setLifes(app.lifes--);
+        App.setLifes(app.lifes-1);
 
         if(app.lifes <= 0) {
             App.looseGame();

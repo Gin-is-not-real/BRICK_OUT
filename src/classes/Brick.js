@@ -15,8 +15,6 @@ let DURABILTY_COLORS = ['yellow', 'orange', 'red'];
  * @method changeInDrop()
  */
 class Brick {
-    width = BRICK_WIDTH;
-    height = BRICK_HEIGHT;
     durability;
     exp;
     path;
@@ -38,17 +36,11 @@ class Brick {
         this.x = x;
         this.y = y;
         this.path = new Path2D();
-        this.path.rect(this.x, this.y, this.width-2, this.height-2);
+        this.path.rect(this.x, this.y, BRICK_WIDTH-2, BRICK_HEIGHT-2);
     }
 
     draw() {
         ctx.strokeStyle = DURABILTY_COLORS[this.durability];
         ctx.stroke(this.path);
-    }
-
-    changeInDrop() {
-        let drop = new Drop(this.exp, this.x + (this.width/2) - 5, this.y + (this.height/2) - 4);
-
-        return drop;
     }
 }

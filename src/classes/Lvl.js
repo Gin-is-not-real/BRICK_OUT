@@ -31,8 +31,8 @@ class Lvl {
                 let brick = null;
                 if(id !== 0) {
                     brick = new Brick(id, i, j);
-                    let x = (j*brick.width)+1;
-                    let y = (i*brick.height)+1;
+                    let x = (j*BRICK_WIDTH)+1;
+                    let y = (i*BRICK_HEIGHT)+1;
                     brick.initPath(x, y);
                 }
                 line.push(brick);
@@ -127,7 +127,8 @@ class Lvl {
 
     destroyBrick(line, column) {
         let brick = this.bricks[line][column];
-        this.drops.push(brick.changeInDrop());
+        let drop = new Drop(brick.exp, brick.x + (BRICK_WIDTH/2) - 5, brick.y + (BRICK_HEIGHT/2) - 4);
+        this.drops.push(drop);
 
         app.points += brick.exp;
         _points.textContent = app.points;
