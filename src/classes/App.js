@@ -144,13 +144,6 @@ class App {
         App.setLifes(3);
         App.setGunshots(3);
 
-        // app.points = 0;
-        // app.lifes = 3;
-        // app.gunshots = 3;
-        // _points.textContent = app.points;
-        // _lifes.textContent = app.lifes;
-        // _gunshots.textContent = app.gunshots;
-
         _speed.textContent = String(ball.vx).replace("-", "").substr(0, 3);
         _width.textContent = paddle.width;
 
