@@ -41,9 +41,7 @@ class App {
     static startApp() {
         app.state = 'start';
 
-        _message.classList.add('hidden');
-        _screen.classList.remove('hidden');
-        _play.classList.remove('hidden');
+        Screen.displayStartScreen();
     }
 
 
@@ -117,8 +115,6 @@ class App {
         app.state = 'init';
         lvl.initBricks(lvlPattern);
         App.initBall();
-
-        // _lvl.textContent = lvls.indexOf(lvlPattern) +1;
     }
 
     /**
@@ -171,9 +167,7 @@ class App {
         App.setLvlIndex(app.lvlIndex + 1);
 
         if(app.lvlIndex < lvls.length) {
-            _message.textContent = app.points + ' points earned ! ';
-            _screen.classList.remove('hidden');
-            _next.classList.remove('hidden');
+            Screen.displayWinNormalLvl();
         }
         else {
             App.winNormalGame();
@@ -182,9 +176,7 @@ class App {
 
     static winNormalGame() {
         App.stop();
-        _screen.classList.remove('hidden');
-        _message.textContent = app.points + ' total points ! ';
-        _restart.classList.remove('hidden');
+        Screen.displayWinNormalGame();
     }
 
 

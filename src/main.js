@@ -14,8 +14,8 @@ let _message = document.querySelector('#message');
 let _play = document.querySelector('#play');
 let _replay = document.querySelector('#replay');
 let _next = document.querySelector('#next');
-let _win = document.querySelector('#win');
 let _restart = document.querySelector('#restart');
+let screenButtons = [_message, _play, _replay, _next, _restart];
 //////////////////////////////////////////////
 //APP
 let _canvas = document.querySelector('canvas');
@@ -30,3 +30,5 @@ let app = new App();
 let paddle = new Paddle();
 let ball = new Ball();
 let lvl = new Lvl();
+
+App.startApp();
