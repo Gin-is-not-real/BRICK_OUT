@@ -19,6 +19,12 @@ document.addEventListener('keypress', function(e) {
 
 //////////////////////////////////////////////
 //SCREENS BUTTONS
+_pauseScreen.addEventListener('click', function() {
+    Screen.hidePauseScreen();
+    App.run();
+})
+
+
 _play.addEventListener('click', function() {
     Screen.hideAll();
     App.initNormalGame();
@@ -60,7 +66,7 @@ _canvas.addEventListener("click", function(e) {
     else if(app.state === 'stop') {
         App.initBall();
     }
-    else if(app.state === 'init' || app.state === 'pause') {
+    else if(app.state === 'init') {
         App.run();
     }
 

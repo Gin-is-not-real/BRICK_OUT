@@ -99,18 +99,21 @@ canvas {
     border-radius: 100%;
 } */
 /* screen */
-#screen {
+.screen {
     position: absolute;
     box-sizing: border-box;
     width: 330px;
     height: 300px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     background-color: var(--dark-3);
     border: var(--bor);
 }
+
 #screen * {
     text-transform: uppercase;
 }

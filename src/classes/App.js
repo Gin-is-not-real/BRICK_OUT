@@ -40,7 +40,6 @@ class App {
      */
     static startApp() {
         app.state = 'start';
-
         Screen.displayStartScreen();
     }
 
@@ -73,6 +72,8 @@ class App {
      * Check if brick if hitted and move falling drops by calling Lvl function checkForAffectedBricks() and moveDrops(), move ball and draw the canvas
      */
     static run() {
+        Screen.hidePauseScreen();
+
         app.state = 'run';
         if(frame !== undefined) {
             frame = window.requestAnimationFrame(App.run);
@@ -91,6 +92,8 @@ class App {
      * Cancel the animation frame and set state to 'pause'
      */
     static pause() {
+        Screen.displayPauseScreen();
+
         app.state = 'pause';
         window.cancelAnimationFrame(frame);
     }
@@ -155,7 +158,7 @@ class App {
         }
         else {
             lvl.drops = [];
-            App.pause();
+            App.stop();
             App.initBall();
         }
     }
@@ -164,10 +167,11 @@ class App {
      * Increase app lvl index. If it is the last lvl, App stop() and display 'win' button.
      */
     static winNormalLvl() { 
-        App.setLvlIndex(app.lvlIndex + 1);
+        App.stop();
 
-        if(app.lvlIndex < lvls.length) {
+        if(app.lvlIndex +1 < lvls.length) {
             Screen.displayWinNormalLvl();
+            App.setLvlIndex(app.lvlIndex + 1);
         }
         else {
             App.winNormalGame();

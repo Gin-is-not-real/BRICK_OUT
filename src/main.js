@@ -9,6 +9,8 @@ let _width = document.querySelector('#paddle-width>p');
 
 //////////////////////////////////////////////
 //CANVAS
+let _pauseScreen = document.querySelector('#pause');
+
 let _screen = document.querySelector('#screen');
 let _message = document.querySelector('#message');
 let _play = document.querySelector('#play');

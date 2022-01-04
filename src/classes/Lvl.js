@@ -77,7 +77,6 @@ class Lvl {
         }
 
         if(exposed === undefined || exposed.length <= 0) {
-            App.pause();
             App.winNormalLvl();
             return;
         }

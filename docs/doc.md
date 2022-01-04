@@ -13,6 +13,7 @@
 ## Development
 ### Latest add, fix and optimisation
 - Gun shot  
+- class Screen with static functions to display screen menu and button
 
 ### Next features
 [ ] Survival mode  
@@ -80,7 +81,7 @@
 
 ***
 
-### src/classes *need restructure*
+### src/classes *need update*
 ***
 #### App
 - state (*start, init, run, pause, stop)*
