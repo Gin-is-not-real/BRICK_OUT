@@ -15,6 +15,8 @@
 - Gun shot  
 - class Screen with static functions to display screen menu and button
 - App setters for game properties
+- class Timer
+- Remove Ball exp
 
 ### Next features
 [ ] Survival mode  
@@ -30,7 +32,7 @@
 
 ### Need to be optimized
 [ ] Collisions angles of the ball  
-[ ] Redraw only the pad (event mousemouve of canvas)  
+[ ] Draw  
 
 ### To test
 [ ] Ball accéleration when hit an object and decrease with timeout 

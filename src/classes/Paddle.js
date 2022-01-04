@@ -80,7 +80,7 @@ class Paddle {
 
     moveShoot() {
         if(this.gunshot !== undefined) {
-            let y = this.gunshot.y -1;
+            let y = this.gunshot.y -2;
             this.gunshot.y = y;
 
             //coordonnée y du bas du tab de briques
