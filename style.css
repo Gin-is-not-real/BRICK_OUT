@@ -42,7 +42,6 @@ body > header {
 /*  */
 main {
     padding: 2%;
-
 }
 /*  */
 #main-container {
@@ -138,11 +137,19 @@ canvas {
 #instructions-container {
     display: flex;
     flex-direction: column;
-    gap: 2%;
+    gap: 5%;
 }
-#instructions-container * {
+.key {
+    min-width: 200px;
+    max-width: 300px;
     display: flex;
-    gap: 2%;
+    justify-content: space-between;
+}
+.key p {
+    margin-left: 10px;
+}
+#tutorial-container h3 {
+    margin-bottom: 5px;
 }
 .tutorial {
     margin-bottom: 10px;
