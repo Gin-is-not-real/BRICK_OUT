@@ -10,7 +10,7 @@ document.addEventListener('keypress', function(e) {
             App.run();
         }
     }
-    
+
     if((e.key === 'w' || e.key === 'x')&& app.state !== 'pause' && app.state !== 'stop' && app.state !== 'start') {
         // console.log(e.keyCode);
         paddle.shoot();
@@ -20,26 +20,23 @@ document.addEventListener('keypress', function(e) {
 //////////////////////////////////////////////
 //SCREENS BUTTONS
 _play.addEventListener('click', function() {
+    Screen.hideAll();
     App.initNormalGame();
-    _screen.classList.add('hidden');
-    _play.classList.add('hidden');
 })
 
 _replay.addEventListener('click', function() {
+    Screen.hideAll();
     App.initNormalGame();
-    _screen.classList.add('hidden');
-    _replay.classList.add('hidden');
 })
 
 _next.addEventListener('click', function() {
+    Screen.hideAll();
     App.initLvl(lvls[app.lvlIndex]);
-    _screen.classList.add('hidden');
-    _next.classList.add('hidden');
 })
 
 _restart.addEventListener('click', function() {
+    Screen.hideAll();
     App.startApp();
-    _restart.classList.add('hidden');
 })
 //////////////////////////////////////////////
 //CANVAS

@@ -1,6 +1,6 @@
 class Screen {
     
-    static hideScreen() {
+    static hideAll() {
         _screen.classList.add('hidden');
         _message.classList.add('hidden');
 
