@@ -4,7 +4,6 @@
  *@property {Integer} vx
  *@property {Integer} vy
  *@property {String} color
- *@property {Integer} exp
  *@property {Boolean} meteorMode
  * 
  * @method init() init this x and y properties for place ball on the paddle, init this vx and vy (speed) 
@@ -13,7 +12,6 @@
  * @method checkIfHit()
  * @method speedUp()
  * @method speedDown()
- * @method upExp()
  * @method activeMeteorMode()
 */
 class Ball {
@@ -22,7 +20,6 @@ class Ball {
     y = 120; 
     vx = 1;
     vy = -1;
-    exp;
     meteorMode = false;
 
     /**
@@ -33,7 +30,6 @@ class Ball {
         this.y = paddle.y - (paddle.height/2);
         this.vx = 1;
         this.vy = -1;
-        this.exp = 0;
     }
 
     /**
@@ -170,20 +166,6 @@ class Ball {
         this.vy = this.vy > 0.1 ? this.vy - BALL_SPEED_STEP : this.vy < 0.01 ? this.vy + BALL_SPEED_STEP : this.vy;
 
         _speed.textContent = String(this.vx).replace("-", "").substr(0, 3);
-    }
-
-    /**
-     * Increase exp and update front
-     * @param {Integer} nbr 
-     */
-    upExp(nbr) {
-        this.exp += nbr;
-
-        // if(this.exp%10 == 0) {
-        //     this.vx = this.vx < 0 ? this.vx + (-0.2) : this.vx +0.2;
-        //     this.vy = this.vy < 0 ? this.vy + (-0.2) : this.vy +0.2;
-        // }
-        _points.textContent = 'exp: ' + this.exp;
     }
 
     /**

@@ -127,10 +127,10 @@ class Lvl {
 
     destroyBrick(line, column) {
         let brick = this.bricks[line][column];
-        let drop = new Drop(brick.exp, brick.x + (BRICK_WIDTH/2) - 5, brick.y + (BRICK_HEIGHT/2) - 4);
+        let drop = new Drop(brick.points, brick.x + (BRICK_WIDTH/2) - 5, brick.y + (BRICK_HEIGHT/2) - 4);
         this.drops.push(drop);
 
-        app.points += brick.exp;
+        app.points += brick.points;
         _points.textContent = app.points;
 
         app.stats.bricks[brick.durability] ++;

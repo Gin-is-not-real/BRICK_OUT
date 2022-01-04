@@ -5,7 +5,7 @@ let DURABILTY_COLORS = ['yellow', 'orange', 'red'];
  * @property {Integer} width 
  * @property {Integer} height 
  * @property {Integer} durability 
- * @property {Integer} exp 
+ * @property {Integer} points 
  * @property {Path2D} path 
  * @property {Integer} x 
  * @property {Integer} y 
@@ -16,7 +16,7 @@ let DURABILTY_COLORS = ['yellow', 'orange', 'red'];
  */
 class Brick {
     durability;
-    exp;
+    points;
     path;
     x; 
     y;
@@ -26,7 +26,7 @@ class Brick {
     constructor(typeId, line, column) {
         let type = BRICK_TYPES[typeId-1];
         this.durability = type.durability;
-        this.exp = type.exp;
+        this.points = type.points;
 
         this.line = line;
         this.column = column;
