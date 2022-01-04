@@ -22,13 +22,13 @@ document.addEventListener('keypress', function(e) {
 //////////////////////////////////////////////
 //SCREENS BUTTONS
 _play.addEventListener('click', function() {
-    App.playNormalGame();
+    App.initNormalGame();
     _screen.classList.add('hidden');
     _play.classList.add('hidden');
 })
 
 _replay.addEventListener('click', function() {
-    App.playNormalGame();
+    App.initNormalGame();
     _screen.classList.add('hidden');
     _replay.classList.add('hidden');
 })

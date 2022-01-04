@@ -80,7 +80,7 @@ class Ball {
                     this.revert('vy');
                 }
                 else {
-                    App.loseBall();
+                    App.looseBall();
                     // App.stop();
                     return
                 }

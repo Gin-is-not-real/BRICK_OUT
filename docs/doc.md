@@ -1,4 +1,4 @@
-# BRICK OUT     *need update since add of drops*
+# BRICK OUT     
 - Scripts
 - Canvas
 - Classes
@@ -34,10 +34,13 @@
 [ ] Ball accéleration when hit an object and decrease with timeout 
 
 
+*need update since add of drops*
 ***
-## Scripts 
+## Files
+### src 
+
 **main**  
-    - recuperation elements dom dev et du canvas
+    - recuperation elements dom dev et du canvas  
     - init du ctx
     - declaration frame (undefined)
     - instance App, Paddle, Ball
@@ -46,12 +49,21 @@
 
 **eventsListeners**
     - declaration des fonctions du canvas
-    - *declaration fonctions dev*
+    - declaration des fonctions du screen
 
-**lvls**
+**dev.js**
+    - *declaration listeners de dev*
+
+### src/data
+
+**const.js**
+    - declaration des constantes de classes comme BRICK_WIDTH, BALL_RADIUS...
+
+**lvls.js**
     - declaration des patterns pour la generation des lvls
 
-## Canvas
+
+#### Canvas events
 **mousemove**  
 *Fait bouger le paddle si le jeu est en cours, et colle la balle dessus si le status est 'init'*
 - SI state n'est pas stop
@@ -67,26 +79,25 @@
 - stop propagation
 
 ***
-## Classes 
+
+### src/classes *need restructure*
 ***
-### App
+#### App
 - state (*start, init, run, pause, stop)*
 
 **startApp()**
-*Fait apparaitre le bouton "PLAY GAME"*
+*Fait apparaitre le menu principal et le bouton "PLAY GAME"*
 
 **playNormalGame()**
-*Jeu normal ?*  
 *Le joueur dispose de 3 vies pour terminer tout les niveaux*
-- app lifes = 3
-- app lvlIndex, et points = 0
-- update text contents
+- set app lifes to 3
+- set app lvlIndex, et points to 0
 - App initLvl(lvls[app.lvlIndex])
 
 **winNormalLvl()**
 *Charge le lvl suivant*  
-- app lvlIndex ++
-- win partie si dernier lvl (a impl)
+- set app lvlIndex +1
+- win game if last lvl
 
 **initLvl(int lvlNum)**  
 *Charge un lvl et Initialise une balle*
@@ -97,13 +108,16 @@
 *Initialise une balle*
 
 **clear()**
+*Efface le canvas*
 - fill canvas
 
 **draw()**
+*Efface le canvas, redessine les objets*
 - App clear()
 - paddle, ball draw()
 
 **initLvl(array lvl)**
+*Charge un niveau et initie une balle*
 - app state = init
 - Lvl.initBricks(array lvl)
 - App.initBall()
@@ -125,7 +139,7 @@
 - App clear()
 
 
-### Paddle
+#### Paddle
 - width, height
 - color
 - x, y
@@ -144,7 +158,7 @@
 - replace x si depasse les limits
 
 
-### Ball
+#### Ball
 - radius
 - x, y
 - vx, vy *(vitesses)*
@@ -170,7 +184,7 @@
 - deplace x et y en y ajoutant les vitesses
 
 
-### Brick
+#### Brick
 - width
 - height
 - color
@@ -190,7 +204,7 @@
 - On cherche si les points se trouvent dans les paths avec isPointInPath() 
     - SI oui, on inverse la vitesse de la balle et on renvoi true
 
-### Lvl
+#### Lvl
 - bricks
 
 **init(lvl)**
