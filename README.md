@@ -13,8 +13,6 @@ Just clone or the repository, open folder and run **index.html**.
 - Normal Game  
 - Drops give points  
 - Gunshots
-- class Screen
-- App setters for game properties
  
 ----------------------------------------------
 ----------------------------------------------
@@ -34,6 +32,14 @@ Just clone or the repository, open folder and run **index.html**.
 
 **La propriété state** permet de controller quelles actions pourront être déclenchés par les events listeners (par exemple l'event mousemouse ne deplace pas le paddle si state est start, ou pause).  
 **La valeur de state** est modifié par les méthodes startApp, initLvl/Ball, run, pause et stop. Les 3 dernières controllent aussi l'animation.  
+
+|state|animation|mousemove|pause events|shoot|
+|---|---|---|---|---|
+|start|X|X|X|X|
+|init|X|0|X|X|
+|run|O|O|O|O|
+|pause|X|X|O|X|
+|stop|X|X|X|X|
 
 **start:** l'animation ne tourne pas. Les events sur le canvas et la touche de tir sont désactivés.  
 
@@ -60,7 +66,7 @@ Just clone or the repository, open folder and run **index.html**.
 - initier les objets lvl, paddle et ball
 
 
-**startApp** passe le state à start et affiche le menu principal.  
+**startApp** passe le state à start et demande l'affichage du menu principal.  
 
 
 **initLvl** passe le state à init, appelle initBricks de l'objet lvl, et initBall.  
@@ -79,7 +85,7 @@ Just clone or the repository, open folder and run **index.html**.
 
 **looseGame** stop App et demande à afficher  l'écran rejouer
 
-**setters** pour les propriétés de jeu; lvlIndex, points, gunshots et lifes. Ils change la valeur de la propriété et mettent à jour l'affichage du hub
+**setters** pour les propriétés de jeu; lvlIndex, points, gunshots et lifes. Ils changent la valeur de la propriété et mettent à jour l'affichage du hub
 
 
 *completer*

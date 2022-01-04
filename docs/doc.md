@@ -14,6 +14,7 @@
 ### Latest add, fix and optimisation
 - Gun shot  
 - class Screen with static functions to display screen menu and button
+- App setters for game properties
 
 ### Next features
 [ ] Survival mode  
