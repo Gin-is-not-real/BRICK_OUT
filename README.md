@@ -13,6 +13,8 @@ Just clone or the repository, open folder and run **index.html**.
 - Normal Game  
 - Drops give points  
 - Gunshots
+- class Screen
+- App setters for game properties
  
 ----------------------------------------------
 ----------------------------------------------
@@ -35,14 +37,14 @@ Just clone or the repository, open folder and run **index.html**.
 
 **start:** l'animation ne tourne pas. Les events sur le canvas et la touche de tir sont désactivés.  
 
-**init:** l'animation ne tourne pas. La touche de tir est désactivé. Sur le canvas, mousemouse fait bouger le paddle et dessine la balle dessus, et un clic lance la balle.  
+**init:** l'animation ne tourne pas. La touche de tir est désactivé. Sur le canvas, mousemove fait bouger le paddle et dessine la balle dessus, et un clic lance la balle.  
 
 **run:** Debloque tout les events et lance l'animation: une serie d'instructions est lancée à intervalles reguliers: 
 - la verification des briques touchées et le deplacement des drops par la classe Lvl 
 - le deplacement de la balle et du tir de fusil si existe
 - le dessin le canvas
 
-**pause:** l'animation est stoppée, mousemove sur le canvas ne déplace plus le pad et le tir est désactivé 
+**pause:** l'animation est stoppée, mousemove sur le canvas ne déplace plus le pad et le tir est désactivé.    
 
 **stop:** les events sont bloqués, l'animation est stoppée et la variable frame effacée. Le canvas est nettoyé.
 
@@ -53,9 +55,10 @@ Just clone or the repository, open folder and run **index.html**.
 ----------------------------------------------
 ### Jeu
 **Les méthodes** controllant le jeu consistent à:
-- controller l'affichage des écrans menu et des boutons
+- demander l'affichage des écrans menu et des boutons a la classe Screen
 - initier les propriétés lvlIndex, points, lifes, gunshots et stats.
 - initier les objets lvl, paddle et ball
+
 
 **startApp** passe le state à start et affiche le menu principal.  
 
@@ -64,17 +67,19 @@ Just clone or the repository, open folder and run **index.html**.
 
 **initBall** efface la valeur de frame, passe le state à init, et appelle les méthodes init de paddle et ball, et draw de App.  
 
-**initNormalGame** defini les valeurs de départ de **lvlIndex**, **points**, **lifes** et **gunshots** et met à jours les infos affichées dans le hub. Apelle initLvl. 
+**initNormalGame** defini les valeurs de départ de **lvlIndex**, **points**, **lifes** et **gunshots** grace aux setters. Apelle initLvl. 
 
 
 **looseBall** est appelé lorsque la balle touche le sol et retire une vie. Si c'était la dernière, appelle looseGame, sinon met à jour la valeur de lifes dans le hub, vide les drops en cours du lvl, et appelle les méthodes pause et initBall.  
 
 
-**winNormalLvl** est appelé lorsque toutes les briques sont détruites. Il incrémente lvlIndex. Si il n'y a plus de lvl, apelle winNormalGame. Sinon affiche l'écran de niveau suivant.  
+**winNormalLvl** est appelé lorsque toutes les briques sont détruites. Il incrémente lvlIndex. Si il n'y a plus de lvl, apelle winNormalGame. Sinon demande l'affichage l'écran de niveau suivant.  
 
-**winNormalGame** appelle App stop et affiche l'écran de fin de partie.  
+**winNormalGame** appelle App stop et demande à afficher l'écran de fin de partie.  
 
-**looseGame** stop App et affiche l'écran rejouer
+**looseGame** stop App et demande à afficher  l'écran rejouer
+
+**setters** pour les propriétés de jeu; lvlIndex, points, gunshots et lifes. Ils change la valeur de la propriété et mettent à jour l'affichage du hub
 
 
 *completer*
