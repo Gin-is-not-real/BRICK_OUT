@@ -11,8 +11,7 @@ document.addEventListener('keypress', function(e) {
         }
     }
 
-    if((e.key === 'w' || e.key === 'x')&& app.state !== 'pause' && app.state !== 'stop' && app.state !== 'start') {
-        // console.log(e.keyCode);
+    if((e.key === 'w' || e.key === 'x') && app.state !== 'pause' && app.state !== 'stop' && app.state !== 'start' && app.state !== 'init') {
         paddle.shoot();
     }
 })
@@ -50,8 +49,8 @@ _canvas.addEventListener('mousemove', function(e) {
     if(app.state !== 'stop' && app.state !== 'start' && app.state !== 'pause') {
         paddle.move(e.offsetX);
 
-        //stick the ball on the paddle
         if(app.state === 'init') {
+            //stick the ball on the paddle
             ball.init();
         }
 

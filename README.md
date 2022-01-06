@@ -17,6 +17,8 @@ Just clone or the repository, open folder and run **index.html**.
 ----------------------------------------------
 ----------------------------------------------
 # Fonctionnement (fr)
+App gere l'animation, le dessin et le jeu.  
+Lvl gere les briques et les drops.
 ----------------------------------------------
 ## App
 

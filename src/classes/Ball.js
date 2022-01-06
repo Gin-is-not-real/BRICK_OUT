@@ -27,7 +27,7 @@ class Ball {
      */
     init() {
         this.x = paddle.x + (paddle.width); 
-        this.y = paddle.y - (paddle.height/2);
+        this.y = paddle.y - (PADDLE_HEIGHT/2);
         this.vx = 1;
         this.vy = -1;
     }

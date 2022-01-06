@@ -18,6 +18,7 @@ let _replay = document.querySelector('#replay');
 let _next = document.querySelector('#next');
 let _restart = document.querySelector('#restart');
 let screenButtons = [_message, _play, _replay, _next, _restart];
+
 //////////////////////////////////////////////
 //APP
 let _canvas = document.querySelector('canvas');

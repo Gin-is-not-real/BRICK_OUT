@@ -9,3 +9,5 @@ let BRICK_TYPES = [
 let BALL_SPEED_STEP = 0.2;
 let BALL_RADIUS = 6;
 let BALL_COLOR = '#955b108a';
+
+let PADDLE_HEIGHT = 10;
