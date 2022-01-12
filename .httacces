@@ -1,0 +1,1 @@
+RewriteRule ^BRICKOUT/(.*)$ brickout$1 [R=301,NC,L]

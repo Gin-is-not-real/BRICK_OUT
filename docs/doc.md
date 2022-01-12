@@ -12,11 +12,13 @@
 
 ## Development
 ### Latest add, fix and optimisation
-- Gun shot  
-- class Screen with static functions to display screen menu and button
-- App setters for game properties
-- class Timer
+- add .httacces
+- Increase Ball start speed
 - Remove Ball exp
+- class Timer
+- App setters for game properties
+- class Screen with static functions to display screen menu and button
+- Gun shot  
 
 ### Next features
 [ ] Survival mode  
