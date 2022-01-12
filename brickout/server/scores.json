@@ -1,10 +1,1 @@
-[
-    {
-    "name": "test", 
-    "points": 20
-},
-{
-    "name": "test2", 
-    "points": 40
-}
-]
+[{"name": "gin", "points": 200}, {"name": "gin", "points": 200}, {"name": "gin", "points": 200}]
