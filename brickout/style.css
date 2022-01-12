@@ -101,7 +101,6 @@ canvas {
 /* screen */
 .screen {
     position: absolute;
-    box-sizing: border-box;
     width: 330px;
     height: 300px;
 
@@ -122,6 +121,9 @@ canvas {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#screen-content header {
+    margin-bottom: 30%;
 }
 #message {
     padding: 0 8% 8% 8%;

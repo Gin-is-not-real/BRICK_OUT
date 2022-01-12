@@ -22,10 +22,10 @@
 
 class App {
     state = 'start';
-    lvlIndex = 0;
-    points = 0;
-    lifes = 0;
-    gunshots = 3;
+    lvlIndex;
+    points;
+    lifes;
+    gunshots;
     stats;
 
     constructor() {

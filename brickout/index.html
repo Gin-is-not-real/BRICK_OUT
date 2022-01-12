@@ -13,6 +13,7 @@
         <div id="dev" class="hidden">
             <button id="switch-dev">active dev</button>
             <button id="btn-menu">menu</button>
+            <button id="btn-win-lvl">win-lvl</button>
             <button id="change-lvl">next lvl</button>
             <button id="speed-up">speed up</button>
         </div>
@@ -28,8 +29,8 @@
                     <td><p>w / x</p></td>
                 </tr>
                 <tr>
-                    <td><span>shoot a RIFLE: </span></td>
-                    <td><p>w / x</p></td>
+                    <td><span>help: </span></td>
+                    <td><p>h</p></td>
                 </tr>
             </table>
         </div>
@@ -54,7 +55,10 @@
             <div id="canvas-container">
 
                 <div class="screen" id="screen">
+
                     <div id="screen-content">
+                        <header><h2>Menu</h2></header>
+                        
                         <div id="message"></div>
                         <button class="hidden" id="play">PLAY GAME</button>
                         <button class="hidden" id="replay">REPLAY</button>
@@ -64,7 +68,7 @@
                 </div>
 
                 <div class="screen hidden" id="pause">
-                    <div>PAUSE</div>
+                    <header><h2>PAUSE</h2></header>
                 </div>
 
                 <canvas width="330px" height="300px"></canvas>
@@ -74,10 +78,11 @@
             <div id="instructions-container">
                 <header>
                     <h2>Normal Game</h2>
+                    <div><p>DESTROY all Bricks on a lvl for go on to the next.</p></div>
+
                 </header>
                 <hr>
                 <div id="tutorial-container">
-                    <div><p>DESTROY all Bricks on a lvl for go on to the next.</p></div>
                     <div><p>Each Brick drop a POWER UP when destroy.</p></div>
                     <div><p>All Bricks and Drops give you POINTS</p></div>
                     <div><p>GREEN powers up give you BONUS, but YELLOW ones give a MALUS !</p></div>
