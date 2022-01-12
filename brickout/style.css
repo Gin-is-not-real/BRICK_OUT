@@ -19,9 +19,7 @@ html * {
     box-sizing: content-box;
     margin: 0;
     padding: 0;
-    /* border: var(--bor); */
     font-family: 'Do Hyeon', sans-serif;
-    /* font-size: 20px; */
 }
 header {
     display: flex;
@@ -36,7 +34,6 @@ header {
 }
 
 body > header {
-    height: 90px;
     background-color: var(--dark-1);
 }
 
@@ -49,6 +46,16 @@ main {
     display: flex;
     flex-direction: row;
     gap: 30px;
+}
+#main-container>div:not(#instructions-container) {
+    display: flex;
+    flex-direction: row;
+}
+@media screen and (max-width: 700px) {
+    #main-container {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 /* hub */
@@ -90,14 +97,7 @@ canvas {
     border: var(--bor);
 }
 
-/* #ball {
-    width: 20px;
-    height: 20px;
-    position: relative;
 
-    background-color: var(--base-3);
-    border-radius: 100%;
-} */
 /* screen */
 .screen {
     position: absolute;
@@ -135,26 +135,26 @@ canvas {
 }
 
 /*  */
+#keys-container {
+    font-size: 1rem;
+    margin-right: 10px;
+}
+#keys-container span {
+    margin-right: 10px;
+}
 #instructions-container {
     display: flex;
     flex-direction: column;
     gap: 5%;
 }
-.key {
-    min-width: 200px;
-    max-width: 300px;
-    display: flex;
-    justify-content: space-between;
+#instructions-container header {
+    margin: 0;
+    padding: 0;
 }
-.key p {
-    margin-left: 10px;
-}
-#tutorial-container h3 {
-    margin-bottom: 5px;
-}
-.tutorial {
+#tutorial-container > div {
     margin-bottom: 10px;
 }
+
 /*  */
 button {
     padding: 4px;
@@ -163,6 +163,10 @@ button {
     border-radius: 8%;
     font-size: large;
     color: var(--dark-1);
+}
+#dev button {
+    padding: 0 4px !important;
+    font-size: 0.7rem;
 }
 button:hover {
     padding: 4px;
