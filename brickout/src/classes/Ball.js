@@ -182,7 +182,7 @@ class Ball {
      */
     activeMeteorMode() {
         this.meteorMode = true;
-        this.color = 'red';
+        this.color = METEOR_BALL_COLOR;
 
         let self = this;
         let timeout = setTimeout(function() {

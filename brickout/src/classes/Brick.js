@@ -1,6 +1,3 @@
-let DURABILTY_COLORS = ['yellow', 'orange', 'red'];
-
-
 /**
  * @property {Integer} width 
  * @property {Integer} height 
@@ -40,7 +37,11 @@ class Brick {
     }
 
     draw() {
+        ctx.lineWidth = 1.25;
+
         ctx.strokeStyle = DURABILTY_COLORS[this.durability];
         ctx.stroke(this.path);
+        
+        ctx.strokeRect((this.x + BRICK_WIDTH) - 25, this.y + 3, 7, 2);
     }
 }

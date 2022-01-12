@@ -9,6 +9,7 @@ Just clone or download the repository, open folder and run **index.html**, or te
 
 ***
 ## Latest add, fix and optimisation
+- better colors (provisory canvas graphisms)
 - Gunshots
 - Drops give points  
 - Normal Game  

@@ -20,12 +20,18 @@ let PADDLE_WIDTH = 35;
  * @method drawShoot()
  */
 class Paddle {
-    width = PADDLE_WIDTH;
-    color = '#955b108a';
+    width;
+    color;
     path;
     x; 
     y;
-    rifles = [];
+    rifles;
+
+    constructor() {
+        this.width = PADDLE_WIDTH;
+        this.color = PADDLE_COLOR;
+        this.rifles = [];
+    }
 
     /**
      * initialize this x, y properies for place the paddle at the center of the canvas, and this with using the value of const PADDLE_WIDTH

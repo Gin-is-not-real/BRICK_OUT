@@ -12,7 +12,8 @@
 
 ## Development
 ### Latest add, fix and optimisation
-- add .httacces
+- better colors
+- add .httacces (remove it ?)
 - Increase Ball start speed
 - Remove Ball exp
 - class Timer
