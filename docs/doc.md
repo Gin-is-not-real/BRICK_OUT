@@ -28,6 +28,7 @@
 
 
 ### Need to be fixed
+[ ] Ball collision left wall
 [ ] Add the interface/menu  
 [ ] sometimes the ball gets stuck in the wall and only moves vertically  
 [ ] Add graphisms  
