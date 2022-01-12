@@ -1,4 +1,4 @@
-/**@property {Integer} radius
+/**
  *@property {Integer} x
  *@property {Integer} y
  *@property {Integer} vx
@@ -15,12 +15,21 @@
  * @method activeMeteorMode()
 */
 class Ball {
-    color = BALL_COLOR;
-    x = 100; 
-    y = 120; 
-    vx = 1;
-    vy = -1;
-    meteorMode = false;
+    color;
+    x; 
+    y; 
+    vx; 
+    vy;
+    meteorMode;
+
+    constructor() {
+        this.color = BALL_COLOR;
+        this.x = paddle.x;
+        this.y = paddle.y;
+        this.vx = BALL_SPEED_START_VALUE;
+        this.vy = - BALL_SPEED_START_VALUE;
+        this.meteorMode = false;
+    }
 
     /**
      * init this x and y properties for place ball on the paddle, init this vx and vy (speed)
@@ -28,8 +37,8 @@ class Ball {
     init() {
         this.x = paddle.x + (paddle.width); 
         this.y = paddle.y - (PADDLE_HEIGHT/2);
-        this.vx = 1;
-        this.vy = -1;
+        this.vx = BALL_SPEED_START_VALUE;
+        this.vy = -BALL_SPEED_START_VALUE;
     }
 
     /**
