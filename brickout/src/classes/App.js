@@ -22,6 +22,7 @@
 
 class App {
     state = 'start';
+    gameMode;
     lvlIndex;
     points;
     lifes;
@@ -135,13 +136,14 @@ class App {
 
 
     /**
-     * Set lifes and gunshots to 3, and lvl index and points to 0. Update hub text contents and init the first lvl
+     * Init app vars for normal game. Update hub text contents and init the choosen lvl
      */
-    static initNormalGame() {
-        App.setLvlIndex(0);
+    static initNormalGame(lvlId) {
+        app.gameMode = 'normal';
+        App.setLvlIndex(lvlId);
         App.setPoints(0);
-        App.setLifes(3);
-        App.setGunshots(3);
+        App.setLifes(1);
+        App.setGunshots(1);
 
         _speed.textContent = String(ball.vx).replace("-", "").substr(0, 3);
         _width.textContent = paddle.width;
@@ -189,8 +191,8 @@ class App {
 
     static looseGame() {
         App.stop();
-        _screen.classList.remove('hidden');
-        _replay.classList.remove('hidden');
+        Screen.displayLooseLvl();
+
     }
 
 

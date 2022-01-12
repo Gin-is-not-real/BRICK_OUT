@@ -117,20 +117,38 @@ canvas {
     text-transform: uppercase;
 }
 #screen-content {
+    width: max-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 #screen-content header {
-    margin-bottom: 30%;
+    margin-bottom: 15%;
+    padding: 0;
 }
+#screen-content h2 {
+    margin-bottom: 15%;
+    overflow-wrap: normal;
+}
+#screen-content button {
+    width: 100%;
+}
+#screen-content ul {
+    list-style: none;
+}
+#screen-content li:hover {
+    text-shadow: 1px 1px 1px var(--base-2);
+}
+
 #message {
     padding: 0 8% 8% 8%;
     text-align: center;
     text-transform: uppercase;
     color: var(--dark-1);
 }
+
 .hidden {
     display: none;
     visibility: hidden;
@@ -150,6 +168,7 @@ canvas {
     gap: 5%;
 }
 #instructions-container header {
+    word-wrap: unset;
     margin: 0;
     padding: 0;
 }

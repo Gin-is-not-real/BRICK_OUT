@@ -12,15 +12,18 @@ let _width = document.querySelector('#paddle-width>p');
 let _pauseScreen = document.querySelector('#pause');
 
 let _screen = document.querySelector('#screen');
+let _title = document.querySelector('#screen h2');
 let _message = document.querySelector('#message');
-let _play = document.querySelector('#play');
+let _playNormal = document.querySelector('#play-normal');
+let _lvlsList = document.querySelector('#lvls-list');
+
 let _replay = document.querySelector('#replay');
 let _next = document.querySelector('#next');
 let _restart = document.querySelector('#restart');
-let screenButtons = [_message, _play, _replay, _next, _restart];
+let screenButtons = [_message, _playNormal, _replay, _next, _restart];
 
 //////////////////////////////////////////////
-//APP
+//ctx
 let _canvas = document.querySelector('canvas');
 let ctx = _canvas.getContext('2d');
 let frame;

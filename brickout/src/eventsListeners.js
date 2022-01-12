@@ -24,14 +24,15 @@ _pauseScreen.addEventListener('click', function() {
 })
 
 
-_play.addEventListener('click', function() {
+_playNormal.addEventListener('click', function() {
     Screen.hideAll();
-    App.initNormalGame();
+    Screen.displayChooseLvlMenu();
+    // App.initNormalGame();
 })
 
 _replay.addEventListener('click', function() {
     Screen.hideAll();
-    App.initNormalGame();
+    App.initNormalGame(app.lvlIndex);
 })
 
 _next.addEventListener('click', function() {
