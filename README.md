@@ -1,18 +1,29 @@
 # BRICK OUT
 A brick-breaking game, all in Javascript vanilla.  
 
-## Game
-Break all bricks on a lvl to finish it. Each brick broked drop an aleatory power-up that give you a bonus or malus when you catch it with paddle.
-
 ## Getting Started
 Just clone or download the repository, open folder and run **index.html**, or test the actual version (dev) at  <https://ninapariat.space/brickout/>. 
 
+## Game
+Break all bricks on a lvl to finish it.  
+Each brick broked drop an aleatory power-up that give you a bonus or malus when you catch it with paddle.  
+All Bricks destroyed and Drops catched give points.  
+
+### Normal mode
+Choose a lvl 
+
+### Run mode (soon)
+Keep your bonuses an maluses and try to finish max of lvls  
+
+### Tetris mode (soon)
+
+
 ***
 ## Latest add, fix and optimisation
+- Normal Game with choice of lvl 
 - better colors (provisory canvas graphisms)
 - Gunshots
 - Drops give points  
-- Normal Game  
 - Bricks drop aleatories powers up   
  
 ----------------------------------------------
