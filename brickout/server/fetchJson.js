@@ -1,78 +1,59 @@
 let FOLDER_URL = new URL(document.location.href + 'server');
 
-function fetchScores() {
-    fetch(FOLDER_URL + '/scores.json')
+/**
+ * Fetch the all content of score php file and call the funtion in parameter
+ * @param {Function} callback 
+ */
+function fetchAllAndCallback(callback) {
+    fetch(FOLDER_URL + '/scores.php')
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(json => callback(json))
 }
-fetchScores();
 
 /**
- * Get score
+ * Call the file scores.php and add or update the player score
  * @param {String} name 
+ * @param {Integer} points 
  */
-function findScore(name) {
-    let data = {
-        action: "find",
+function addScore(name, points) {
+    let params = {
+        action: "add",
         name: name,
-    };
-
-    let url = new URL(FOLDER_URL + '/scores.php');
-    for (let k in data) {
-        url.searchParams.append(k, data[k]);
-    }
-
-    fetch(url)
-    .then(response => response.text())
-    .then(response => console.log(response))
-}
-findScore('gin');
-
-function postScore(name, points) {
-    let data = {
-        name: name,
-        points: points,
-    };
-
-    let url = new URL(FOLDER_URL + '/scores.php');
-    for (let k in data) {
-        url.searchParams.append(k, data[k]);
-    }
-
-    fetch(url)
-    .then(response => response.text())
-    .then(response => console.log(response))
-}
-postScore("gintest", 200);
-/**
- * test fetch put based on https://www.bezkoder.com/javascript-fetch/ tuto
- */
-async function putScore(name, points) {
-    let putData = {
-        name: name, 
         points: points
     };
 
-    try {
-        let response = await fetch(FOLDER_URL + '/scores.json', {
-            method: 'PUT',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(putData)
-        })
+    let url = new URL(FOLDER_URL + '/scores.php');
+    url = addParamsToUrl(url, params);
 
-        if (!response.ok) {
-            let message = 'Error with Status Code: ' + response.status;
-            throw new Error(message);
-          }
-    }
-    catch(err) {
-        console.log('Error: ' + err);
-    }
+    fetch(url)
+    .then(response => response.text())
+    .then(response => console.log(response))
 }
-// putScore("put", 0);
+addScore('fefea', 150)
 
+/**
+ * Return an Url with query parameters
+ * @param {URL} url 
+ * @param {Object} params 
+ */
+function addParamsToUrl(url, params) {
+    let paramsUrl = url;
+    for (let k in params) {
+        paramsUrl.searchParams.append(k, params[k]);
+    }
+    return paramsUrl;
+}
 
+//////////////////////////////////:
+//TESTS 
+function test() {
+    fetch(FOLDER_URL + '/scores.php')
+    .then(response => response.json())
+    .then(json => console.log(json))
+}
+// test();
 
-
+function testCallback(v) {
+    console.log(v);
+}
+// fetchAllAndCallback(testCallback);

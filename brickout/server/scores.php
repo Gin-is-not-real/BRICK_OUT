@@ -1,40 +1,52 @@
-<?php
+<?php 
+// get string content of score JSON file and decode it on an array
 $content = file_get_contents('scores.json');
-
+$decoded = json_decode($content);
+$response = 'nothing';
 
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
 
-    if($action === 'find' AND !empty($content)) {
-        if(strpos('"' . $content, $_GET['name']) . '"') {
-            //index du premier char du name
-            $start_index = strpos($content, $_GET['name']);
-            $json_str = substr($content, $start_index -10);
-            $end_index = strpos($json_str, '},');
+    if($action == 'add') {
 
-            $json_str = substr($json_str, 0, ($end_index - $start_index));
+        if(isset($_GET['name']) AND isset($_GET['points'])) {
 
-            echo $json_str;
-        }
-        else {
-        }
-    }
-    else if($action === 'post') {
-        $content = str_replace('[', '', $content);
-        $content = str_replace(']', '', $content);
-        $obj = json_decode($content);
-        
-        $to_put = '{"name": "' . $_GET['name'] . '", "points": ' . $_GET['points'] . '}';
-        
-        if(!empty($content)) {
-            // $new_content = str_replace(']', ', ' . $to_put . ']', $content);
-            $new_content = '[' . $content . ', ' . $to_put . ']';
-            file_put_contents('scores.json', $new_content, LOCK_EX);
-        }
-        else {
-            $new_content = '[' . $to_put . ']';
-            file_put_contents('scores.json', $new_content, LOCK_EX);
+            $name = $_GET['name'];
+            $points = $_GET['points'];
+
+            $index = scoreExist($name, $decoded);
+            if($index !== false) {
+
+                if($points > $decoded[$index]->points) {
+                    $decoded[$index]->points = $points;
+                    file_put_contents('scores.json', json_encode($decoded));
+
+                    $response = 'score updated';
+                }
+            }
+            else {
+                $new = new class{};
+                $new->name = $name;
+                $new->points = $points;
+
+                array_push($decoded, $new);
+                file_put_contents('scores.json', json_encode($decoded));
+
+                $response = 'new score';
+            }
         }
     }
 }
 
+echo json_encode(array(
+    'response' => $response,
+));
+
+function scoreExist($name, $array) {
+    for($i = 0; $i < count($array); $i++) {
+        if($array[$i]->name == $name) {
+            return $i;
+        }
+    }
+    return false;
+}
