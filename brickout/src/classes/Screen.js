@@ -82,11 +82,7 @@ class Screen {
     }
 
     static displayScoresList() {
-        // Screen.hideAll();
-
-        // _ul.classList.remove('hidden');
-        // _screen.classList.remove('hidden');
-        _title.textContent = "Scores";
+        _title.textContent = "Scores lvl " + (parseInt(app.lvlIndex)+1);
 
         _formContainer.classList.add('hidden');
         _restart.classList.remove('hidden');

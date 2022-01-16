@@ -1,4 +1,4 @@
-let phpScriptUrl = new URL(document.location.href + 'server/scores.php');
+let phpScriptUrl = new URL(document.location.href + 'src/server/scores.php');
 console.log(phpScriptUrl);
 
 /**

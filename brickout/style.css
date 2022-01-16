@@ -14,6 +14,8 @@ html {
 
     background-color: var(--dark-2);
     color: var(--base-2);
+    
+    font-size: 16px;
 }
 html * {
     box-sizing: content-box;
@@ -197,8 +199,7 @@ button:hover, input[type=submit]:hover {
     box-shadow: 1px 1px 1px rgba(255, 166, 0, 0.685);
 }
 
-#dev button {
+#dev>button {
     padding: 0 4px !important;
     font-size: 0.7rem;
 }
-
