@@ -82,12 +82,13 @@ class Screen {
     }
 
     static displayScoresList() {
-        Screen.hideAll();
+        // Screen.hideAll();
 
-        _ul.classList.remove('hidden');
-        _screen.classList.remove('hidden');
+        // _ul.classList.remove('hidden');
+        // _screen.classList.remove('hidden');
         _title.textContent = "Scores";
 
+        _formContainer.classList.add('hidden');
         _restart.classList.remove('hidden');
     }
 

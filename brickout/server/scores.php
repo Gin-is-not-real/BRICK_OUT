@@ -18,24 +18,22 @@ $data = $decoded_content;
 $message = 'enter your name and score';
 
 /**
- * si le formulaire n'as pas été validé:
- *      on affiche la liste
- *      on affiche le formulaire
- * 
- * si le formulaire a ete posté:
- *      on teste
- *      on recupere le json 
- *      on affiche la liste
  */
 if(isset($_GET['mode'])) {
     $mode = $_GET['mode'];
 
     if($mode === 'normal') {
         $param1 = $mode;
-        $param2 = intval($_GET['index']);
+        $i = intval($_GET['index']) +1;
+        $param2 = "lvl" . $i;
 
         $normal_scores = $decoded_content->$param1;
-        $lvl_scores = $normal_scores[$param2];
+
+        if(!isset($normal_scores->$param2)) {
+            $normal_scores->$param2 = new stdClass();
+        }
+
+        $lvl_scores = $normal_scores->$param2;
         $data = $lvl_scores;
     }
 
@@ -44,23 +42,11 @@ if(isset($_GET['action'])) {
     $action = $_GET['action'];
 
     if($action === 'get-lvl') {
-        // $mode = $_GET['mode'];
-        // $index = intval($_GET['index']);
 
-        // $normal_scores = $decoded_content->$mode;
-        // $lvl_scores = $normal_scores[$index];
-        // $data = $lvl_scores;
     }
     elseif($action === 'submit') {
         $input_name = $_GET['name'];
         $input_score = $_GET['score'];
-
-        // $mode = $_GET['mode'];
-        // $index = intval($_GET['index']);
-
-        // $normal_scores = $decoded_content->$mode;
-        // $lvl_scores = $normal_scores[$index];
-        // $data = $lvl_scores;
 
         $player = false;
         foreach($data as $name => $scores) {
@@ -87,6 +73,8 @@ if(isset($_GET['action'])) {
 
         file_put_contents($file_path, json_encode($decoded_content));
         $decoded_content = json_decode(file_get_contents($file_path));
+
+        // echo $message;
     }
 }
 ?>

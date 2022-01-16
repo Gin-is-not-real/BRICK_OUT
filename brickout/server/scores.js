@@ -25,7 +25,7 @@ function fetchAndDisplayScoresList(index) {
     fetch(phpScriptUrl)
     .then(response =>  response.text())
     .then(text => {
-        // console.log(text)
+        console.log(text)
         _ul.innerHTML = text;
         _formContainer.classList.remove('hidden');
     })
@@ -52,6 +52,8 @@ function scoreSubmit() {
         .then(response =>  response.text())
         .then(text => {
             _ul.innerHTML = text;
+
+            Screen.displayScoresList();
         })
     }
 }
