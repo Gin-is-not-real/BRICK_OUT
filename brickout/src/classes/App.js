@@ -128,8 +128,13 @@ class App {
     static initBall() {
         frame = 0;
         app.state = 'init';
+
         paddle.init();
+        _width.textContent = paddle.width;
+
         ball.init();
+        _speed.textContent = String(ball.vx).replace("-", "").substr(0, 3);
+
 
         App.draw();
     }
@@ -145,8 +150,8 @@ class App {
         App.setLifes(1);
         App.setGunshots(1);
 
-        _speed.textContent = String(ball.vx).replace("-", "").substr(0, 3);
-        _width.textContent = paddle.width;
+        // _speed.textContent = String(ball.vx).replace("-", "").substr(0, 3);
+        // _width.textContent = paddle.width;
 
         App.initLvl(lvls[app.lvlIndex]);
     }

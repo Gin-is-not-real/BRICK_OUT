@@ -10,6 +10,7 @@
     - Drop
 
 
+
 ## Development
 ### Latest add, fix and optimisation
 - add records of scores
@@ -26,13 +27,14 @@
 [ ] Survival mode  
 [ ] Completion time of the levels  
 [ ] Bonus: triple ball  
-[ ] Scores  - need server
+[X] Scores  - need server
 
 
 ### Need to be fixed
-[ ] Ball collision left wall
-[ ] Add the interface/menu  
+[ ] Rifle on canvas always appears if win lvl an choose another
 [ ] sometimes the ball gets stuck in the wall and only moves vertically  
+[ ] Ball collision left wall
+[X] Add the interface/menu  
 [ ] Add graphisms  
 
 ### Need to be optimized
@@ -44,11 +46,40 @@
 
 
 *need update since add of drops*
+
 ***
 ## Files
-### src 
+### server/
+#### scores.json 
+JSON file for records scores.  
+Data format is `{game mode: {lvl: {player: {points}}}, mode2: {}}`
+```
+{
+    "normal":
+    {
+        "lvl1":{"nina":{"points":"28"}},
+        "lvl2":{"nina":{"points":"70"}},
+        "lvl3":{"nina":{"points":"112"}}
+    }
+}
+```
+#### scores.php
+Get the content of JSON data file, and execute scripts according to GET params sending by requests of score.js: action, mode, lvlIndex, name, score..  
 
-**main**  
+GET mode = normal:  
+Target data according to mode normal and app lvlIndex and store them on $data.  
+If the index corresponding at lvlIndex is void, create new object lvl.
+
+GET action = submit:  
+GET mode, lvlIndex, name, score  
+If JSON contains the name getted, and if the new score is more greater that score in data, update the score.    
+Else, record the new player and his score on data. 
+Write new datas on JSON file.
+
+Generate list with $data in html, that being sending in reponse text to scores.js.
+### src/ 
+
+#### main.js  
     - recuperation elements dom dev et du canvas  
     - init du ctx
     - declaration frame (undefined)
@@ -56,19 +87,18 @@
     - instance Lvl
     - App initLvl(lvlNum)
 
-**eventsListeners**
+#### eventsListeners 
     - declaration des fonctions du canvas
     - declaration des fonctions du screen
 
-**dev.js**
-    - *declaration listeners de dev*
+#### dev.js 
+    - *declaration listeners de dev*  
 
 ### src/data
-
-**const.js**
+#### const.js
     - declaration des constantes de classes comme BRICK_WIDTH, BALL_RADIUS...
 
-**lvls.js**
+#### lvls.js
     - declaration des patterns pour la generation des lvls
 
 
