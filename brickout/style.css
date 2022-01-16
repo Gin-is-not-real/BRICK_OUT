@@ -117,7 +117,7 @@ canvas {
     text-transform: uppercase;
 }
 #screen-content {
-    width: max-content;
+    max-width: 85%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,28 +125,31 @@ canvas {
     gap: 10px;
 }
 #screen-content header {
-    margin-bottom: 15%;
     padding: 0;
 }
 #screen-content h2 {
-    margin-bottom: 15%;
     overflow-wrap: normal;
 }
 #screen-content button {
     width: 100%;
 }
-#screen-content ul {
+#lvls-list {
     list-style: none;
 }
+
 #screen-content li:hover {
     text-shadow: 1px 1px 1px var(--base-2);
 }
 
 #message {
-    padding: 0 8% 8% 8%;
+    padding: 0 8%;
     text-align: center;
     text-transform: uppercase;
     color: var(--dark-1);
+}
+
+#form {
+    max-width: 80%;
 }
 
 .hidden {
@@ -177,7 +180,7 @@ canvas {
 }
 
 /*  */
-button {
+button, input[type=submit] {
     padding: 4px;
     background-color: var(--base-1);
     border: var(--bor);
@@ -185,14 +188,17 @@ button {
     font-size: large;
     color: var(--dark-1);
 }
-#dev button {
-    padding: 0 4px !important;
-    font-size: 0.7rem;
-}
-button:hover {
+
+button:hover, input[type=submit]:hover {
     padding: 4px;
     background-color: var(--base-3);
     border: var(--bor);
     border-radius: 8%;
     box-shadow: 1px 1px 1px rgba(255, 166, 0, 0.685);
 }
+
+#dev button {
+    padding: 0 4px !important;
+    font-size: 0.7rem;
+}
+

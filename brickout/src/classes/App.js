@@ -174,13 +174,15 @@ class App {
     static winNormalLvl() { 
         App.stop();
 
-        if(app.lvlIndex +1 < lvls.length) {
-            Screen.displayWinNormalLvl();
-            App.setLvlIndex(app.lvlIndex + 1);
-        }
-        else {
-            App.winNormalGame();
-        }
+        // if(app.lvlIndex +1 < lvls.length) {
+        //     Screen.displayWinNormalLvl();
+        //     App.setLvlIndex(app.lvlIndex + 1);
+        // }
+        // else {
+        //     App.winNormalGame();
+        // }
+
+        App.winNormalGame();
     }
 
     static winNormalGame() {

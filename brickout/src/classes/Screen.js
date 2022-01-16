@@ -12,6 +12,8 @@ class Screen {
 
         _screen.classList.add('hidden');
         _message.classList.add('hidden');
+        _ul.classList.add('hidden');
+        _formContainer.classList.add('hidden');
     }
 
     static displayChooseLvlMenu() {
@@ -66,8 +68,20 @@ class Screen {
 
         _screen.classList.remove('hidden');
 
-        _message.textContent = 'You Win with ' + app.points +  ' total points !';
+        _title.textContent = "You win !";
+        _message.textContent = 'You finish lvl ' + app.lvlIndex + ' with ' + app.points +  ' total points !';
+
+        fetchAndDisplayScoresList(score);
+
         _message.classList.remove('hidden');
+    }
+
+    static displayScoresList() {
+        Screen.hideAll();
+
+        _ul.classList.remove('hidden');
+        _screen.classList.remove('hidden');
+        _title.textContent = "Scores";
 
         _restart.classList.remove('hidden');
     }
@@ -82,5 +96,9 @@ class Screen {
         
         _restart.classList.remove('hidden');
     }
+}
+
+function testRetrieveData() {
+
 }
 

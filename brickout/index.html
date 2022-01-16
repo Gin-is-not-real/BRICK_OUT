@@ -60,12 +60,23 @@
                         <header><h2>Menu</h2></header>
                         
                         <div id="message"></div>
+
+                        <ul id="scores-list" class="hidden">
+                        </ul>
+
+                        <div id="form" class="hidden">
+                            <label for="name">name: </label><input type="text" id="name" name="name" required></input>
+                            <hidden id="score"></hidden>
+                            <input id="submit" type="submit">
+                        </div>
+                        
                         <button class="hidden" id="play-normal">NORMAL GAME</button>
                         <button class="hidden" id="replay">REPLAY</button>
                         <button class="hidden" id="next">NEXT</button>
                         <button class="hidden" id="restart">return to menu</button>
 
                         <ul class="hidden" id="lvls-list"></ul>
+
                     </div>
                 </div>
 
@@ -96,6 +107,9 @@
     <script src="src/data/const.js"></script>
     <script src="src/data/lvls.js"></script>
 
+    <!-- <script src="server/fetchJson.js"></script> -->
+    <script src="server/fetch.js"></script>
+
     <script src="src/classes/Timer.js"></script>
     <script src="src/classes/App.js"></script>
     <script src="src/classes/Paddle.js"></script>
@@ -105,7 +119,6 @@
     <script src="src/classes/Lvl.js"></script>
     <script src="src/classes/Screen.js"></script>
 
-    <script src="server/fetchJson.js"></script>
     
     <script src="src/main.js"></script>
     <script src="src/eventsListeners.js"></script>

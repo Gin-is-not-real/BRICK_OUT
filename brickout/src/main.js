@@ -22,6 +22,13 @@ let _next = document.querySelector('#next');
 let _restart = document.querySelector('#restart');
 let screenButtons = [_message, _playNormal, _replay, _next, _restart];
 
+let _scores = document.querySelector('#score');
+let _ul = document.querySelector('#scores-list');
+
+let _formContainer = document.querySelector('#form');
+let _inputName = _formContainer.querySelector('#name');
+let _inputScore = _formContainer.querySelector('#score');
+let _submit = _formContainer.querySelector('#submit');
 //////////////////////////////////////////////
 //ctx
 let _canvas = document.querySelector('canvas');
