@@ -34,6 +34,7 @@ let _submit = _formContainer.querySelector('#submit');
 let _canvas = document.querySelector('canvas');
 let ctx = _canvas.getContext('2d');
 let frame;
+let server_on = document.location.href.includes('http') ? true : false;
 
 /*
     App contains methods for control animations and call functions draw() and move() of objects

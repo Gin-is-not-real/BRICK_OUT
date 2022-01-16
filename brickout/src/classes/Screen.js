@@ -66,14 +66,18 @@ class Screen {
     static displayWinNormalGame() {
         Screen.hideButtons();
 
-        _screen.classList.remove('hidden');
-
         _title.textContent = "You win !";
         _message.textContent = 'You finish lvl ' + app.lvlIndex + ' with ' + app.points +  ' total points !';
+        
+        _screen.classList.remove('hidden');
 
-        fetchAndDisplayScoresList(score);
-
-        _message.classList.remove('hidden');
+        if(server_on) {
+            fetchAndDisplayScoresList(score);
+        }
+        else {
+            _message.classList.remove('hidden');
+            _restart.classList.remove('hidden');
+        }
     }
 
     static displayScoresList() {

@@ -12,6 +12,7 @@
 
 ## Development
 ### Latest add, fix and optimisation
+- add records of scores
 - better colors
 - add .httacces (remove it ?)
 - Increase Ball start speed

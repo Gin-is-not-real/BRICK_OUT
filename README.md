@@ -1,5 +1,5 @@
 # BRICK OUT
-A brick-breaking game, all in Javascript vanilla.  
+A brick-breaking game, in Javascript and php (for record scores)  
 
 ## Getting Started
 Just clone or download the repository, open folder and run **index.html**, or test the actual version (dev) at  <https://ninapariat.space/brickout/>. 
