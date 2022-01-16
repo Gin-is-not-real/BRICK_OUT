@@ -72,7 +72,8 @@ class Screen {
         _screen.classList.remove('hidden');
 
         if(server_on) {
-            fetchAndDisplayScoresList(score);
+            fetchAndDisplayScoresList(app.lvlIndex);
+            _ul.classList.remove('hidden');
         }
         else {
             _message.classList.remove('hidden');

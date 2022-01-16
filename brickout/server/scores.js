@@ -1,0 +1,32 @@
+let phpScriptUrl = new URL(document.location.href + 'server/scores.php');
+console.log(phpScriptUrl);
+
+/**
+ * Fetch du script scores.php et affichage de la liste + formulaire
+ * L'url de l'action du formaulaire est mis à jour aprés avoir inséré dans le HTML (il n'est pas appelé du mm endroit)
+ * Le script fonctionne normalement: 
+ *      recuperation des données du fichier JSON
+ *      recherche d'un joueur
+ *      comparaison et mise à jour du score
+ *      OU ecriture nouveau joueur dans le fichier JSON
+ */
+
+//recupere la liste et le formulaire et l'insere dans la div #test
+function fetchAndDisplayScoresList(index) {
+    let params = {
+        action: 'get-lvl',
+        mode: 'normal',
+        index: index, 
+    }
+    for (let k in params) {
+        phpScriptUrl.searchParams.append(k, params[k]);
+    }
+
+    fetch(phpScriptUrl)
+    .then(response =>  response.text())
+    .then(text => {
+        // console.log(text)
+        _ul.innerHTML = text;
+    })
+}
+
