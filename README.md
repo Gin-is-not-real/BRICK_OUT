@@ -1,8 +1,19 @@
 # BRICK OUT
 A brick-breaking game, in Javascript and php (for record scores)  
 
-## Getting Started
-Just clone or download the repository, open folder and run **index.html**, or test the actual version (dev) at  <https://ninapariat.space/brickout/>. 
+## In Line
+You can test the actual version (dev) at  <https://ninapariat.space/brickout/>. 
+
+## Getting Started 
+### client-side only - without record of scores
+- Clone or Download the repository in folder of your choice
+- Open the folder
+- Double-click on **index.html**
+
+### with server
+- You can run it with server manager of your choice
+- Clone or Download on the folder of you server
+- Open your navigator and request the url
 
 ## Game
 Break all bricks on a lvl to finish it.  
@@ -10,7 +21,7 @@ Each brick broked drop an aleatory power-up that give you a bonus or malus when 
 All Bricks destroyed and Drops catched give points.  
 
 ### Normal mode
-Choose a lvl 
+Choose a lvl and try to up your record
 
 ### Run mode (soon)
 Keep your bonuses an maluses and try to finish max of lvls  
