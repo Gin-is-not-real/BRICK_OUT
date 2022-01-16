@@ -27,6 +27,31 @@ function fetchAndDisplayScoresList(index) {
     .then(text => {
         // console.log(text)
         _ul.innerHTML = text;
+        _formContainer.classList.remove('hidden');
     })
 }
 
+//envoi les infos necessaires a php pour enregistrer un nouveau score
+function scoreSubmit() {
+    let name = _inputName.value;
+    let score = app.points;
+
+    if((name.length > 0 && typeof name === 'string') && typeof score === 'number') {
+        let params = {
+            action: 'submit',
+            mode: app.gameMode,
+            index: app.lvlIndex,
+            name: name,
+            score: score
+        }
+        for (let k in params) {
+            phpScriptUrl.searchParams.append(k, params[k]);
+        }
+
+        fetch(phpScriptUrl)
+        .then(response =>  response.text())
+        .then(text => {
+            _ul.innerHTML = text;
+        })
+    }
+}

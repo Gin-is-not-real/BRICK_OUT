@@ -72,3 +72,9 @@ _canvas.addEventListener("click", function(e) {
 
     e.stopPropagation();
 })
+
+
+
+_submit.addEventListener('click', function() {
+    scoreSubmit();
+})

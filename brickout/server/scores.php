@@ -10,7 +10,11 @@ $action_url = '../json_tests/js/fetch_php_script/scores.php';
 
 $content = file_get_contents($file_path);
 $decoded_content = json_decode($content);
-$to_display = $decoded_content;
+
+$param1;
+$param2;
+
+$data = $decoded_content;
 $message = 'enter your name and score';
 
 /**
@@ -23,65 +27,76 @@ $message = 'enter your name and score';
  *      on recupere le json 
  *      on affiche la liste
  */
+if(isset($_GET['mode'])) {
+    $mode = $_GET['mode'];
+
+    if($mode === 'normal') {
+        $param1 = $mode;
+        $param2 = intval($_GET['index']);
+
+        $normal_scores = $decoded_content->$param1;
+        $lvl_scores = $normal_scores[$param2];
+        $data = $lvl_scores;
+    }
+
+}
 if(isset($_GET['action'])) {
     $action = $_GET['action'];
 
     if($action === 'get-lvl') {
-        $mode = $_GET['mode'];
-        $index = intval($_GET['index']);
+        // $mode = $_GET['mode'];
+        // $index = intval($_GET['index']);
 
-        $normal_scores = $decoded_content->$mode;
-        $lvl_scores = $normal_scores[$index];
-        $to_display = $lvl_scores;
+        // $normal_scores = $decoded_content->$mode;
+        // $lvl_scores = $normal_scores[$index];
+        // $data = $lvl_scores;
     }
-}
-if(isset($_POST['name'])) {
-    $action_url = 'scores.php';
+    elseif($action === 'submit') {
+        $input_name = $_GET['name'];
+        $input_score = $_GET['score'];
 
-    $input_name = $_POST['name'];
-    $input_score = $_POST['score'];
+        // $mode = $_GET['mode'];
+        // $index = intval($_GET['index']);
 
-    $player = false;
-    foreach($decoded_content as $name => $scores) {
-        // si le joueur existe
-        if($name === $input_name) {
-            $player = $decoded_content->$name;
+        // $normal_scores = $decoded_content->$mode;
+        // $lvl_scores = $normal_scores[$index];
+        // $data = $lvl_scores;
 
-            if($input_score > $player->points) {
-                $player->points = $input_score;
-                $message = 'score updated';
-            }
-            else {
-                $message = 'no record to write';
+        $player = false;
+        foreach($data as $name => $scores) {
+            // si le joueur existe
+            if($name === $input_name) {
+                $player = $data->$name;
+    
+                if($input_score > $player->points) {
+                    $player->points = $input_score;
+                    $message = 'score updated';
+                }
+                else {
+                    $message = 'no record to write';
+                }
             }
         }
-    }
-    // si le joueur n'existe pas
-    if($player === false) {
-        $new_player = new stdClass();
-        $new_player->points = $input_score;
-        $decoded_content->$input_name = $new_player;
-    }
 
-    file_put_contents($file_path, json_encode($decoded_content));
-    $decoded_content = json_decode(file_get_contents($file_path));
+        // si le joueur n'existe pas
+        if($player === false) {
+            $new_player = new stdClass();
+            $new_player->points = $input_score;
+            $data->$input_name = $new_player;
+        }
+
+        file_put_contents($file_path, json_encode($decoded_content));
+        $decoded_content = json_decode(file_get_contents($file_path));
+    }
 }
 ?>
 
 <ul> 
 <?php
-foreach ($to_display as $name => $scores) {
-    echo '<li>' . $name . ' : ' . $scores->points .'</li>';
+foreach ($data as $name => $scores) {
+    echo '<li id="' . $name. '">' . $name . ' : ' . $scores->points .'</li>';
 }
 ?>
 </ul>
 
-<!-- <form method="post" action="<?= $action_url; ?>">
-    <div>
-        <label for="name">name: </label><input type="text" name="name" required></input>
-        <label for="score">score: </label><input type="number" name="score" required></input>
-        <input type="submit">
-    </div>
-</form>
 
-<div><?= $message ?></div> -->
