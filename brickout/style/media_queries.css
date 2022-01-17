@@ -12,7 +12,7 @@ si appareil peut survoler:
 500
 */
 
-@media screen and (min-width: 800px) {
+@media screen {
     hr#vertical {
         display: none;
     }
@@ -35,7 +35,7 @@ si appareil peut survoler:
     /* HUB */
     .hub-container {
         /* width: 100%; */
-        min-width: 120px;
+        /* min-width: 120px; */
         max-width: 200px;
         padding: 2%;
         display: flex;
@@ -49,7 +49,7 @@ si appareil peut survoler:
     }
     .hub-container span {
         width: 100px;
-        min-width: 100px;
+        /* min-width: 100px; */
         text-transform: uppercase;
         margin-right: 10px;
     }
@@ -73,28 +73,46 @@ si appareil peut survoler:
         margin: 0;
         padding: 0;
     }
+    #instructions-container hr {
+        margin: 2% 0;
+    }
 }
 
 @media screen and (max-width: 800px) {
     #main-container {
-        flex-direction: column;
         font-size: 0.9rem;
     }
 
     #main-container>div:not(#instructions-container) {
-        flex-wrap: wrap;
-        /* flex-wrap: wrap-reverse; */
         justify-content: center;
     }
+
     #instructions-container {
-        min-width: 200px;
-        padding: 4%;
+        min-width: 120px;
+        padding: 4% 2% 4% 4%;
     }
+
     #instructions-container *{
-        text-align: center;
+        /* text-align: center; */
     }
 }
-@media screen and (max-width: 500px) {
+
+/* MAX 720 */
+@media screen and (max-width: 720px) {
+    #main-container>div:not(#instructions-container) {
+        justify-content: center;
+    }
+    .hub-container {
+        max-width: 100px;
+    }
+    .hub-container span {
+        width: unset;
+        max-width: unset;
+    }
+}
+
+/* FLEX SET TO COLUMN */
+@media screen and (max-width: 640px) {
     hr#vertical {
         display: flex;
         width: 0.5px;
@@ -103,12 +121,21 @@ si appareil peut survoler:
     hr#horizontal {
         display: none;
     }
+
+    #main-container>div:not(#instructions-container) {
+        max-width: var(--canvas-size);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
     .hub-container {
         max-height: 13vh;
         min-height: 61px;
         flex-flow: column wrap;
         justify-content: end;
-        min-width: 63vw;
+        /* min-width: 63vw; */
+        min-width: var(--canvas-size);
     }
     .hub-container div {
         width: 30%;

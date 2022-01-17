@@ -12,6 +12,8 @@ html {
     --base-4: #955b108a;
     --bor: 1px solid var(--base-2);
 
+    --canvas-size: 330px;
+
     font-size: 17px;
     background-color: var(--dark-2);
     color: var(--base-2);
@@ -45,11 +47,16 @@ body>header {
 
 /* KEYS */
 #keys-container {
+    width: 40%;
     font-size: 1rem;
     margin-right: 10px;
 }
 #keys-container span {
     margin-right: 10px;
+}
+#keys-container table {
+    min-width: 280px;
+    width: 40%;
 }
 /* TUTO */
 #tutorial-container > div {
