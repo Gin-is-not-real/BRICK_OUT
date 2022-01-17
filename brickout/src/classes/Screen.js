@@ -1,3 +1,15 @@
+/**
+ * Contains method for display elements of menu screen according to app state or event
+ * @method hideButtons()            hide all buttons
+ * @method hideAll()                hide screen, and all its elements
+ * @method displayChooseLvlMenu()   display the normal mode menu for choose lvl
+ * @method displayStartScreen()     display the app start menu for choose a game mode
+ * @method displayPauseScreen()     display pause menu
+ * @method hidePauseScreen()        hide pause menu
+ * @method displayWinNormalGame()   display screen for record score in normal mode
+ * @method displayScoresList()      display score list and restart button
+ * 
+ */
 class Screen {
     
     static hideButtons() {
@@ -52,16 +64,16 @@ class Screen {
         _pauseScreen.classList.add('hidden');
     }
 
-    static displayWinNormalLvl() {
-        Screen.hideButtons();
+    // static displayWinNormalLvl() {
+    //     Screen.hideButtons();
         
-        _screen.classList.remove('hidden');
+    //     _screen.classList.remove('hidden');
 
-        _message.textContent = app.points + ' points earned ! ';
-        _message.classList.remove('hidden');
+    //     _message.textContent = app.points + ' points earned ! ';
+    //     _message.classList.remove('hidden');
 
-        _next.classList.remove('hidden');
-    }
+    //     _next.classList.remove('hidden');
+    // }
 
     static displayWinNormalGame() {
         Screen.hideButtons();
@@ -70,6 +82,7 @@ class Screen {
         _message.textContent = 'You finish lvl ' + app.lvlIndex + ' with ' + app.points +  ' total points !';
         
         _screen.classList.remove('hidden');
+        _restart.classList.remove('hidden');
 
         if(server_on) {
             fetchAndDisplayScoresList(app.lvlIndex);
@@ -77,7 +90,6 @@ class Screen {
         }
         else {
             _message.classList.remove('hidden');
-            _restart.classList.remove('hidden');
         }
     }
 
