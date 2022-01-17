@@ -15,7 +15,7 @@ html {
     background-color: var(--dark-2);
     color: var(--base-2);
     
-    font-size: 16px;
+    font-size: 17px;
 }
 html * {
     box-sizing: content-box;
@@ -133,7 +133,7 @@ canvas {
     overflow-wrap: normal;
 }
 #screen-content button {
-    width: 100%;
+    /* width: 100%; */
 }
 #lvls-list {
     list-style: none;
@@ -151,7 +151,20 @@ canvas {
 }
 
 #form {
-    max-width: 80%;
+    display: flex;
+    gap: 4px;
+}
+#form input[type=text] {
+    width: 40%;
+    background-color: transparent;
+    height: fit-content;
+    padding: 0 4px;
+    color: var(--base-3);
+    font-size: 1rem;
+    border: 1px solid var(--base-3);
+}
+#form input[type=submit] {
+    font-size: 1rem;
 }
 
 .hidden {
@@ -187,7 +200,7 @@ button, input[type=submit] {
     background-color: var(--base-1);
     border: var(--bor);
     border-radius: 8%;
-    font-size: large;
+    font-size: 1rem;
     color: var(--dark-1);
 }
 

@@ -174,19 +174,30 @@ class App {
     }
 
     /**
-     * Increase app lvl index. If it is the last lvl, App stop() and display 'win' button.
+     * Called when destroy all bricks in a lvl.
+     * 
+     * Increase app lvl index. If it is the last lvl, App stop().
      */
     static winNormalLvl() { 
         App.stop();
         App.winNormalGame();
     }
 
+    /**
+     * Called directly by winNormalLvl.
+     * 
+     * App stop() and display screen with score record and restart button.
+     */
     static winNormalGame() {
         App.stop();
         Screen.displayWinNormalGame();
     }
 
-
+    /**
+     * Called when the ball hit the ground.
+     * 
+     * App stop and diplay loose screen
+     */
     static looseGame() {
         App.stop();
         Screen.displayLooseLvl();
