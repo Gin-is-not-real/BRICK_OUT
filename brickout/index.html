@@ -3,13 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style/style.css">
 </head>
     
 <body>
     <header>
         <h1>Brick Out - Dev version</h1>
-
+        <!-- DEV -->
         <div id="dev" class="hidden">
             <button id="switch-dev">active dev</button>
             <button id="btn-menu">menu</button>
@@ -18,6 +19,7 @@
             <button id="speed-up">speed up</button>
         </div>
 
+        <!-- KEYS HELP -->
         <div id="keys-container">
             <table>
                 <tr>
@@ -34,73 +36,95 @@
                 </tr>
             </table>
         </div>
-
     </header>
     
     <main>
         <div id="main-container">
+            <!-- THESE DIV INCLUDES HUB AND SCREEN -->
             <div>
+                <!-- HUB -->
                 <div class="hub-container">
-                    <!-- <div id="time"><span>time: </span><p></p></div> -->
-                    <div id="lvl"><span>Lvl: </span><p></p></div>
-                    <div id="points"><span>Points: </span><p></p></div>
+                    <div id="lvl">
+                        <span>Lvl: </span>
+                        <p></p>
+                    </div>
+                    <div id="points">
+                        <span>Points: </span>
+                        <p></p>
+                    </div>
                     <hr>
-                    <div id="lifes"><span>Balls: </span><p></p></div>
-                    <div id="gunshots"><span>Gun shots: </span><p></p></div>
+                    <div id="lifes">
+                        <span>Balls: </span>
+                        <p></p>
+                    </div>
+                    <div id="gunshots">
+                        <span>Gun shots: </span>
+                        <p></p>
+                    </div>
                     <hr>
-                    <div id="speed"><span>Speed: </span><p></p></div>
-                    <div id="paddle-width"><span>Paddle Width: </span><p></p></div>
-                </div>
-
-            <div id="canvas-container">
-
-                <div class="screen" id="screen">
-
-                    <div id="screen-content">
-                        <header><h2>Menu</h2></header>
-                        
-                        <div id="message"></div>
-
-                        <ul id="scores-list" class="hidden">
-                        </ul>
-
-                        <div id="form" class="hidden">
-                            <label for="name">name: </label><input type="text" id="name" name="name" required></input>
-                            <hidden id="score"></hidden>
-                            <input id="submit" type="submit">
-                        </div>
-                        
-                        <button class="hidden" id="play-normal">NORMAL GAME</button>
-                        <button class="hidden" id="replay">REPLAY</button>
-                        <button class="hidden" id="next">NEXT</button>
-                        <button class="hidden" id="restart">return to menu</button>
-
-                        <ul class="hidden" id="lvls-list"></ul>
-
+                    <div id="speed">
+                        <span>Speed: </span>
+                        <p></p>
+                    </div>
+                    <div id="paddle-width">
+                        <span>Paddle Width: </span>
+                        <p></p>
                     </div>
                 </div>
 
-                <div class="screen hidden" id="pause">
-                    <header><h2>PAUSE</h2></header>
+                <!-- INCLUDES SCREEN, LISTS, MENUS, BUTTONS AND CANVAS -->
+                <div id="canvas-container">
+
+                    <!-- SCREEN: LIST, MENUS, BUTTONS MENU, FORM -->
+                    <div class="screen" id="screen">
+
+                        <div id="screen-content">
+                            <header><h2>Menu</h2></header>
+                            <div id="message"></div>
+
+                            <ul id="scores-list" class="hidden"></ul>
+                            <ul id="lvls-list" class="hidden" ></ul>
+
+                            <div id="form" class="hidden">
+                                <label for="name">name: </label><input type="text" id="name" name="name" required></input>
+                                <hidden id="score"></hidden>
+                                <input id="submit" type="submit">
+                            </div>
+                            
+                            <button class="hidden" id="play-normal">NORMAL GAME</button>
+                            <button class="hidden" id="replay">REPLAY</button>
+                            <button class="hidden" id="next">NEXT</button>
+                            <button class="hidden" id="restart">return to menu</button>
+
+                        </div>
+                    </div>
+
+                    <!-- PAUSE SCREEN -->
+                    <div id="pause" class="screen hidden" >
+                        <header><h2>PAUSE</h2></header>
+                    </div>
+
+                    <!-- CANVAS -->
+                    <canvas width="330px" height="300px"></canvas>
                 </div>
-
-                <canvas width="330px" height="300px"></canvas>
             </div>
-        </div>
 
+            <!-- INSTRUCTIONS -->
             <div id="instructions-container">
                 <header>
                     <h2>Normal Game</h2>
                     <div><p>DESTROY all Bricks on a lvl for go on to the next.</p></div>
-
                 </header>
+
                 <hr>
+                
                 <div id="tutorial-container">
                     <div><p>Each Brick drop a POWER UP when destroy.</p></div>
                     <div><p>All Bricks and Drops give you POINTS</p></div>
                     <div><p>GREEN powers up give you BONUS, but YELLOW ones give a MALUS !</p></div>
                 </div>
             </div>
+            
         </div>
     </main>
 

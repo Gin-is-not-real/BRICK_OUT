@@ -1,0 +1,21 @@
+/* ELEMENTS AND CLASS*/
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+button, input[type=submit] {
+    padding: 4px !important;
+    background-color: var(--base-1);
+    border: var(--bor);
+    border-radius: 8%;
+    font-size: 1rem;
+    color: var(--dark-1);
+}
+
+button:hover, input[type=submit]:hover {
+    background-color: var(--base-3);
+    border: var(--bor);
+    border-radius: 8%;
+    box-shadow: 1px 1px 1px rgba(255, 166, 0, 0.685);
+}

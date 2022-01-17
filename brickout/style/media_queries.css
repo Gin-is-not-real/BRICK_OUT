@@ -1,0 +1,164 @@
+/* @ */
+/* MAIN CONTAINER - ALL NODES ARE INCLUDES HERE */
+#main-container {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+/* @ */
+/* DIV INCLUDING HUB AND SCREEN */
+#main-container>div:not(#instructions-container) {
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media screen and (max-width: 700px) {
+    #main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+    #main-container > div:not(#instructions-container) {
+        display: flex;
+        flex-direction: column;
+    }
+    .hub-container {
+        max-width: 100%;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        gap: 2%;
+        flex-flow: column wrap;
+        max-height: 12vh;
+    }
+    .hub-container div {
+        width: 34%;
+        min-width: 100px;
+    }
+    hr {
+       color:transparent; 
+    }
+}
+
+/* @ */
+/* HUB */
+.hub-container {
+    max-width: 300px;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+.hub-container div {
+    width: 100px;
+    max-width: 100px;
+    min-width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.hub-container span {
+    width: 50px;
+    min-width: 50px;
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+.hub-container p {
+    width: min-content;
+    height: min-content;
+    text-transform: uppercase;
+    align-self: end;
+}
+
+/* @ */
+/* CANVAS */
+#canvas-container {
+    width: 40vw !important;
+    height: 40vh !important;
+    min-width: 330px;
+    min-height: 330px;
+}
+canvas {
+    border: var(--bor);
+}
+
+
+/* @ */
+/* SCREEN */
+.screen {
+    position: absolute;
+    width: 330px;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--dark-3);
+    border: var(--bor);
+}
+#screen * {
+    text-transform: uppercase;
+}
+#screen-content {
+    max-width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#screen-content header {
+    padding: 0;
+}
+#screen-content h2 {
+    overflow-wrap: normal;
+}
+
+#lvls-list {
+    list-style: none;
+}
+#screen-content li:hover {
+    text-shadow: 1px 1px 1px var(--base-2);
+}
+
+#message {
+    padding: 0 8%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--dark-1);
+}
+
+#form {
+    display: flex;
+    gap: 4px;
+}
+#form input[type=text] {
+    width: 40%;
+    background-color: transparent;
+    height: fit-content;
+    padding: 0 4px;
+    color: var(--base-3);
+    font-size: 1rem;
+    border: 1px solid var(--base-3);
+}
+#form input[type=submit] {
+    font-size: 1rem;
+}
+
+/* INSTRUCTIONS MODE AND GAME */
+#instructions-container {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+#instructions-container header {
+    word-wrap: unset;
+    margin: 0;
+    padding: 0;
+}
+
