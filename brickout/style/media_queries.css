@@ -1,84 +1,137 @@
-/* @ */
-/* MAIN CONTAINER - ALL NODES ARE INCLUDES HERE */
-#main-container {
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-}
+/* 
+screen: appareils a écran
+all: tout appareils
 
-/* @ */
-/* DIV INCLUDING HUB AND SCREEN */
-#main-container>div:not(#instructions-container) {
-    display: flex;
-    flex-direction: row;
-}
+width, height: viewport
+orientation
 
+si appareil peut survoler:
+@media (hover: hover) { ... }
 
-@media screen and (max-width: 700px) {
+360
+500
+*/
+
+@media screen and (min-width: 800px) {
+    hr#vertical {
+        display: none;
+    }
+    /* MAIN CONTAINER - ALL NODES ARE INCLUDES HERE */
     #main-container {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-size: 0.9rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
     }
-    #main-container > div:not(#instructions-container) {
+
+    /* THE DIV INCLUDING HUB AND SCREEN */
+    #main-container>div:not(#instructions-container) {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        /* width: 90%;
+        max-width: 90%; */
     }
+
+    /* HUB */
     .hub-container {
-        max-width: 100%;
+        /* width: 100%; */
+        min-width: 120px;
+        max-width: 200px;
         padding: 2%;
         display: flex;
         flex-direction: column;
         gap: 2%;
-        flex-flow: column wrap;
-        max-height: 12vh;
     }
     .hub-container div {
-        width: 34%;
-        min-width: 100px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
     }
-    hr {
-       color:transparent; 
+    .hub-container span {
+        width: 100px;
+        min-width: 100px;
+        text-transform: uppercase;
+        margin-right: 10px;
+    }
+    .hub-container p {
+        width: min-content;
+        height: min-content;
+        text-transform: uppercase;
+        align-self: end;
+    }
+
+    /* INSTRUCTIONS MODE AND GAME */
+    #instructions-container {
+        padding: 2%;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap: 5%;
+    }
+    #instructions-container header {
+        word-wrap: unset;
+        margin: 0;
+        padding: 0;
     }
 }
 
-/* @ */
-/* HUB */
-.hub-container {
-    max-width: 300px;
-    padding: 2%;
-    display: flex;
-    flex-direction: column;
-    gap: 2%;
+@media screen and (max-width: 800px) {
+    #main-container {
+        flex-direction: column;
+        font-size: 0.9rem;
+    }
+
+    #main-container>div:not(#instructions-container) {
+        flex-wrap: wrap;
+        /* flex-wrap: wrap-reverse; */
+        justify-content: center;
+    }
+    #instructions-container {
+        min-width: 200px;
+        padding: 4%;
+    }
+    #instructions-container *{
+        text-align: center;
+    }
 }
-.hub-container div {
-    width: 100px;
-    max-width: 100px;
-    min-width: 100px;
-    display: flex;
-    justify-content: space-between;
+@media screen and (max-width: 500px) {
+    hr#vertical {
+        display: flex;
+        width: 0.5px;
+        height: 100%;
+    }
+    hr#horizontal {
+        display: none;
+    }
+    .hub-container {
+        max-height: 13vh;
+        min-height: 61px;
+        flex-flow: column wrap;
+        justify-content: end;
+        min-width: 63vw;
+    }
+    .hub-container div {
+        width: 30%;
+    }
+    .hub-container span {
+        width: 50%;
+        min-width: 50%;
+    }
+
 }
-.hub-container span {
-    width: 50px;
-    min-width: 50px;
-    text-transform: uppercase;
-    margin-right: 10px;
-}
-.hub-container p {
-    width: min-content;
-    height: min-content;
-    text-transform: uppercase;
-    align-self: end;
-}
+
+
 
 /* @ */
 /* CANVAS */
 #canvas-container {
-    width: 40vw !important;
-    height: 40vh !important;
+    /* width: 40vw !important;
+    height: 40vh !important; */
     min-width: 330px;
     min-height: 330px;
+
+    display: flex;
+    justify-content: center;
 }
 canvas {
     border: var(--bor);
@@ -90,7 +143,7 @@ canvas {
 .screen {
     position: absolute;
     width: 330px;
-    height: 300px;
+    height: 330px;
 
     display: flex;
     flex-direction: column;
@@ -149,16 +202,5 @@ canvas {
     font-size: 1rem;
 }
 
-/* INSTRUCTIONS MODE AND GAME */
-#instructions-container {
-    max-width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 5%;
-}
-#instructions-container header {
-    word-wrap: unset;
-    margin: 0;
-    padding: 0;
-}
+
 
