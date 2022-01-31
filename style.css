@@ -140,3 +140,15 @@ button:hover {
     border-radius: 8%;
     box-shadow: 1px 1px 1px rgba(255, 166, 0, 0.685);
 }
+
+body > footer {
+    padding: 4%;
+    background-color: var(--dark-1);
+}
+body > footer i {
+    margin-right: 2%;
+}
+body > footer hr {
+    width: 40%;
+    margin: 2% 0;
+}
